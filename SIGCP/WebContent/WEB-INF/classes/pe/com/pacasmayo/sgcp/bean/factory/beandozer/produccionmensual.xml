@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+ 
+http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping wildcard="false">
+		<class-a>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Produccionmensual
+		</class-a>
+		<class-b>pe.com.pacasmayo.sgcp.bean.impl.ProduccionMensualBeanImpl
+		</class-b>
+		<field>
+			<a>pkCodigoProduccionmensual</a>
+			<b>codigo</b>
+		</field>
+
+
+		<field>
+			<a>saldoInicialProduccionmensual</a>
+			<b>saldoInicialProduccionMensual</b>
+		</field>
+
+		<field>
+			<a>saldoFinallProduccionmensual</a>
+			<b>saldoFinallProduccionMensual</b>
+		</field>
+
+		<field>
+			<a>ingresoProduccionmensual</a>
+			<b>ingresoProduccionMensual</b>
+		</field>
+
+		<field>
+			<a>consumoProduccionmensual</a>
+			<b>consumoProduccionMensual</b>
+		</field>
+
+		<field>
+			<a>producto</a>
+			<b>productoBean</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Producto</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.ProductoBeanImpl</b-hint>
+		</field>
+
+		<field>
+			<a>proceso</a>
+			<b>procesoBean</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Proceso</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.ProcesoBeanImpl</b-hint>
+		</field>
+	</mapping>
+</mappings>

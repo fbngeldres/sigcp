@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="SGCP" default="build" basedir=".">
+
+	<path id="project.class.path">
+		<pathelement location="WebContent/WEB-INF/classes" />
+		<!-- Add any additional non-server libs (such as JUnit) -->
+		<fileset dir="WebContent/WEB-INF/lib" includes="**/*.jar" />
+		<fileset dir="lib" includes="**/*.jar" />
+
+		<pathelement location="../smartgwt.jar" />
+
+	</path>
+
+	<target name="libs" depends="clean" description="Copy libs to WEB-INF/lib">
+		<mkdir dir="WebContent/WEB-INF/lib" />
+		<!-- Add any additional server libs that need to be copied -->
+	</target>
+
+	<target name="gwtc" depends="javac" description="GWT compile to JavaScript">
+		<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+			<classpath>
+				<pathelement location="src" />
+				<path refid="project.class.path" />
+			</classpath>
+			<!-- add jvmarg -Xss16M or similar if you see a StackOverflowError -->
+			<jvmarg value="-Xmx256M" />
+			<arg value="-style" />
+			<arg value="DETAILED" />
+			<arg value="-war" />
+			<arg value="WebContent" />
+			<!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+			<!-- Módulos GWT -->
+			<arg value="org.jgrapht.JgraphTModule" />
+			<arg value="com.dbaccess.cellmanager.PacasmayoGraphModule" />
+			<arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.testing.TestingModule" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.registrarAjusteProduccionMes" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.ajusteProduccion" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.produccion.modificarProduccionSemanal" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.produccion.registrarProduccionSemanal" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.consultarMedicionPorProductos" />
+			<arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarMedicion" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.modificarCubicacion" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarCubicacion" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.partediario.consultarParteDiario" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.notificacion.administrarNotificacionProduccionPlanta" />
+			<!-- <arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.controlCostos.administrarTablaValor" 
+				/> -->
+			<!-- <arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.hojaRuta.administrarHojaRuta" 
+				/> -->
+
+		</java>
+	</target>
+
+	<target name="javac" depends="libs" description="Compile java source">
+		<mkdir dir="WebContent/WEB-INF/classes" />
+		<javac srcdir="src" fork="true" includes="**" encoding="iso-8859-1"
+			destdir="WebContent/WEB-INF/classes" source="1.7" target="1.7"
+			nowarn="true" debug="true" debuglevel="lines,vars,source"
+			memoryinitialsize="256m" memorymaximumsize="256m">
+			<classpath refid="project.class.path" />
+		</javac>
+		<copy todir="WebContent/WEB-INF/classes">
+			<fileset dir="src" excludes="**/*.java" />
+		</copy>
+	</target>
+
+
+
+	<target name="hosted" depends="javac" description="Run hosted mode">
+		<java failonerror="true" fork="true" classname="com.google.gwt.dev.DevMode">
+			<classpath>
+				<pathelement location="src" />
+				<path refid="project.class.path" />
+			</classpath>
+			<jvmarg value="-Xmx600M" />
+			<!-- URL del Módulo en Desarrollo -->
+			<arg value="-startupUrl" />
+			<arg value="inicio.jsp" />
+			<arg value="-war" />
+			<arg value="WebContent" />
+			<!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+			<!-- Módulos GWT -->
+			<!--	<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.produccion.registrarProduccionSemanal" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.produccion.modificarProduccionSemanal" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.consultarMedicionPorProductos" />
+			<arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarMedicion" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.modificarCubicacion" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarCubicacion" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.partediario.consultarParteDiario" />-->
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.notificacion.administrarNotificacionProduccionPlanta" />
+			 <!--<arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.controlCostos.administrarTablaValor" 
+				/> 
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.registrarAjusteProduccionMes" />
+			<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.ajusteProduccion" />
+
+			 <arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.hojaRuta.administrarHojaRuta" 
+				/> -->
+
+		</java>
+	</target>
+
+	<target name="build" depends="WebContent" description="Build this project">
+		<!-- eliminando carpetas del GWT -->
+		<antcall target="clean" />
+	</target>
+
+	<target name="WebContent" depends="gwtc" description="Create a war file">
+		<zip destfile="SGCP.war" basedir="WebContent" />
+	</target>
+
+	<target name="clean" description="Cleans this project">
+		<delete dir="WebContent/WEB-INF/classes" failonerror="false" />
+		<!-- Carpetas de Módulos GWT -->
+		<delete dir="WebContent/modificarProduccionSemanal"
+			failonerror="false" />
+		<delete dir="WebContent/registrarProduccionSemanal"
+			failonerror="false" />
+		<delete dir="WebContent/consultarMedicionPorProductos"
+			failonerror="false" />
+		<delete dir="WebContent/registrarMedicion" failonerror="false" />
+		<delete dir="WebContent/consultarParteDiario" failonerror="false" />
+		<delete dir="WebContent/modificarCubicacion" failonerror="false" />
+		<delete dir="WebContent/registrarCubicacion" failonerror="false" />
+		<delete dir="WebContent/administrarNotificacionProduccionPlanta"
+			failonerror="false" />
+		<!-- <delete dir="WebContent/administrarTablaValor" failonerror="false" 
+			/> -->
+		<delete dir="WebContent/registrarAjusteProduccionMes"
+			failonerror="false" />
+		<delete dir="WebContent/ajusteProduccion" failonerror="false" />
+		<delete dir="WebContent/org.jgrapht.JgraphTModule" failonerror="false" />
+		<delete dir="WebContent/com.dbaccess.cellmanager.PacasmayoGraphModule"
+			failonerror="false" />
+		<delete
+			dir="WebContent/pe.com.pacasmayo.sgcp.presentacion.gwt.testing.TestingModule"
+			failonerror="false" />
+		<!--<delete dir="WebContent/administrarHojaRuta" failonerror="false" /> -->
+
+	</target>
+
+</project>

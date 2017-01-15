@@ -1,0 +1,2161 @@
+@charset "utf-8";
+
+/* CSS Document */ /*CEMENTOS PACASMAYO V1.0*/ /*CONTROL DE CAMBIOS*/
+/*-------------------*/
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+}
+
+.grid_variables_produccion_red {
+	color: red;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+span {
+	cursor: hand;
+}
+
+.tituloBienvenida {
+	font-size: 30px;
+	color: #CCCCCC;
+	font-weight: bold;
+}
+
+.bandaBienvenida {
+	background-image: url(../images/banda-bienvenida.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: auto;
+	height: 84px;
+}
+
+.content-ppal {
+	width: 990px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.content-inicio {
+	width: auto;
+	margin: 5% 0 0 25%;
+}
+
+.content-int {
+	width: 720px;
+	margin-left: 265px;
+	position: absolute;
+	top: 115px;
+	border: 1px solid #CFD2DE;
+}
+
+.content-int2 {
+	width: 970px;
+	margin-left: 16px;
+	position: absolute;
+	top: 115px;
+	border: 1px solid #CFD2DE;
+}
+
+.content-tab {
+	width: 990px;
+	margin-left: 0;
+	top: 115px;
+	border: 1px solid #CFD2DE;
+}
+
+.content {
+	margin: 3px;
+}
+
+h1 {
+	font-size: 14px;
+	font-weight: bold;
+	font-family: arial;
+}
+
+h2 {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: arial;
+}
+
+h3 {
+	font-size: 10px;
+	font-weight: bold;
+	font-family: arial;
+}
+
+h4 {
+	font-size: 14px;
+	font-weight: bold;
+	font-family: arial;
+}
+
+h5 {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: arial;
+	color: #FF0000;
+}
+
+a {
+	color: #000000;
+	text-decoration: underline;
+	font-size: 10px;
+}
+
+a:hover {
+	color: #C41230;
+}
+
+a:active {
+	color: #C41230;
+}
+
+a:visited {
+	color: #333333;
+}
+
+td {
+	vertical-align: top;
+	padding-left: 3px;
+	padding-top: 3PX;
+	font-weight: bold;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+th {
+	vertical-align: top;
+	padding-left: 3px;
+	padding-top: 3PX;
+	font-weight: bold;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+td.ancho {
+	vertical-align: top;
+	padding-left: 3px;
+	padding-top: 3PX;
+	font-weight: bold;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	width: 100px;
+}
+
+select {
+	width: 120px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.select_corto {
+	width: 60px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.select_largo {
+	width: 200px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.select_mediano {
+	width: 250px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.select_extra_largo {
+	width: 300px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+select.fecha {
+	width: 60px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+/*ESTILOS PARA CAMPOS DE TEXTO, COMBOS, ETC*/
+.normal {
+	width: 115px;
+	height: 17px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.autenticacion {
+	width: 160px;
+	height: 17px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.multilinea {
+	width: 250px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.large {
+	width: 540px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.disable {
+	background-color: #E5E5E5;
+	font-size: 8pt;
+	color: #888888;
+}
+
+.obligatorio {
+	background-color: #FFFFCC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.corto {
+	width: 50px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.decimal {
+	width: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.largoControlCostosDisabled {
+	width: 170px;
+	background-color: #E5E5E5;
+	color: #888888;
+	font-size: 8pt;
+}
+
+.largoControlCostos {
+	width: 170px;
+}
+
+.cortoControlCostosDisabled {
+	width: 90px;
+	background-color: #E5E5E5;
+	color: #888888;
+	font-size: 8pt;
+}
+
+.cortoControlCostos {
+	width: 90px;
+}
+
+.fechaDisable {
+	width: 55px;
+	font-size: 8pt;
+	background-color: #E5E5E5;
+	font-size: 8pt;
+	color: #888888;
+}
+
+.fecha {
+	width: 55px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.radiobutton {
+	width: 20px;
+}
+
+.checkbox {
+	width: 16px;
+}
+
+.mediano {
+	width: 165px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.expandido {
+	text-align: left;
+	width: 95%;
+	border: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.cortoExpandido {
+	text-align: center;
+	width: 40px;
+	border: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+.cortoCombo {
+	width: 140px;
+	height: 17px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+/*---------------------------------------*/
+.campooblig {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.advertencia {
+	background-image: url(../images/warning_16x16.gif);
+	background-position: 5px;
+	background-repeat: no-repeat;
+	background-color: #feefb3;
+	padding: 4px 3px 3px 22px;
+	color: #9f6000;
+	border: 1px solid #9f6000;
+	width: 92%;
+	font-weight: bold;
+}
+
+.error {
+	background-image: url(../images/eliminar-.png);
+	background-position: 5px;
+	background-repeat: no-repeat;
+	background-color: #ffbaba;
+	padding: 4px 3px 3px 25px;
+	color: #d6000e;
+	border: 1px solid #ff0000;
+	width: 92%;
+	font-weight: bold;
+}
+
+.exito {
+	background-image: url(../images/approved.png);
+	background-position: 5px;
+	background-repeat: no-repeat;
+	background-color: #dff2bf;
+	padding: 4px 3px 3px 25px;
+	color: #3a6f02;
+	border: 1px solid #3a6f02;
+	width: 92%;
+	font-weight: bold;
+}
+
+.informacion {
+	background-image: url(../images/informacion.png);
+	background-position: 5px;
+	background-repeat: no-repeat;
+	background-color: #bde5f8;
+	padding: 4px 3px 3px 25px;
+	color: #00529b;
+	border: 1px solid #00529b;
+	width: 92%;
+	font-weight: bold;
+}
+
+.mensajeOblicuo {
+	font-style: italic;
+	color: #666666;
+	font-weight: normal;
+}
+
+/*HEADER*/
+.header {
+	background-image: url(../images/header.gif);
+	background-repeat: no-repeat;
+	height: 99px;
+}
+
+.home {
+	background-image: url(../images/home.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	width: 48px;
+	position: relative;
+	left: 590px;
+	top: 25px;
+	text-align: right;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.cerrarsesion {
+	background-image: url(../images/cerrarsesion.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	width: 82px;
+	position: relative;
+	left: 650px;
+	top: 13px;
+	text-align: right;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.bienvenido {
+	position: relative;
+	left: -259px;
+	top: -15px;
+	text-align: right;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.animacion {
+	width: 250px;
+	margin-left: 738px;
+	margin-top: 0px;
+	height: 69px;
+}
+
+/*-------------------------*/ /*MENU*/
+#tablaMenuExpandido {
+	width: 250px;
+	background-image: url(../images/menu-back.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	border: 1px solid #CFD2DE;
+	margin-top: 6px;
+	margin-left: 2px;
+	padding-bottom: 10px;
+}
+
+#tablaMenuColapsado {
+	background-image: url(../images/menu-back.gif);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	border: 1px solid #CFD2DE;
+	margin-top: 6px;
+	margin-left: 2px;
+}
+
+.menuMainItem {
+	color: #000000;
+	text-decoration: underline;
+	font-size: 10px;
+	margin-left: -3px;
+	width: 150px;
+}
+
+.menuItem {
+	color: #000000;
+	text-decoration: underline;
+	font-size: 10px;
+	margin-left: 1px;
+}
+
+.menuMainItem:hover {
+	color: #C41230;
+}
+
+.menuItem:hover {
+	color: #C41230;
+}
+
+.menuMainItem:active {
+	color: #C41230;
+	background-image: url(../images/active-menu.gif);
+	background-position: right;
+	background-repeat: no-repeat;
+	padding-right: 15px;
+}
+
+.menuItem:active {
+	color: #C41230;
+	background-image: url(../images/active-menu.gif);
+	background-position: right;
+	background-repeat: no-repeat;
+	padding-right: 15px;
+}
+
+.cerrar {
+	background-image: url(../images/menu-cerrar.gif);
+	background-repeat: repeat-x;
+}
+
+/*-----------------------*/ /*CONTENIDO*/
+.titulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #C41230;
+	padding: 10px;
+}
+
+.banda-iconos {
+	width: 100%;
+	height: 40px;
+	background-color: #EAEAD9;
+	padding-top: 5px;
+}
+
+.cuadro {
+	width: 100%;
+	height: 300px;
+	border: 1px solid #CCCCCC;
+}
+
+/*TABS*/
+.tab {
+	display: none;
+	border: 1px solid black;
+	clear: both;
+	margin-bottom: 10px;
+	padding: 5px;
+	overflow-x: hidden;
+	height: auto;
+	font-weight: bold;
+}
+
+.tab_current {
+	display: block;
+	border: 1px solid black;
+	clear: both;
+	margin-bottom: 10px;
+	margin-left: 1px;
+	padding: 5px;
+	overflow-x: hidden;
+	height: auto;
+}
+
+.tab *,.tab_current * {
+	margin: 0%;
+}
+
+.tabs {
+	list-style-type: none;
+	font-weight: bold;
+	margin: 0%;
+	padding-top: 15px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+
+.tabs li {
+	margin: 0px 5px -3px 0px;
+	float: left;
+	background-color: #EAEAEA;
+	background-image: url(../images/tab.jpg);
+	background-repeat: repeat-x;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+}
+
+.tabs li a.current {
+	background-color: white;
+	color: #000000;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.tabs li a.current {
+	background-color: white;
+	top: 1px;
+	position: relative;
+	background-image: url(../images/tab-current.jpg);
+	background-repeat: repeat-x;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-left-color: #000000;
+}
+
+.tabs li a {
+	padding: 6px 20px;
+	color: black;
+	text-decoration: none;
+	display: block;
+	color: #999999;
+}
+
+.tabs li a:hover {
+	text-decoration: underline;
+	color: #C41230;
+}
+
+.tabs_top {
+	margin-bottom: 0px;
+	padding-bottom: 15px;
+}
+
+/*-----------------------------------*/ /*TABLAS*/
+.contenido_scrollA {
+	width: 720px;
+	height: auto;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+.contenido_scrollB
+	/*(este estilo es para ampliar las tablas al cerrar el menú)*/ {
+	width: 940 px;
+	height: auto;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+.estado_cerrado {
+	background-color: #990000;
+	text-align: center;
+}
+
+.estado_aprobado {
+	background-color: #66CC33;
+	text-align: center;
+}
+
+.estado_historico {
+	background-color: #666666;
+	text-align: center;
+}
+
+.estado_generado {
+	background-color: #FFCC33;
+	text-align: center;
+}
+
+.estado_ejecutado {
+	background-color: #33CCCC;
+	text-align: center;
+}
+
+.tabla {
+	width: 100%;
+	text-align: left;
+}
+
+.thEspecial {
+	width: 100px;
+}
+
+.td-header {
+	text-align: center;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+.tdboder {
+	border: 1px solid #CFD2DE;
+}
+
+.tdTitle {
+	background-color: #EAEAD9;
+}
+
+.Henergia {
+	background-color: #FFFF00;
+	width: 10px;
+}
+
+.Hpotencia {
+	background-color: #0099FF;
+	width: 10px;
+}
+
+#tlc,#trc,#blc,#brc {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	height: 35px;
+}
+
+#tlc {
+	background-image: url(../images/tlc.gif);
+	background-position: 0% 0%;
+	height: 35px;
+}
+
+#trc {
+	background-image: url(../images/trc.gif);
+	background-position: 104% 0%;
+	height: 35px;
+	padding-left: 10px;
+	padding-right: 15px;
+}
+
+#blc {
+	background-image: url(../images/blc.gif);
+	background-position: 0% 100%;
+	height: 35px;
+}
+
+#brc {
+	background-image: url(../images/brc.gif);
+	background-position: 100% 100%;
+}
+
+#tb,#bb {
+	background-color: transparent;
+	background-repeat: repeat-x;
+}
+
+#tb {
+	background-image: url(../images/tb.gif);
+	background-position: 0% 0%;
+}
+
+#bb {
+	background-image: url(../images/bb.gif);
+	background-position: 50% 100%;
+}
+
+#rb {
+	background-image: url(../images/r.gif);
+	background-position: 104% 0%;
+	background-repeat: repeat-y;
+	height: 35px;
+}
+
+#lb {
+	background-image: url(../images/l.gif);
+	background-position: 0% 100%;
+	background-repeat: repeat-y;
+	background-color: #eeeeee;
+	height: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80px;
+}
+
+#lb2 {
+	background-image: url(../images/l.gif);
+	background-position: 0% 100%;
+	background-repeat: repeat-y;
+	background-color: #eeeeee;
+	height: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+}
+
+#lb3 {
+	background-image: url(../images/l.gif);
+	background-position: 0% 100%;
+	background-repeat: repeat-y;
+	background-color: #eeeeee;
+	height: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 105px;
+}
+
+.tablaHeadersecundaria {
+	text-decoration: underline;
+	text-align: center;
+	color: #666666;
+	height: 20px;
+}
+
+/*DISPLAY TAG*/
+.dataTable2 {
+	width: 100%;
+	height: auto;
+}
+
+.dataTable {
+	width: 100%;
+	height: auto;
+	background-image: url(../images/tab.jpg);
+	text-align: center;
+	padding: 0px;
+}
+
+.dataTable3 {
+	width: auto;
+	height: auto;
+	background-image: url(../images/tab.jpg);
+	border-left: 1px solid #CFD2DE;
+	border-right: 1px solid #CFD2DE;
+	text-align: center;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+	background-image: url(../images/tab.jpg);
+	background-repeat: repeat-x;
+	height: 24px;
+	border-left: 1px solid #CFD2DE;
+	border-right: 1px solid #CFD2DE;
+	vertical-align: middle;
+}
+
+.dataTable th {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+	background-image: url(../images/tab.jpg);
+	background-repeat: repeat-x;
+	height: 24px;
+	border-left: 1px solid #CFD2DE;
+	border-right: 1px solid #CFD2DE;
+	vertical-align: middle;
+}
+
+.dataTable th {
+	background-image: url(../img/arrow_off.png);
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.dataTable  td {
+	font-family: verdana, arial, helvetica, sans-serif;
+	background-color: #ffffff;
+	border: 1px solid #CFD2DE;
+	font-size: 9px;
+}
+
+.dataTable tr.total td {
+	vertical-align: top;
+	font-weight: bold;
+	border-top: 1px solid black;
+	padding-bottom: 10px;
+	background-color: #000000;
+}
+
+.dataTable tr.total td.customer {
+	visibility: hidden;
+}
+
+.dataTable td.hidden {
+	display: none;
+}
+
+.dataTable th.hidden {
+	display: none;
+}
+
+.dataTable th.r {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.dataTable th.c {
+	text-align: center;
+}
+
+.dataTable td.r {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.dataTable td.c {
+	text-align: center;
+}
+
+.dataTable  tr.odd {
+	background-color: whitesmoke;
+}
+
+.dataTable tr.even {
+	background-color: #d6cfe6;
+}
+
+.dataTable th a,.dataTable th a:visited {
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	color: #000000;
+	margin-right: 10px;
+	margin-left: 0px;
+}
+
+.dataTable th a:hover {
+	font-weight: bold;
+	color: #C41230;
+	text-decoration: underline;
+	background-color: transparent;
+}
+
+.dataTable .order1 {
+	background-image: url(../img/arrow_u.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.dataTable .order2 {
+	background-image: url(../img/arrow_d.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/*
+.dataTable .sortable{
+     background-image: url(../img/arrow_off.png);
+     background-repeat: no-repeat;
+          background-position:right;
+}
+
+*/
+.pagelinks {
+	color: #999999;
+	margin: 5px;
+}
+
+.pagelinks img {
+	vertical-align: middle;
+}
+
+span.export {
+	padding: 0 4px 1px 20px;
+	font-size: x-small;
+	text-align: center;
+}
+
+span.excel {
+	background-image: url(../images/ico_file_excel.png);
+	background-repeat: no-repeat;
+}
+
+span.csv {
+	background-image: url(../images/ico_file_csv.png);
+	background-repeat: no-repeat;
+}
+
+span.xml {
+	background-image: url(../images/ico_file_xml.png);
+	background-repeat: no-repeat;
+}
+
+span.pdf {
+	background-image: url(../images/ico_file_pdf.png);
+	background-repeat: no-repeat;
+}
+
+span.rtf {
+	background-image: url(../images/ico_file_rtf.png);
+	background-repeat: no-repeat;
+}
+
+.dataTable tr.rowMouseOver {
+	background-image: url(../images/selected.gif);
+	background-repeat: repeat-x;
+	background-color: #ffff99;
+}
+
+.pageHeader {
+	height: 60px;
+	background-image: url(../images/header.gif);
+	background-repeat: repeat-x;
+}
+
+.pageHeaderText {
+	font-size: 30px;
+	margin-left: 5px;
+	color: whitesmoke;
+	font-family: "century gothic", verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	display: inline;
+	white-space: nowrap;
+}
+
+.leftMenu {
+	white-space: nowrap;
+	height: 100%;
+	background-color: #d6cfe6;
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.content {
+	padding: 10px;
+}
+
+.rightColumn {
+	
+}
+
+.customer {
+	text-align: left;
+}
+
+.orderNumber {
+	text-align: left;
+}
+
+.orderDate {
+	text-align: center;
+}
+
+.productName {
+	
+}
+
+.quantity {
+	text-align: center;
+}
+
+.lineItemTotal {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.logo {
+	border-top: 1px solid #000066;
+	border-left: 1px solid #000066;
+	border-bottom: 1px solid #000066;
+	display: inline;
+	text-align: right;
+}
+
+.code {
+	font-family: verdana, arial, helvetica, "courier new", monospace;
+	font-size: 9pt;
+}
+
+.borderedInline {
+	display: inline;
+	border: 1px solid black;
+}
+
+a:link {
+	color: #000000;
+	text-decoration: none;
+	background-color: transparent;
+	font-weight: bold;
+}
+
+a:visited {
+	color: #333333;
+	text-decoration: none;
+	background-color: transparent;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #C41230;
+	background-color: transparent;
+	font-weight: bold;
+}
+
+img {
+	border: 0px;
+}
+
+/*------------------------------------------------*/ /*ACCORDION*/
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	margin: 10px;
+}
+
+#basic-accordian {
+	width: auto;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.accordion_headings {
+	padding: 5px;
+	color: #000000;
+	border: 1px solid #FFF;
+	cursor: pointer;
+	font-weight: bold;
+	background-image: url(../images/back-top.gif);
+	background-repeat: repeat-x;
+}
+
+.barra_produccion_semanal {
+	padding: 5px;
+	color: #000000;
+	border: 1px solid #FFF;
+	font-weight: bold;
+	background-image: url(../images/back-top.gif);
+	background-repeat: repeat-x;
+}
+
+.accordion_headings:hover {
+	background-image: none;
+	background-color: #999999;
+	color: #FFFFFF;
+}
+
+/*Hector Longarte*/
+.separator {
+	padding: 5px;
+	color: #000000;
+	border: 1px solid #FFF;
+	cursor: pointer;
+	font-weight: bold;
+	background-image: url(../images/back-top.gif);
+	background-repeat: repeat-x;
+}
+
+.accordion_child {
+	padding: 5px;
+	width: auto;
+}
+
+.header_highlight {
+	background-image: none;
+	background-color: #CC0000;
+	color: #FFFFFF;
+}
+
+/*--------------------------------*/
+/*-----------------------------------*/ /*FORMULARIOS*/
+#formularios {
+	width: auto;
+}
+
+.buttonaceptar {
+	background-image: url(../images/aceptar-button.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	width: 15%;
+	border: 1px outset #eeeeee;
+}
+
+.buttonagregar {
+	background-image: url(../images/aceptar-button.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	border: 1px outset #eeeeee;
+}
+
+.buttonagregar:hover {
+	background-image: url(../images/aceptar-button-hover.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #000000;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	border: 1px outset #eeeeee;
+}
+
+.buttonaceptar:hover {
+	background-image: url(../images/aceptar-button-hover.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #000000;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	width: 15%;
+	border: 1px outset #eeeeee;
+}
+
+.buttonautenticar {
+	background-image: url(../images/aceptar-button.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	border: 1px outset #eeeeee;
+}
+
+.buttonautenticar:hover {
+	background-image: url(../images/aceptar-button-hover.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	align: center;
+	color: #000000;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	border: 1px outset #eeeeee;
+}
+
+.buttondisable {
+	background-image: url(../images/disable.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #CCCCCC;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	width: 15%;
+	border: 1px outset #eeeeee;
+}
+
+.buttoncancelar {
+	background-image: url(../images/cancelar-button.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #eeeeee;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	width: 15%;
+	border: 1px outset #eeeeee;
+}
+
+.buttoncancelar:hover {
+	background-image: url(../images/cancelar-button-hover.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #000000;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	width: 15%;
+	border: 1px outset #eeeeee;
+}
+
+.buttoncontinuar {
+	background-image: url(../images/continuar-button.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #000000;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	width: 15%;
+	border: 1px outset #eeeeee;
+}
+
+.buttoncontinuar:hover {
+	background-image: url(../images/continuar-button-hover.gif);
+	bbackground-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #ffffff;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	width: 15%;
+	border: 1px outset #eeeeee;
+}
+
+.buttoneliminar {
+	background-image: url(../images/cancelar-button.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #eeeeee;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	border: 1px outset #eeeeee;
+}
+
+.buttoneliminar:hover {
+	background-image: url(../images/cancelar-button-hover.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+	height: 25px;
+	color: #000000;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	border: 1px outset #eeeeee;
+}
+
+.buttonvolver {
+	background-image: url(../images/volver-button.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 25px;
+	color: #000000;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	padding-left: 3px;
+	padding-top: 4px;
+	width: 70px;
+	border: 1px outset #eeeeee;
+}
+
+.buttonvolver:hover {
+	background-image: url(../images/volver-button-hover.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 25px;
+	color: #ffffff;
+	font-weight: normal;
+	font-size: 12px;
+	background-color: transparent;
+	border: none;
+	padding-left: 3px;
+	padding-top: 4px;
+	width: auto;
+	border: 1px outset #eeeeee;
+}
+
+/*--------------------------------*/ /*ICONOS*/ /*MANTENIMIENTO*/
+.crear {
+	background-image: url(../images/crear-.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.crear:hover {
+	background-image: url(../images/crear-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.modificar {
+	background-image: url(../images/modificar.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 15px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.modificar:hover {
+	background-image: url(../images/modificar-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 15px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.eliminar {
+	background-image: url(../images/eliminar-.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 15px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.eliminar:hover {
+	background-image: url(../images/eliminar-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 15px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.consultar {
+	background-image: url(../images/consultar.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 15px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.consultar:hover {
+	background-image: url(../images/consultar-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 15px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.nuevo {
+	background-image: url(../images/newfile_wiz_16x16.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.nuevo:hover {
+	background-image: url(../images/newfile_wiz_16x16-hover.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.refrescar {
+	background-image: url(../images/refresh.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.refrescar:hover {
+	background-image: url(../images/refresh-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.aprobar {
+	background-image: url(../images/check_constraint_16x16.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.aprobar:hover {
+	background-image: url(../images/check_constraint_16x16-hover.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.reversion {
+	background-image: url(../images/stock_slide-duplicate_16x16.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.reversion:hover {
+	background-image: url(../images/stock_slide-duplicate_16x16-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.filtrar {
+	background-image: url(../images/filter_16x16.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.filtrarNotifProd {
+	background-image: url(../images/filter_16x16.png);
+	background-repeat: no-repeat;
+	width: 650px;
+	height: 20px;
+	background-position: right;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.lineaNegocioNombreProd {
+	width: 650px;
+	height: 20px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.filtrar:hover {
+	background-image: url(../images/filter_16x16-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.impresion {
+	background-image: url(../images/printer_16x16.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.impresion:hover {
+	background-image: url(../images/printer_16x16-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.grabar {
+	background-image: url(../images/save_16x16.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.grabar:hover {
+	background-image: url(../images/save_16x16-hover.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.excel {
+	background-image: url(../images/Excel_16x16.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.excel:hover {
+	background-image: url(../images/Excel_16x16.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.pdfIcon {
+	background-image: url(../images/pdf_16x16.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.pdfIcon:hover {
+	background-image: url(../images/pdf_16x16.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.despachos {
+	background-image: url(../images/despachos.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.despachos:hover {
+	background-image: url(../images/despachos-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.generar {
+	background-image: url(../images/generate_ddl_16x16.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.generar:hover {
+	background-image: url(../images/generate_ddl_16x16-hover.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.download {
+	background-image: url(../images/download.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.limpiar {
+	background-image: url(../images/eraser_22x22.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.limpiar:hover {
+	background-image: url(../images/eraser_22x22-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.liberar {
+	background-image: url(../images/release_rls_16x16.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.liberar:hover {
+	background-image: url(../images/release_rls_16x16-hover.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.importar {
+	background-image: url(../images/import.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.importar:hover {
+	background-image: url(../images/import-hover.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.cerrarMenu {
+	background-image: url(../images/eliminar-.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.cerrarMenu:hover {
+	background-image: url(../images/eliminar-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.seleccionar {
+	background-image: url(../images/select_16x16.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.seleccionar:hover {
+	background-image: url(../images/select_16x16-hover.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.cambioproduc {
+	background-image: url(../images/switchuser_16x16.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.cambioproduc:hover {
+	background-image: url(../images/switchuser_16x16-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.consolidar {
+	background-image: url(../images/consolidar.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.consolidar:hover {
+	background-image: url(../images/consolidar-hover.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.anular {
+	background-image: url(../images/anular.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.anular:hover {
+	background-image: url(../images/anular-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.recalcular {
+	background-image: url(../images/calcular-.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 15px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.recalcular:hover {
+	background-image: url(../images/calcular-hover.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 15px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.email {
+	background-image: url(../images/email-icon.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.email:hover {
+	background-image: url(../images/email-forward-icon.png);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+/*------------------------*/
+.horasPuntaPotencia {
+	text-align: center;
+	color: #FF8000;
+	font-size: 9px;
+	background-color: #B40404;
+}
+
+.horasPuntaEnergia {
+	text-align: center;
+	color: #E00000;
+	font-size: 9px;
+	background-color: #E00000;
+}
+
+/*FOOTER*/
+.footer {
+	margin-top: 15px;
+	text-align: center;
+	color: #999999;
+	font-size: 9px;
+	margin-bottom: 11px;
+}
+
+/*--------------------*/ /*ALINEACIONES Y OTROS*/
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.top {
+	vertical-align: super;
+}
+
+.width_100 {
+	width: 100%;
+}
+
+.width_buttons {
+	width: 500px;
+}
+
+.width_buttons_estructura {
+	width: 800px;
+}
+
+.bold {
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.marginCero {
+	margin: 0;
+}
+
+.borders {
+	border: 1px solid #eeeeee;
+}
+
+.transparente {
+	z-index: 3px;
+}
+
+/*------------------*/
+.normal {
+	width: 240px
+}
+
+.background_notifPlanta {
+	background-color: #A00000;
+	color: white;
+}
+
+.background_notifPlantaOver,.background_notifPlantaSelected {
+	background-color: #FF0000;
+	color: white;
+}
+
+.background_ajuste {
+	/*background-color: #F79294;*/
+	background-color: #FAB53E;
+	/*color: white; */
+}
+
+.background_reg_alterno {
+	background-color: #DCDEE0;
+}
+
+.background_ajusteOver,.background_ajusteSelected,.background_ajusteSelectedOver
+	{
+	background-color: #F5DAAB;
+}
+
+.light_red_message {
+	color: #E00000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.light_red_message2 {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.titleNotificacionPlanta {
+	color: #333333;
+}
+/*--Estilo AjusteProduccion  grid consumo componente puesto trabajo--*/
+.backgroung_grid_consumo_componente_puestotrabajo {
+	color: red;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	text-decoration: underline;
+}
+
+.backgroung_grid_variables_produccion {
+	color: red;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+}
+
+/*-- se usa listarMovimientosProductos.jsp para indicar los movimientos de tipo consumo --*/
+td.light_gray_background {
+	background-color: #CCC;
+}
+
+.loading {
+	-moz-border-radius: 0px 0px 5px 5px;
+	background-color: transparent;
+	background-image: url(../images/ajax-loader.gif);
+	background-position: 5px;
+	background-repeat: no-repeat;
+	border: none;
+	padding-left: 4px;
+	display: none;
+	height: 25px;
+	position: fixed;
+	width: 350px;
+	z-index: 600;
+	font-weight: normal;
+	font-size: 11px;
+	background-position: 5px;
+}
+
+.load-text {
+	color: #525252;
+	display: none;
+	font-weight: bold;
+	left: 550px;
+	position: fixed;
+	padding-left: 15px;
+	top: 7px;
+	z-index: 600;
+	font-size: 12px;
+	background-color: ebf6f9;
+}
+
+.paddingTop {
+	padding-top: 20px;
+}
+
+.reprocesar {
+	background-image: url(../images/reprocesar_16x16.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.registrovalor {
+	background-image: url(../images/registrovalor.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.revertir {
+	background-image: url(../images/icono_revertir.gif);
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 20px;
+	background-position: center;
+	padding-right: 10px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.ocultarFormulario {
+	visibility: hidden;
+	height: 1px;
+}
+
+.mostrarFormulario {
+	visibility: visible;
+	height: 700px;
+}
+
+#excepcionError {
+	text-align: center;
+}
+
+#excepcionError #detalleError {
+	text-align: left;
+	font-size: 11px;
+	display: none;
+}
+
+.width_100_Center {
+	text-align: center;
+	width: 100%;
+}
+
+.ingresoDisabled {
+	width: 50px;
+	background-color: #E5E5E5;
+	color: #888888;
+	font-size: 8pt;
+}
+
+.ingreso {
+	width: 50px;
+}
+
+.logAjusteProduccion {
+	font-size: 8pt;
+}

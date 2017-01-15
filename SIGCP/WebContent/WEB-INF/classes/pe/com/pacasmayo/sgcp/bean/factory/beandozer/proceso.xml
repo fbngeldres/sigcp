@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+ 
+http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping wildcard="false">
+		<class-a>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Proceso
+		</class-a>
+		<class-b>pe.com.pacasmayo.sgcp.bean.impl.ProcesoBeanImpl</class-b>
+		<field>
+			<a>pkCodigoProceso</a>
+			<b>codigo</b>
+		</field>
+		<field>
+			<a>nombreProceso</a>
+			<b>nombre</b>
+		</field>
+
+		<field>
+			<a>lineanegocio</a>
+			<b>lineaNegocio</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Lineanegocio</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.LineaNegocioBeanImpl</b-hint>
+		</field>
+	</mapping>
+</mappings>

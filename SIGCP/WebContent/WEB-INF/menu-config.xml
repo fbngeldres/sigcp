@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MenuConfig>
+	<Displayers>
+		<Displayer name="DropDown"
+			type="net.sf.navigator.displayer.DropDownMenuDisplayer" />
+		<Displayer name="Simple"
+			type="net.sf.navigator.displayer.SimpleMenuDisplayer" />
+		<Displayer name="CoolMenu"
+			type="net.sf.navigator.displayer.CoolMenuDisplayer" />
+		<Displayer name="CoolMenu4"
+			type="net.sf.navigator.displayer.CoolMenuDisplayer4" />
+		<Displayer name="MenuForm"
+			type="net.sf.navigator.example.PermissionsFormMenuDisplayer" />
+		<Displayer name="ListMenu"
+			type="net.sf.navigator.displayer.ListMenuDisplayer" />
+		<Displayer name="TabbedMenu"
+			type="net.sf.navigator.displayer.TabbedMenuDisplayer" />
+		<!-- <Displayer name="Velocity" type="net.sf.navigator.displayer.VelocityMenuDisplayer"/> -->
+		<Displayer name="XtreeMenu"
+			type="net.sf.navigator.displayer.XtreeMenuDisplayer" />
+		<Displayer name="CSSListMenu"
+			type="net.sf.navigator.displayer.CSSListMenuDisplayer" />
+	</Displayers>
+	<Menus>
+		<!-- ==================== Menu de gestion de produccion =========================== -->
+		<Menu name="produccion" title="Gestión de Producción"
+			description="Gestión de Producción">
+			<!-- <Item name="planificarProgramaProduccionSemanal" title="Planificar 
+				Programa de Producción Semanal" location="NewCase.jsp"/> -->
+			<Item name="registrarProgramaProduccionSemanal" title="Registrar Programa de Producción Semanal"
+				location="../produccion/formularioRegistrarProduccionSemanal.action" />
+
+			<Item name="consultaEstadisticaSaldoInicial" title="Consultar Estadística por Saldo Inicial"
+				location="../produccion/formularioConsultarEstadistica.action" />
+
+			<Item name="consultarProgramaProduccionSemanal" title="Consultar Programa de Producción Semanal"
+				location="../produccion/listarProduccionSemanal.action" />
+		</Menu>
+
+		<!-- ==================== Menu de planificacion =========================== -->
+		<Menu name="planificacion" title="Plan de la producción"
+			description="Planificación de la producción">
+			<Item name="planificarPlanProduccion" title="Planificar Plan Producción  (Año / Mes)"
+				location="../planificacion/listarPlanAnual.action" />
+			<Item name="gestionarOrdenProducción" title="Gestionar Orden de Producción"
+				location="../planificaciones/consultarOrdenProduccion.action" />
+		</Menu>
+
+		<!-- ==================== Menu de gestion de stock =========================== -->
+		<Menu name="stock" title="Gestión de Stock" description="Gestión de Stock">
+			<Item name="consultarMedicionProductos" title="Consultar Medición por Productos"
+				location="../stock/consultarMedicionPorProductos.action" />
+
+			<Item name="registrarMedicion" title="Registrar Medición Diaria"
+				location="../stock/registrarMedicion.action" />
+			<!-- <Item name="consultarCubicaciónMes" title="Consultar Cubicación del 
+				Mes" location="index.jsp" /> <Item name="registrarCubicacion" title="Registrar 
+				Cubicación" location="index.jsp" /> <Item name="administracionRecepcion" 
+				title="Administración de Recepción de Productos en Procesos a Fábrica" location="index.jsp" 
+				/> <Item name="registrarIngresosPP" title="Registrar Ingresos de PP(Productos 
+				en proceso)" location="index.jsp" /> <Item name="importarArchivo" title="Importar 
+				Archivo de Ingreso de Productos en Proceso (CVS)" location="index.jsp" /> 
+				<Item name="registroMovimientoProducto" title="Registro de Movimiento de 
+				Producto" location="index.jsp" /> <Item name="consultaMovimientosProductos" 
+				title="Consulta de Movimientos de Productos" location="index.jsp" /> -->
+
+			<Item name="kardexProducto" title="Kardex del Producto"
+				location="../stock/kardexDelProducto.action" />
+
+
+		</Menu>
+
+		<!-- ==================== Menu de administracion del sistema =========================== -->
+		<Menu name="administracionSistema" title="Administración del sistema"
+			description="Administración del sistema">
+			<Item name="areas" title="Áreas" location="../manejoMaestros/listarArea.action" />
+			<Item name="unidades" title="Unidades"
+				location="../manejoMaestros/listarUnidad.action" />
+			<Item name="divisiones" title="Divisiones"
+				location="../manejoMaestros/listarDivision.action" />
+			<Item name="sociedades" title="Sociedades"
+				location="../manejoMaestros/listarSociedad.action" />
+			<Item name="lineasDeNegocio" title="Líneas de Negocio"
+				location="../manejoMaestros/listarLineaNegocio.action" />
+			<Item name="puestosDeTrabajo" title="Puestos de Trabajo"
+				location="../manejoMaestros/listarPuestoTrabajo.action" />
+			<Item name="actividades" title="Actividades"
+				location="../manejoMaestros/listarActividad.action" />
+			<Item name="procesos" title="Procesos"
+				location="../manejoMaestros/listarProceso.action" />
+			<Item name="productos" title="Productos"
+				location="../manejoMaestros/listarProducto.action" />
+			<Item name="factorDosificacion" title="Factor de Dosificación"
+				location="../manejoMaestros/listarFactorDosificacion.action" />
+			<Item name="hojaRuta" title="Hoja de Ruta"
+				location="../manejoMaestros/listarHojaRuta.action" />
+			<!-- <Item name="ordenProduccion" title="Orden de Producción" location="NewCase.jsp" 
+				/> <Item name="factorPuestoTrabajo" title="Factor Puesto de Trabajo" location="index.jsp" 
+				/> <Item name="variablesOperacion" title="Variables de Operación" location="index.jsp" 
+				/> -->
+			<Item name="almacenes" title="Almacenes"
+				location="../manejoMaestros/listarAlmacen.action" />
+			<Item name="ubicaciones" title="Ubicaciones"
+				location="../manejoMaestros/listarUbicacion.action" />
+			<Item name="tiposMovimientos" title="Tipos de Movimientos"
+				location="../manejoMaestros/listarTipoMovimiento.action" />
+			<Item name="medioAlmacenamiento" title="Medio de Almacenamiento"
+				location="../manejoMaestros/listarMedioAlmacenamiento.action" />
+
+			<!-- <Item name="equivalencia" title="Equivalencia de origen para Balanzas" 
+				location="NewCase.jsp" /> <Item name="tiposDeVariaciones" title="Tipos de 
+				Variaciones" location="index.jsp" /> <Item name="mapeoReportes" title="Mapeo 
+				de Reportes de ECS" location="NewCase.jsp" /> -->
+
+			<Item name="ReporteECS" title="Reporte ECS"
+				location="../manejoMaestros/listarReporteECS.action" />
+
+		</Menu>
+
+
+		<Menu name="reporteECS" title="Reportes de ECS" description="Reportes de ECS">
+			<Item name="ReporteECS" title="Configuración de Reportes ECS"
+				location="../reporteECS/listarReporteECS.action" />
+
+		</Menu>
+
+	</Menus>
+</MenuConfig>

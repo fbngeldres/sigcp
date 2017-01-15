@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+ 
+http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping wildcard="false">
+		<class-a>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Movimientoenvasemensual
+		</class-a>
+		<class-b>pe.com.pacasmayo.sgcp.bean.impl.MovimientoEnvaseMensualBeanImpl
+		</class-b>
+		<field>
+			<a>pkCodigoMovimientoenvasemensual</a>
+			<b>codigo</b>
+		</field>
+
+		<field>
+			<a>estadomovimiento</a>
+			<b>estadomovimiento</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Estadomovimiento
+			</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.EstadoMovimientoBeanImpl
+			</b-hint>
+		</field>
+
+		<field>
+			<a>tipomovimiento</a>
+			<b>tipoMovimiento</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tipomovimiento
+			</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.TipoMovimientoBeanImpl
+			</b-hint>
+		</field>
+
+		<field>
+			<a>documentomaterialenvasemensual</a>
+			<b>documentoMaterialEnvaseMensualBean</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Documentomaterialenvasemensual
+			</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.DocumentoMaterialEnvaseMensualBeanImpl
+			</b-hint>
+		</field>
+
+
+		<field>
+			<a>producto</a>
+			<b>producto</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Producto
+			</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.ProductoBeanImpl</b-hint>
+		</field>
+
+
+		<field>
+			<a>cantidadMovimiento</a>
+			<b>cantidadTM</b>
+		</field>
+
+
+
+
+
+
+
+
+
+
+	</mapping>
+</mappings>

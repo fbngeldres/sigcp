@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+ 
+http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping wildcard="false">
+		<class-a>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Factorpuestotrabajoenvasado
+		</class-a>
+		<class-b>pe.com.pacasmayo.sgcp.bean.impl.FactorPuestoTrabajoEnvasadoBeanImpl
+		</class-b>
+		<field>
+			<a>pkcodigofactorpuestotrabajoenvasado</a>
+			<b>codigo</b>
+		</field>
+		<field>
+			<a>factorproduccionenvasado</a>
+			<b>factorProduccionEnvasadoBean</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Factorproduccionenvasado</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.FactorProduccionEnvasadoBeanImpl</b-hint>
+		</field>
+		<field>
+			<a>puestotrabajo</a>
+			<b>puestoTrabajoBean</b>
+			<a-hint>pe.com.pacasmayo.sgcp.persistencia.dataObjects.Puestotrabajo</a-hint>
+			<b-hint>pe.com.pacasmayo.sgcp.bean.impl.PuestoTrabajoBeanImpl</b-hint>
+		</field>
+
+		<field>
+			<a>cantidadFactorpuestotrabajoenvasado</a>
+			<b>cantidad</b>
+		</field>
+
+	</mapping>
+</mappings>

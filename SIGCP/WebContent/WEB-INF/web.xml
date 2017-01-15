@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<context-param>
+		<param-name>displaytag.properties</param-name>
+		<param-value>WEB-INF/displaytag.properties</param-value>
+	</context-param>
+	<filter>
+		<filter-name>struts</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- - Loads the menu-config.xml for struts-menu at startup, - by default 
+		from "/WEB-INF/menu-config.xml". - To override this, add a context-param 
+		named "menuConfigLocation" - web.xml file. -->
+	<listener>
+		<listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
+	</listener>
+
+	<display-name>SGCP</display-name>
+	<!-- Pagina de inicio de la aplicacion -->
+	<welcome-file-list>
+		<welcome-file>inicio.jsp</welcome-file>
+	</welcome-file-list>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>no_access</web-resource-name>
+			<url-pattern>/WEB-INF/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint />
+	</security-constraint>
+
+	<!-- Configuración CWOLF -->
+	<servlet>
+		<servlet-name>CewolfServlet</servlet-name>
+		<servlet-class>de.laures.cewolf.CewolfRenderer</servlet-class>
+		<!-- sets storage implementation -->
+		<init-param>
+			<param-name>storage</param-name>
+			<param-value>
+				de.laures.cewolf.storage.TransientSessionStorage
+			</param-value>
+		</init-param>
+		<!-- sets overlib.js location relative to webapp -->
+		<init-param>
+			<param-name>overliburl</param-name>
+			<param-value>etc/overlib.js</param-value>
+		</init-param>
+		<!-- turn on or off debugging logging -->
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Servicio de graficos CWOLF -->
+	<servlet-mapping>
+		<servlet-name>CewolfServlet</servlet-name>
+		<url-pattern>/cewolf/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Controla el tiempo de la sesion de la aplicacion, en minutos -->
+	<session-config>
+		<session-timeout>90</session-timeout>
+	</session-config>
+
+
+
+	<!-- Declaraciones de Servlets de GWT: Uno para cada modulo -->
+
+	<servlet>
+		<servlet-name>notificacionServiceImpl</servlet-name>
+		<servlet-class>
+			pe.com.pacasmayo.sgcp.presentacion.gwt.notificacion.servidor.NotificacionServiceImpl
+		</servlet-class>
+	</servlet>
+	
+
+	<!-- Sevlet para logger en jetty -->
+	<servlet>
+		<servlet-name>Log4JInitServlet</servlet-name>
+		<servlet-class>
+			pe.com.pacasmayo.sgcp.presentacion.gwt.util.servlets.Log4JInitServlet
+		</servlet-class>
+		<init-param>
+			<param-name>log4j-properties</param-name>
+			<param-value>/WEB-INF/classes/log4j.properties</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>shell</servlet-name>
+		<servlet-class>com.google.gwt.dev.shell.GWTShellServlet</servlet-class>
+	</servlet>
+
+	<!-- Declaracion del Servlet generico utilitario de GWT -->
+	<servlet>
+		<servlet-name>utilServiceImpl</servlet-name>
+		<servlet-class>
+			pe.com.pacasmayo.sgcp.presentacion.gwt.util.servidor.ServicioImpl
+		</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>notificacionServiceImpl</servlet-name>
+		<url-pattern>
+			/administrarNotificacionProduccionPlanta/servicioNotificacion
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>notificacionServiceImpl</servlet-name>
+		<url-pattern>
+			/registrarNotificacion/servicioNotificacion
+		</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Mapeo del Servicio generico para los modulos. El servicio generico 
+		que sera utilizado en cada modulo debe ser renombrado para cada modulo con 
+		su URL... -->
+	
+
+	
+	
+	<servlet-mapping>
+		<servlet-name>utilServiceImpl</servlet-name>
+		<url-pattern>/registrarNotificacion/servicio</url-pattern>
+	</servlet-mapping>
+	
+
+
+	<!-- Clase oyente para arrancar el programador de tareas -->
+
+</web-app>
