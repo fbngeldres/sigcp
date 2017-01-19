@@ -5,11 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Usuario"
 		table="usuario" schema="public">
-		<comment>Entidad que forma parte del modulo de seguridad. Representa a
-			un usuario dentro del sistema. Se especifican a través de un login y
-			un password, tiene un estado
-			asociado y se corresponde con una persona
-			dentro del SGCP.</comment>
+		
 		<id name="pkCodigoUsuario" type="java.lang.Long">
 			<column name="pk_codigo_usuario" precision="10" scale="0" />
 			<generator class="sequence">
@@ -42,14 +38,7 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Ordenproduccion" />
 		</set>
-		<set name="produccionsemanalsForFkCodigoUsuarioAprueba" inverse="true">
-			<key>
-				<column name="fk_codigo_usuario_aprueba" precision="10"
-					scale="0" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Produccionsemanal" />
-		</set>
+	
 		<set name="ajusteproductosForFkCodigoUsuarioAjusta" inverse="true">
 			<key>
 				<column name="fk_codigo_usuario_ajusta" precision="10" scale="0" />
@@ -105,14 +94,7 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Usuariogrupousuario" />
 		</set>
-		<set name="tablavalors" inverse="true">
-			<key>
-				<column name="fk_codigo_usuario_registra" precision="10"
-					scale="0" not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tablavalor" />
-		</set>
+		
 		<set name="ordenproduccionsForFkCodigoUsuarioRegistro" inverse="true">
 			<key>
 				<column name="fk_codigo_usuario_registro" precision="10"
@@ -152,14 +134,7 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Cubicacionproducto" />
 		</set>
-		<set name="produccionsemanalsForFkCodigoUsuarioRegistro" inverse="true">
-			<key>
-				<column name="fk_codigo_usuario_registro" precision="10"
-					scale="0" not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Produccionsemanal" />
-		</set>
+	
 		<set name="partediariosForFkCodigoUsuarioCierra" inverse="true">
 			<key>
 				<column name="fk_codigo_usuario_cierra" precision="10" scale="0" />
@@ -209,31 +184,6 @@
 		</set>
 
 		
-<set name="bloqueotransaccionFKCodigoUsuario" inverse="true">
-			<key>
-				<column name="fk_codigo_usuario" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Bloqueotransaccion" />
-		</set>
-		<set name="tabladistribuiblesForFkCodigoUsuarioRegistra" inverse="true">
-			<key>
-				<column name="fk_codigo_usuario_registra" precision="10"
-					scale="0" not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tabladistribuible" />
-		</set>
-
-		<set name="tabladistribuiblesForFkCodigoUsuarioAprueba" inverse="true">
-			<key>
-				<column name="fk_codigo_usuario_aprueba" precision="10"
-					scale="0" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tabladistribuible" />
-		</set>
 
 
 	</class>

@@ -87,13 +87,13 @@
 										alt="" src="../images/transparente.gif"> </a></td>
 							</s:if>
 
-<s:if test="funCerrarActivo">
-								<td class="email"><a href="#"
-									onclick="javascript:enviarEmail('formularioFiltro','enviarReporteProduccionDiaria.action','\u00BFEst\u00E1 seguro que desea enviar el reporte de Produccion Diaria?');"><img
-										alt=""
-										src="<%=request.getContextPath()%>/images/transparente.gif">
-								</a></td>
-							</s:if>
+<%-- <s:if test="funCerrarActivo"> --%>
+<!-- 								<td class="email"><a href="#" -->
+<!-- 									onclick="javascript:enviarEmail('formularioFiltro','enviarReporteProduccionDiaria.action','\u00BFEst\u00E1 seguro que desea enviar el reporte de Produccion Diaria?');"><img -->
+<!-- 										alt="" -->
+<%-- 										src="<%=request.getContextPath()%>/images/transparente.gif"> --%>
+<!-- 								</a></td> -->
+<%-- 							</s:if> --%>
 
 						</tr>
 						<tr>
@@ -121,11 +121,11 @@
 								</td>
 							</s:if>
 
-<s:if test="funCerrarActivo">
-								<td><a href="#"
-									onclick="javascript:enviarEmail('formularioFiltro','enviarReporteProduccionDiaria.action','\u00BFEst\u00E1 seguro que desea enviar el reporte de Produccion Diaria?');">Enviar Email</a>
-								</td>
-							</s:if>
+<%-- <s:if test="funCerrarActivo"> --%>
+<!-- 								<td><a href="#" -->
+<!-- 									onclick="javascript:enviarEmail('formularioFiltro','enviarReporteProduccionDiaria.action','\u00BFEst\u00E1 seguro que desea enviar el reporte de Produccion Diaria?');">Enviar Email</a> -->
+<!-- 								</td> -->
+<%-- 							</s:if> --%>
 						</tr>
 					</table>
 				</div>

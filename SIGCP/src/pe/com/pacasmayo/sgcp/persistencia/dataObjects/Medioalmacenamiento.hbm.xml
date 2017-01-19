@@ -6,22 +6,7 @@
 	<class
 		name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Medioalmacenamiento"
 		table="medioalmacenamiento" schema="public">
-		<comment>Representa las diferentes maneras de almacenar un producto.
-			Un medio de almacenamiento se define por un código, un nombre y una
-			descripción. De acuerdo al medio
-			de almacenamiento se define la
-			ubicación de un producto. Una forma de
-			almacenamiento puede ser un
-			silo. Los silos están destinados a solo
-			un producto. En los silos va
-			solo
-			cemento y crudo. Los silos se pueden medir diariamente. En el
-			caso de las
-			pilas es un medio de almacenamiento simple, no se
-			especifica que
-			producto. Las pilas y las tolvas
-			no se miden porque es
-			una cubicación.</comment>
+		
 		<id name="pkCodigoMedioalmacenamiento" type="java.lang.Long">
 			<column name="pk_codigo_medioalmacenamiento" precision="10"
 				scale="0" />
@@ -113,14 +98,7 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Movimiento" />
 		</set>
-		<set name="ubicacionespecificas" inverse="true">
-			<key>
-				<column name="fk_codigo_medioalmacenamiento" precision="10"
-					scale="0" not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Ubicacionespecifica" />
-		</set>
+	
 
 		<set name="kardexmedioalmacenamientos" inverse="true">
 			<key>

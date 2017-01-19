@@ -21,7 +21,10 @@
 		<listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
 	</listener>
 
-	<display-name>SGCP</display-name>
+	<display-name>SIGCP</display-name>
+	<!-- Pagina de inicio de la aplicacion -->
+	
+
 	<!-- Pagina de inicio de la aplicacion -->
 	<welcome-file-list>
 		<welcome-file>inicio.jsp</welcome-file>
@@ -83,6 +86,8 @@
 		</servlet-class>
 	</servlet>
 	
+	
+	
 
 	<!-- Sevlet para logger en jetty -->
 	<servlet>
@@ -108,18 +113,16 @@
 			pe.com.pacasmayo.sgcp.presentacion.gwt.util.servidor.ServicioImpl
 		</servlet-class>
 	</servlet>
+	
+	
 
 	<servlet-mapping>
 		<servlet-name>notificacionServiceImpl</servlet-name>
-		<url-pattern>
-			/administrarNotificacionProduccionPlanta/servicioNotificacion
-		</url-pattern>
+		<url-pattern>/administrarNotificacionProduccionPlanta/servicioNotificacion</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>notificacionServiceImpl</servlet-name>
-		<url-pattern>
-			/registrarNotificacion/servicioNotificacion
-		</url-pattern>
+		<url-pattern>/registrarNotificacion/servicioNotificacion</url-pattern>
 	</servlet-mapping>
 	
 	<!-- Mapeo del Servicio generico para los modulos. El servicio generico 
@@ -131,11 +134,14 @@
 	
 	<servlet-mapping>
 		<servlet-name>utilServiceImpl</servlet-name>
-		<url-pattern>/registrarNotificacion/servicio</url-pattern>
+		<url-pattern>/administrarNotificacionProduccionPlanta/servicio</url-pattern>
 	</servlet-mapping>
 	
 
 
 	<!-- Clase oyente para arrancar el programador de tareas -->
-
+	<!-- Clase oyente para arrancar el programador de tareas -->
+	<listener>
+		<listener-class>org.quartz.ee.servlet.QuartzInitializerListener</listener-class>
+	</listener>
 </web-app>

@@ -6,10 +6,7 @@
 	<class
 		name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificacionoperacion"
 		table="notificacionoperacion" schema="public">
-		<comment>Entidad que representa la relación entre la Notificación
-			Diaria y el conjunto de notificaciones de las variables de operación
-			que se obtienen como resultado de la
-			lectura de un reporte de ECS.</comment>
+		
 		<id name="pkCodigoNotificacionoperacion" type="java.lang.Long">
 			<column name="pk_codigo_notificacionoperacion" precision="10"
 				scale="0" />
@@ -46,13 +43,6 @@
 			<column name="fecha_notificacionoperacion" length="4"
 				not-null="true" />
 		</property>
-		<set name="variablevalornotificacions" inverse="true">
-			<key>
-				<column name="fk_codigo_notificacionoperacion" precision="10"
-					scale="0" not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Variablevalornotificacion" />
-		</set>
+		
 	</class>
 </hibernate-mapping>

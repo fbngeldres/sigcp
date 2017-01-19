@@ -17,6 +17,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 
+import pe.com.pacasmayo.sgcp.bean.UsuarioBean;
+import pe.com.pacasmayo.sgcp.logica.seguridad.MenuLogic;
 import pe.com.pacasmayo.sgcp.presentacion.action.AplicacionAction;
 
 import com.opensymphony.xwork2.Action;
@@ -33,10 +35,10 @@ public class CerrarSesionAction extends AplicacionAction {
 	public String cerrarSesion() {
 		HttpSession sesion = ServletActionContext.getRequest().getSession();
 		sesion.setMaxInactiveInterval(10);
-//		UsuarioBean usuario = (UsuarioBean) sesion.getAttribute(USUARIO_SESION);
-//		sesion.removeAttribute(USUARIO_SESION);
-//		sesion.removeAttribute(MenuLogic.TOPMENUS + usuario.getLogin());
-//		sesion.removeAttribute(MenuLogic.MAPA_OPCIONES + usuario.getLogin());
+		UsuarioBean usuario = (UsuarioBean) sesion.getAttribute(USUARIO_SESION);
+		sesion.removeAttribute(USUARIO_SESION);
+		sesion.removeAttribute(MenuLogic.TOPMENUS + usuario.getLogin());
+		sesion.removeAttribute(MenuLogic.MAPA_OPCIONES + usuario.getLogin());
 
 		logger.debug("Se removieron los parametros de la sesion");
 

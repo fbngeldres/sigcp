@@ -18,20 +18,12 @@ public class Concepto implements java.io.Serializable {
 	private String nombreConcepto;
 	private String descripcionConcepto;
 	private Set conceptomensuals = new HashSet(0);
-	private Set conceptodiarios = new HashSet(0);
-	private Set conceptovalors = new HashSet(0);
+
+
 	private Set balanceproductos = new HashSet(0);
-	private Set configuraciondistribuibles = new HashSet(0);
+	
 
-	// Constructors
-
-	public Set getConfiguraciondistribuibles() {
-		return configuraciondistribuibles;
-	}
-
-	public void setConfiguraciondistribuibles(Set configuraciondistribuibles) {
-		this.configuraciondistribuibles = configuraciondistribuibles;
-	}
+	
 
 	/** default constructor */
 	public Concepto() {
@@ -44,13 +36,12 @@ public class Concepto implements java.io.Serializable {
 
 	/** full constructor */
 	public Concepto(Unidadmedida unidadmedida, String nombreConcepto, String descripcionConcepto, Set conceptomensuals,
-			Set conceptodiarios, Set conceptovalors, Set balanceproductos) {
+			  Set balanceproductos) {
 		this.unidadmedida = unidadmedida;
 		this.nombreConcepto = nombreConcepto;
 		this.descripcionConcepto = descripcionConcepto;
 		this.conceptomensuals = conceptomensuals;
-		this.conceptodiarios = conceptodiarios;
-		this.conceptovalors = conceptovalors;
+		
 		this.balanceproductos = balanceproductos;
 	}
 
@@ -96,22 +87,7 @@ public class Concepto implements java.io.Serializable {
 		this.conceptomensuals = conceptomensuals;
 	}
 
-	public Set getConceptodiarios() {
-		return this.conceptodiarios;
-	}
-
-	public void setConceptodiarios(Set conceptodiarios) {
-		this.conceptodiarios = conceptodiarios;
-	}
-
-	public Set getConceptovalors() {
-		return this.conceptovalors;
-	}
-
-	public void setConceptovalors(Set conceptovalors) {
-		this.conceptovalors = conceptovalors;
-	}
-
+	
 	public Set getBalanceproductos() {
 		return this.balanceproductos;
 	}

@@ -25,7 +25,7 @@ public class Produccion implements java.io.Serializable {
 	private Set medicions = new HashSet(0);
 	private Set conceptomensuals = new HashSet(0);
 	private Set cubicacionproductos = new HashSet(0);
-	private Set plantillastablavalors = new HashSet(0);
+
 
 	// Constructors
 
@@ -42,7 +42,7 @@ public class Produccion implements java.io.Serializable {
 	/** full constructor */
 	public Produccion(Producto producto, Proceso proceso, Set hojarutas, Set tasarealproduccions, Set medioalmacenamientos,
 			Set plancomercializacions, Set ordenproduccions, Set plantillaajusteproductos, Set medicions, Set conceptomensuals,
-			Set cubicacionproductos, Set plantillastablavalors) {
+			Set cubicacionproductos) {
 		this.producto = producto;
 		this.proceso = proceso;
 		this.hojarutas = hojarutas;
@@ -54,7 +54,7 @@ public class Produccion implements java.io.Serializable {
 		this.medicions = medicions;
 		this.conceptomensuals = conceptomensuals;
 		this.cubicacionproductos = cubicacionproductos;
-		this.plantillastablavalors = plantillastablavalors;
+		
 	}
 
 	// Property accessors
@@ -155,18 +155,6 @@ public class Produccion implements java.io.Serializable {
 		this.cubicacionproductos = cubicacionproductos;
 	}
 
-	/**
-	 * @return the plantillastablavalors
-	 */
-	public Set getPlantillastablavalors() {
-		return plantillastablavalors;
-	}
 
-	/**
-	 * @param plantillastablavalors the plantillastablavalors to set
-	 */
-	public void setPlantillastablavalors(Set plantillastablavalors) {
-		this.plantillastablavalors = plantillastablavalors;
-	}
 
 }

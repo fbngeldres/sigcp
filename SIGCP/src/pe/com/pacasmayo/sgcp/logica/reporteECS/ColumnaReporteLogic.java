@@ -36,7 +36,8 @@ import pe.com.pacasmayo.sgcp.presentacion.action.ConstantesMensajePresentacion;
 import pe.com.pacasmayo.sgcp.presentacion.gwt.dto.cliente.ColumnareporteDTO;
 import pe.com.pacasmayo.sgcp.util.ManejadorPropiedades;
 
-public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, ConstantesMensajePresentacion, ColumnaReporteLogicFacade {
+public class ColumnaReporteLogic implements ConstantesMensajeAplicacion,
+		ConstantesMensajePresentacion, ColumnaReporteLogicFacade {
 
 	private static BeanFactory beanFactory;
 
@@ -56,7 +57,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 	 * @param tx
 	 * @throws AplicacionException
 	 */
-	public void insertarColumnasReporte(List<ColumnaReporteBean> columnasBean, Plantillareporte plantilla, Transaction tx)
+	public void insertarColumnasReporte(List<ColumnaReporteBean> columnasBean,
+			Plantillareporte plantilla, Transaction tx)
 			throws AplicacionException {
 		String mensajeError = "";
 
@@ -73,8 +75,10 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 				columna = new Columnareporte();
 				columna.setEstadocolumnareporte(estadoColumna);
 				columna.setPlantillareporte(plantilla);
-				columna.setNombreColumnareporte(columnaBean.getNombreColumnaReporte());
-				columna.setPosicionColumnareporte(columnaBean.getPosicionColumnaReporte());
+				columna.setNombreColumnareporte(columnaBean
+						.getNombreColumnaReporte());
+				columna.setPosicionColumnareporte(columnaBean
+						.getPosicionColumnaReporte());
 
 				ColumnaReporteQuerier.save(columna);
 			}
@@ -85,7 +89,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 			if (tx != null)
 				tx.rollback();
 
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_CAMPO_OBJETO_INVALIDO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_CAMPO_OBJETO_INVALIDO);
 
 			logger.error(mensajeError, e);
 
@@ -94,13 +99,15 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 			if (tx != null)
 				tx.rollback();
 
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_DUPLICADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_DUPLICADO);
 
 			logger.error(mensajeError, e);
 
 			throw new LogicaException(mensajeError, e);
 		} catch (ElementoEliminadoException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ELIMINADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ELIMINADO);
 
 			if (tx != null)
 				tx.rollback();
@@ -109,7 +116,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 
 			throw new LogicaException(mensajeError, e);
 		} catch (ElementoNoEncontradoException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ENCONTRADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ENCONTRADO);
 
 			logger.error(mensajeError, e);
 
@@ -128,13 +136,15 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 	 * @param tx
 	 * @throws LogicaException
 	 */
-	public void actualizarColumnasReporte(List<ColumnaReporteBean> columnasBean, Plantillareporte plantilla, Transaction tx)
-			throws LogicaException {
+	public void actualizarColumnasReporte(
+			List<ColumnaReporteBean> columnasBean, Plantillareporte plantilla,
+			Transaction tx) throws LogicaException {
 		String mensajeError = "";
 
 		try {
 
-			List<Estadocolumnareporte> estadosColumna = EstadoColumnaReporteQuerier.getAll();
+			List<Estadocolumnareporte> estadosColumna = EstadoColumnaReporteQuerier
+					.getAll();
 
 			Columnareporte columna = null;
 			ColumnaReporteBean columnaBean = null;
@@ -145,18 +155,22 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 
 				if (columnaBean.getCodigo() != null) {
 					// La columna no es nueva
-					columna = ColumnaReporteQuerier.getById(columnaBean.getCodigo());
+					columna = ColumnaReporteQuerier.getById(columnaBean
+							.getCodigo());
 				} else {
 					// La columna es nueva
 					columna = new Columnareporte();
 					columna.setPkCodigoColumnareporte(new Long(0));
 				}
 
-				columna.setEstadocolumnareporte(obtenerEstadoColumna(estadosColumna, columnaBean.getEstadoColumnaReporte()
-						.getCodigo()));
+				columna.setEstadocolumnareporte(obtenerEstadoColumna(
+						estadosColumna, columnaBean.getEstadoColumnaReporte()
+								.getCodigo()));
 				columna.setPlantillareporte(plantilla);
-				columna.setNombreColumnareporte(columnaBean.getNombreColumnaReporte());
-				columna.setPosicionColumnareporte(columnaBean.getPosicionColumnaReporte());
+				columna.setNombreColumnareporte(columnaBean
+						.getNombreColumnaReporte());
+				columna.setPosicionColumnareporte(columnaBean
+						.getPosicionColumnaReporte());
 
 				if (columna.getPkCodigoColumnareporte() == 0)
 					ColumnaReporteQuerier.save(columna);
@@ -171,7 +185,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 			if (tx != null)
 				tx.rollback();
 
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_CAMPO_OBJETO_INVALIDO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_CAMPO_OBJETO_INVALIDO);
 
 			logger.error(mensajeError, e);
 
@@ -180,13 +195,15 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 			if (tx != null)
 				tx.rollback();
 
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_DUPLICADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_DUPLICADO);
 
 			logger.error(mensajeError, e);
 
 			throw new LogicaException(mensajeError, e);
 		} catch (ElementoEliminadoException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ELIMINADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ELIMINADO);
 
 			if (tx != null)
 				tx.rollback();
@@ -195,7 +212,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 
 			throw new LogicaException(mensajeError, e);
 		} catch (ElementoNoEncontradoException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ENCONTRADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ENCONTRADO);
 
 			logger.error(mensajeError, e);
 
@@ -213,7 +231,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 	 * @param tx
 	 * @throws LogicaException
 	 */
-	public void eliminarColumnasReporte(Set<Columnareporte> columnas, Transaction tx) throws LogicaException {
+	public void eliminarColumnasReporte(Set<Columnareporte> columnas,
+			Transaction tx) throws LogicaException {
 		String mensajeError = "";
 
 		try {
@@ -229,7 +248,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 			if (tx != null)
 				tx.rollback();
 
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_CAMPO_OBJETO_INVALIDO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_CAMPO_OBJETO_INVALIDO);
 
 			logger.error(mensajeError, e);
 
@@ -238,13 +258,15 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 			if (tx != null)
 				tx.rollback();
 
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_DUPLICADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_DUPLICADO);
 
 			logger.error(mensajeError, e);
 
 			throw new LogicaException(mensajeError, e);
 		} catch (ElementoEliminadoException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ELIMINADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ELIMINADO);
 
 			logger.error(mensajeError, e);
 
@@ -253,7 +275,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 
 			throw new LogicaException(mensajeError, e);
 		} catch (ElementoNoEncontradoException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ENCONTRADO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(MAESTROS_REGISTRO_NO_ENCONTRADO);
 
 			logger.error(mensajeError, e);
 
@@ -272,8 +295,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 	 * @throws LogicaException
 	 * @return
 	 */
-	public List<ColumnaReporteBean> obtenerColumnasPorPlantillaYEstado(Long codigoPlantilla, String estado)
-			throws LogicaException {
+	public List<ColumnaReporteBean> obtenerColumnasPorPlantillaYEstado(
+			Long codigoPlantilla, String estado) throws LogicaException {
 
 		String mensajeError = "";
 
@@ -282,31 +305,37 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 		try {
 			session = PersistenciaFactory.currentSession();
 		} catch (SessionException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_USO_SESION_INAPROPIADA);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_USO_SESION_INAPROPIADA);
 			logger.error(mensajeError, e);
 			throw new SesionVencidaException(mensajeError, e);
 		} catch (TransactionException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_TRANSACCION_FALLO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_TRANSACCION_FALLO);
 			logger.error(mensajeError, e);
 			throw new EntornoEjecucionException(mensajeError, e);
 		} catch (JDBCConnectionException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_COMUNICACION_FALLO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_COMUNICACION_FALLO);
 			logger.error(mensajeError, e);
 			throw new EntornoEjecucionException(mensajeError, e);
 		}
 
 		try {
 
-			List<Columnareporte> columnas = ColumnaReporteQuerier.obtenerColumnasPorPlantillaYEstado(codigoPlantilla, estado);
+			List<Columnareporte> columnas = ColumnaReporteQuerier
+					.obtenerColumnasPorPlantillaYEstado(codigoPlantilla, estado);
 			List<ColumnaReporteBean> columnasBean = new ArrayList<ColumnaReporteBean>();
 
 			for (int i = 0; i < columnas.size(); i++) {
 
-				columnasBean.add(beanFactory.transformarColumnaPlantillaReporte(columnas.get(i)));
+				columnasBean.add(beanFactory
+						.transformarColumnaPlantillaReporte(columnas.get(i)));
 			}
 			return columnasBean;
 		} catch (Exception e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_CONSULTA_LISTA);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_CONSULTA_LISTA);
 			logger.error(mensajeError, e);
 			throw new LogicaException(mensajeError, e);
 		} finally {
@@ -323,7 +352,8 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 	 * @param codigo
 	 * @return
 	 */
-	private Estadocolumnareporte obtenerEstadoColumna(List<Estadocolumnareporte> estadosColumna, Long codigo) {
+	private Estadocolumnareporte obtenerEstadoColumna(
+			List<Estadocolumnareporte> estadosColumna, Long codigo) {
 		Estadocolumnareporte columna = null;
 
 		for (int i = 0; i < estadosColumna.size(); i++) {
@@ -338,28 +368,43 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see pe.com.pacasmayo.sgcp.logica.facade.ColumnaReporteLogicFacade#
 	 * obtenerColumnasDO(java.lang.Long, java.lang.Long, java.lang.String,
 	 * java.lang.String, java.lang.String)
 	 */
-	private List<Columnareporte> obtenerColumnasDO(Long codigoPuestoTrabajo, Long codigoProceso, String estadoColumna,
-			String estadoPlantilla) throws LogicaException {
+	private List<Columnareporte> obtenerColumnasDO(Long codigoPuestoTrabajo,
+			Long codigoProceso, String estadoColumna, String estadoPlantilla)
+			throws LogicaException {
 		List<Columnareporte> lista = null;
 		try {
 
-			lista = ColumnaReporteQuerier.obtenerColumnas(codigoPuestoTrabajo, codigoProceso, estadoColumna, estadoPlantilla);
+			lista = ColumnaReporteQuerier.obtenerColumnas(codigoPuestoTrabajo,
+					codigoProceso, estadoColumna, estadoPlantilla);
 			return lista;
 
 		} catch (AplicacionException e) {
 			logger.error(e.getMensaje());
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_CONSULTA_LISTA)
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_CONSULTA_LISTA)
 					+ Columnareporte.class.getName().toString();
 			throw new LogicaException(mensajeError, e);
 		}
 	}
 
-	public List<ColumnareporteDTO> obtenerColumnasDTO(Long codigoPuestoTrabajo, Long codigoProceso, String estadoColumna,
-			String estadoPlantilla) throws LogicaException {
+	public static void main(String[] args) {
+		ColumnaReporteLogic r = new ColumnaReporteLogic();
+		try {
+			r.obtenerColumnasDTO(96L, 39L, "Activo", "Activo");
+		} catch (LogicaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public List<ColumnareporteDTO> obtenerColumnasDTO(Long codigoPuestoTrabajo,
+			Long codigoProceso, String estadoColumna, String estadoPlantilla)
+			throws LogicaException {
 
 		String mensajeError = "";
 
@@ -368,15 +413,18 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 		try {
 			session = PersistenciaFactory.currentSession();
 		} catch (SessionException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_USO_SESION_INAPROPIADA);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_USO_SESION_INAPROPIADA);
 			logger.error(mensajeError, e);
 			throw new SesionVencidaException(mensajeError, e);
 		} catch (TransactionException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_TRANSACCION_FALLO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_TRANSACCION_FALLO);
 			logger.error(mensajeError, e);
 			throw new EntornoEjecucionException(mensajeError, e);
 		} catch (JDBCConnectionException e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_COMUNICACION_FALLO);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_COMUNICACION_FALLO);
 			logger.error(mensajeError, e);
 			throw new EntornoEjecucionException(mensajeError, e);
 		}
@@ -384,25 +432,32 @@ public class ColumnaReporteLogic implements ConstantesMensajeAplicacion, Constan
 		try {
 
 			List<ColumnareporteDTO> columnasDTO = new ArrayList<ColumnareporteDTO>();
-			List<Columnareporte> columnasDO = obtenerColumnasDO(codigoPuestoTrabajo, codigoProceso, estadoColumna,
+			List<Columnareporte> columnasDO = obtenerColumnasDO(
+					codigoPuestoTrabajo, codigoProceso, estadoColumna,
 					estadoPlantilla);
 
 			for (Columnareporte columnareporte : columnasDO) {
 				ColumnareporteDTO columnaDTO = new ColumnareporteDTO();
 
-				columnaDTO.setPkCodigoColumnareporte(columnareporte.getPkCodigoColumnareporte());
-				columnaDTO.setPkCodigoEstadocolumnareporte(columnareporte.getEstadocolumnareporte()
+				columnaDTO.setPkCodigoColumnareporte(columnareporte
+						.getPkCodigoColumnareporte());
+				columnaDTO.setPkCodigoEstadocolumnareporte(columnareporte
+						.getEstadocolumnareporte()
 						.getPkCodigoEstadocolumnareporte());
-				columnaDTO.setPkCodigoPlantillareporte(columnareporte.getPlantillareporte().getPkCodigoPlantillareporte());
-				columnaDTO.setNombreColumnareporte(columnareporte.getNombreColumnareporte());
-				columnaDTO.setPosicionColumnareporte(columnareporte.getPosicionColumnareporte());
+				columnaDTO.setPkCodigoPlantillareporte(columnareporte
+						.getPlantillareporte().getPkCodigoPlantillareporte());
+				columnaDTO.setNombreColumnareporte(columnareporte
+						.getNombreColumnareporte());
+				columnaDTO.setPosicionColumnareporte(columnareporte
+						.getPosicionColumnareporte());
 
 				columnasDTO.add(columnaDTO);
 			}
 
 			return columnasDTO;
 		} catch (Exception e) {
-			mensajeError = ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_CONSULTA_LISTA);
+			mensajeError = ManejadorPropiedades
+					.obtenerPropiedadPorClave(ERROR_CONSULTA_LISTA);
 			logger.error(mensajeError, e);
 			throw new LogicaException(mensajeError, e);
 		} finally {

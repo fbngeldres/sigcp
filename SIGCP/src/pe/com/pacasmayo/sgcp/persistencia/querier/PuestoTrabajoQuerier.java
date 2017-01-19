@@ -27,6 +27,7 @@ import pe.com.pacasmayo.sgcp.excepciones.ElementoNoEncontradoException;
 import pe.com.pacasmayo.sgcp.excepciones.EntornoEjecucionException;
 import pe.com.pacasmayo.sgcp.excepciones.ParametroInvalidoException;
 import pe.com.pacasmayo.sgcp.excepciones.SesionVencidaException;
+import pe.com.pacasmayo.sgcp.persistencia.dataObjects.Producto;
 import pe.com.pacasmayo.sgcp.persistencia.dataObjects.Puestotrabajo;
 import pe.com.pacasmayo.sgcp.persistencia.excepciones.ConstrainViolationException;
 import pe.com.pacasmayo.sgcp.presentacion.action.ConstantesMensajeAplicacion;
@@ -277,7 +278,44 @@ public class PuestoTrabajoQuerier extends Querier implements ConstantesMensajeAp
 		}
 	}
 
-	
+	/**
+	 * Método para obtener los Puestos de Trabajo de la BD por codigo de
+	 * producto.
+	 * 
+	 * @param codUnidadMedida
+	 * @return
+	 * @throws AplicacionException
+	 */
+	public static List<Puestotrabajo> findByCodigoProductoOrderByNombre(Long codigoProducto) throws AplicacionException,
+			EntornoEjecucionException {
+
+		try {
+
+			Producto producto = ProductoQuerier.getById(codigoProducto);
+			Long codUnidadMedida = producto.getUnidadmedida().getPkCodigoUnidadMedida();
+
+			String queryString = "from Puestotrabajo as p where p.unidadmedida.pkCodigoUnidadMedida= ?"
+					+ " order by p.nombrePuestotrabajo asc";
+
+			Query query = Querier.query(queryString);
+			query.setLong(0, codUnidadMedida);
+
+			return (List<Puestotrabajo>) query.list();
+		} catch (ObjectNotFoundException oNFException) {
+			loggerQ.error(oNFException);
+			throw new AplicacionException(ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_OBJETO_NO_ENCONTRADO),
+					oNFException.getCause());
+		} catch (org.hibernate.UnresolvableObjectException uOException) {
+			loggerQ.error(uOException);
+			throw new AplicacionException(ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_OBJETO_NO_VALIDO),
+					uOException.getCause());
+		} catch (HibernateException hException) {
+			loggerQ.error(hException);
+			throw new AplicacionException(ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_HIBERNATE), hException.getCause());
+		} catch (RuntimeException rException) {
+			throw new EntornoEjecucionException(ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_FATAL_FALLO), rException);
+		}
+	}
 
 	/***************************************************************************
 	 * METODOS DEL CRUD
@@ -460,6 +498,11 @@ public class PuestoTrabajoQuerier extends Querier implements ConstantesMensajeAp
 			throw new AplicacionException(ManejadorPropiedades.obtenerPropiedadPorClave(ERROR_HIBERNATE), hException.getCause());
 		}
 	}
+	
+	public static void main(String[] args) throws AplicacionException {
+		List<Puestotrabajo> lst = 	PuestoTrabajoQuerier.obtenerPuestosTrabajoPorCodigoProceso(39L);
+		System.out.println("-->"+lst);
+	}
 
 	/**
 	 * @param codigoProceso
@@ -469,12 +512,8 @@ public class PuestoTrabajoQuerier extends Querier implements ConstantesMensajeAp
 	public static List<Puestotrabajo> obtenerPuestosTrabajoPorCodigoProceso(Long codigoProceso) throws AplicacionException {
 
 		List<Puestotrabajo> puestosTrabajo = new ArrayList<Puestotrabajo>();
-		String consulta = "select distinct puestotrabajo "
-				+ "from Puestotrabajo puestotrabajo,Tasarealproduccion tasarealproduccion,Produccion produccion,Proceso  proceso "
-				+ "where proceso.pkCodigoProceso = produccion.proceso.pkCodigoProceso "
-				+ "and produccion.pkProduccion = tasarealproduccion.produccion.pkProduccion "
-				+ "and tasarealproduccion.puestotrabajo.pkCodigoPuestotrabajo = puestotrabajo.pkCodigoPuestotrabajo "
-				+ "and proceso.pkCodigoProceso  = ?";
+		String consulta = "select distinct ope.puestotrabajo "
+				+ "from Operacion ope WHERE ope.hojaruta.produccion.proceso.pkCodigoProceso  = ?";
 
 		try {
 			Query query = Querier.query(consulta);

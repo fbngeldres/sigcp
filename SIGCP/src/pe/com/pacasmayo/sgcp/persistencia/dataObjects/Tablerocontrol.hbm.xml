@@ -5,12 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tablerocontrol"
 		table="tablerocontrol" schema="public">
-		<comment>Entidad que representa la información de los tableros de
-			control que son definidos por unidad, los tableros de control agrupan
-			los puestos de trabajo a los que
-			tendrán acceso un operador en el
-			sistema, según la unidad a la que pertenece
-			el operador.</comment>
+		
 		<id name="pkCodigoTablerocontrol" type="java.lang.Long">
 			<column name="pk_codigo_tablerocontrol" precision="10" scale="0" />
 			<generator class="sequence">
@@ -30,21 +25,6 @@
 		<property name="descripcionTablerocontrol" type="java.lang.String">
 			<column name="descripcion_tablerocontrol" length="100" />
 		</property>
-		<set name="tableropuestotrabajos" inverse="true">
-			<key>
-				<column name="fk_codigo_tablerocontrol" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tableropuestotrabajo" />
-		</set>
-		<set name="notificaciondiarias" inverse="true">
-			<key>
-				<column name="fk_codigo_tablerocontrol" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificaciondiaria" />
-		</set>
+		
 	</class>
 </hibernate-mapping>

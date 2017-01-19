@@ -23,11 +23,7 @@
 			<column name="fk_codigo_tipoobjetocostos" precision="10"
 				scale="0" not-null="true" />
 		</many-to-one>
-		<many-to-one name="area"
-			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Area" fetch="select">
-			<column name="fk_codigo_area" precision="10" scale="0"
-				not-null="false" />
-		</many-to-one>
+	
 		<property name="descripcionObjetocosto" type="java.lang.String">
 			<column name="descripcion_objetocosto" length="40" not-null="true" />
 		</property>
@@ -52,36 +48,9 @@
 			<column name="flagparticionado_objetocosto" not-null="false" />
 
 		</property>
-		<set name="emisors" inverse="true">
-			<key>
-				<column name="fk_codigo_objetocostos" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Emisor" />
-		</set>
-		<set name="configuracionreceptors" inverse="true">
-			<key>
-				<column name="fk_codigo_objetocostos" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Configuracionreceptor" />
-		</set>
-		<set name="configuracionemisors" inverse="true">
-			<key>
-				<column name="fk_codigo_objetocostos" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Configuracionemisor" />
-		</set>
-		<set name="receptors" inverse="true">
-			<key>
-				<column name="fk_codigo_objetocostos" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Receptor" />
-		</set>
+		
+		
+		
+		
 	</class>
 </hibernate-mapping>

@@ -5,11 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Periodocontable"
 		table="periodocontable" schema="public">
-		<comment>Entidad que representa período contable al que corresponde la
-			información de la tabla distribuible. Se especifica con un año, un
-			mes y un indicador para alertar
-			si se trata de un periodo contable
-			cerrado</comment>
+		
 		<id name="pkCodigoPeridocontable" type="java.lang.Long">
 			<column name="pk_codigo_peridocontable" precision="10" scale="0" />
 			<generator class="sequence">
@@ -25,14 +21,7 @@
 		<property name="cerradoPeridocontable" type="java.lang.Boolean">
 			<column name="cerrado_peridocontable" not-null="true" />
 		</property>
-		<set name="tabladistribuibles" inverse="true">
-			<key>
-				<column name="fk_codigo_peridocontable" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tabladistribuible" />
-		</set>
+	
 		<set name="documentomaterials" inverse="true">
 			<key>
 				<column name="fk_codigo_peridocontable" precision="10" scale="0"

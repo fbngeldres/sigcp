@@ -5,33 +5,31 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Puestotrabajo"
 		table="puestotrabajo" schema="public">
-		<comment>Entida que representa un lugar donde se desarrollan los
-			procesos de producción de la línea de negocio asociada. Todo puesto
-			de trabajo pertenece a un centro de
-			costo y ejecuta un conjunto de
-			actividades. Los puestos de trabajo se
-			caracterizan a través de tipos
-			(equipo, hombre) de puesto de trabajo
-			y estados (activo e inactivo) de
-			los puestos de trabajo. Para cada puesto de trabajo de la línea de la
-			línea de negocio se definen los estimados de HM (horas maquina) o HH
-			(horas hombre) medido en horas,
-			requeridos en la elaboración de cada
-			producto, así como la capacidad de
-			producción de cada uno. A través de
-			éste concepto se pueden
-			representar los siguientes puestos de
-			trabajo
-			reales por ejemplo: máquinas, grupos de máquinas, líneas de
-			producción, puestos de trabajo de montaje, empleados, grupos de
-			personal.</comment>
+		
 		<id name="pkCodigoPuestotrabajo" type="java.lang.Long">
 			<column name="pk_codigo_puestotrabajo" precision="10" scale="0" />
 			<generator class="sequence">
 				<param name="sequence">puestotrabajo_seq</param>
 			</generator>
 		</id>
-		
+		<many-to-one name="unidadmedida"
+			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Unidadmedida"
+			fetch="select">
+			<column name="fk_codigo_unidad_medida" precision="10" scale="0"
+				not-null="true" />
+		</many-to-one>
+		<many-to-one name="estadopuestotrabajo"
+			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Estadopuestotrabajo"
+			fetch="select">
+			<column name="fk_codigo_estadopuestotrabajo" precision="10"
+				scale="0" not-null="true" />
+		</many-to-one>
+		<many-to-one name="tipopuestotrabajo"
+			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tipopuestotrabajo"
+			fetch="select">
+			<column name="fk_codigo_tipopuestotrabajo" precision="10"
+				scale="0" not-null="true" />
+		</many-to-one>
 		<property name="nombrePuestotrabajo" type="java.lang.String">
 			<column name="nombre_puestotrabajo" length="100" not-null="true" />
 		</property>
@@ -47,6 +45,119 @@
 		<property name="codSccPuestotrabajo" type="java.lang.Long">
 			<column name="cod_scc_puestotrabajo" precision="10" scale="0" />
 		</property>
-
+	
+		<set name="medioalmacenamientos" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Medioalmacenamiento" />
+		</set>
+		<set name="notificacionoperacions" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0"
+					not-null="true">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificacionoperacion" />
+		</set>
+		<set name="puestotrabajoproduccions" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Puestotrabajoproduccion" />
+		</set>
+		
+		<set name="tableropuestotrabajos" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0"
+					not-null="true">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tableropuestotrabajo" />
+		</set>
+		<set name="produccionpuestotrabajos" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0"
+					not-null="true">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Produccionpuestotrabajo" />
+		</set>
+		<set name="consumocapacidadmanuals" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0"
+					not-null="true">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Consumocapacidadmanual" />
+		</set>
+		<set name="plancapacidads" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Plancapacidad" />
+		</set>
+		
+	
+		<set name="notificacionproduccions" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0"
+					not-null="true">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificacionproduccion" />
+		</set>
+		<set name="operacions" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0"
+					not-null="true">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Operacion" />
+		</set>
+	
+		<set name="plantillareportes" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0"
+					not-null="true">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Plantillareporte" />
+		</set>
+	
+		<set name="tasarealproduccions" inverse="true">
+			<key>
+				<column name="fk_codigo_puestotrabajo" precision="10" scale="0"
+					not-null="true">
+					<comment>codigo del equipo</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tasarealproduccion" />
+		</set>
+		
 	</class>
 </hibernate-mapping>

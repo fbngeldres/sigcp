@@ -18,7 +18,6 @@ public class Cargo implements java.io.Serializable {
 	private String nombreCargo;
 	private Set unidadcargos = new HashSet(0);
 	private Set sociedadcargos = new HashSet(0);
-	private Set areacargos = new HashSet(0);
 	private Set personas = new HashSet(0);
 	private Set divisioncargos = new HashSet(0);
 
@@ -35,13 +34,13 @@ public class Cargo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Cargo(Nivelcargo nivelcargo, String nombreCargo, Set unidadcargos, Set sociedadcargos, Set areacargos, Set personas,
+	public Cargo(Nivelcargo nivelcargo, String nombreCargo, Set unidadcargos, Set sociedadcargos, Set personas,
 			Set divisioncargos) {
 		this.nivelcargo = nivelcargo;
 		this.nombreCargo = nombreCargo;
 		this.unidadcargos = unidadcargos;
 		this.sociedadcargos = sociedadcargos;
-		this.areacargos = areacargos;
+		
 		this.personas = personas;
 		this.divisioncargos = divisioncargos;
 	}
@@ -88,13 +87,6 @@ public class Cargo implements java.io.Serializable {
 		this.sociedadcargos = sociedadcargos;
 	}
 
-	public Set getAreacargos() {
-		return this.areacargos;
-	}
-
-	public void setAreacargos(Set areacargos) {
-		this.areacargos = areacargos;
-	}
 
 	public Set getPersonas() {
 		return this.personas;

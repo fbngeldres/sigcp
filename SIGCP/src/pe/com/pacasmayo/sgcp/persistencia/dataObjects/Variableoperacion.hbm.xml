@@ -6,13 +6,7 @@
 	<class
 		name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Variableoperacion"
 		table="variableoperacion" schema="public">
-		<comment>Entidad que representa la información relacionada con las
-			variables de operación, las cuales indica el rendimiento y
-			comportamiento operativo de un puesto de
-			trabajo.Las variables de
-			operación no están asociadas a la producción solo
-			identifican el
-			comportamiento del puesto de trabajo.</comment>
+	
 		<id name="pkCodigoVariableoperacion" type="java.lang.Long">
 			<column name="pk_codigo_variableoperacion" precision="10"
 				scale="0" />
@@ -43,21 +37,7 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Columnaplantillaproducto" />
 		</set>
-		<set name="variablevalornotificacions" inverse="true">
-			<key>
-				<column name="fk_codigo_variableoperacion" precision="10"
-					scale="0" not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Variablevalornotificacion" />
-		</set>
-		<set name="equipovariableoperacions" inverse="true">
-			<key>
-				<column name="fk_codigo_variableoperacion" precision="10"
-					scale="0" not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Equipovariableoperacion" />
-		</set>
+	
+	
 	</class>
 </hibernate-mapping>

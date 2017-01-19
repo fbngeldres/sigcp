@@ -5,11 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Cargo"
 		table="cargo" schema="public">
-		<comment>Entidad que corresponde al módulo de seguridad, contiene
-			información que representa el Cargo que ocupa una persona dentro de
-			Cementos Pacasmayo. Los cargos se
-			asocian a una unidad de negocio que
-			pertenece a una empresa</comment>
+		
 		<id name="pkCodigoCargo" type="java.lang.Long">
 			<column name="pk_codigo_cargo" precision="10" scale="0" />
 			<generator class="sequence">
@@ -41,14 +37,7 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Sociedadcargo" />
 		</set>
-		<set name="areacargos" inverse="true">
-			<key>
-				<column name="fk_codigo_cargo" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Areacargo" />
-		</set>
+		
 		<set name="personas" inverse="true">
 			<key>
 				<column name="fk_codigo_cargo" precision="10" scale="0"

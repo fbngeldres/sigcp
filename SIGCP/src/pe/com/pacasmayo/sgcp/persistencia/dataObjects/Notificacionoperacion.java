@@ -20,7 +20,7 @@ public class Notificacionoperacion implements java.io.Serializable {
 	private Puestotrabajo puestotrabajo;
 	private Notificaciondiaria notificaciondiaria;
 	private Date fechaNotificacionoperacion;
-	private Set variablevalornotificacions = new HashSet(0);
+
 
 	// Constructors
 
@@ -38,16 +38,7 @@ public class Notificacionoperacion implements java.io.Serializable {
 		this.fechaNotificacionoperacion = fechaNotificacionoperacion;
 	}
 
-	/** full constructor */
-	public Notificacionoperacion(Hora hora, Registroreporteecs registroreporteecs, Puestotrabajo puestotrabajo,
-			Notificaciondiaria notificaciondiaria, Date fechaNotificacionoperacion, Set variablevalornotificacions) {
-		this.hora = hora;
-		this.registroreporteecs = registroreporteecs;
-		this.puestotrabajo = puestotrabajo;
-		this.notificaciondiaria = notificaciondiaria;
-		this.fechaNotificacionoperacion = fechaNotificacionoperacion;
-		this.variablevalornotificacions = variablevalornotificacions;
-	}
+
 
 	// Property accessors
 
@@ -99,12 +90,6 @@ public class Notificacionoperacion implements java.io.Serializable {
 		this.fechaNotificacionoperacion = fechaNotificacionoperacion;
 	}
 
-	public Set getVariablevalornotificacions() {
-		return this.variablevalornotificacions;
-	}
-
-	public void setVariablevalornotificacions(Set variablevalornotificacions) {
-		this.variablevalornotificacions = variablevalornotificacions;
-	}
+	
 
 }

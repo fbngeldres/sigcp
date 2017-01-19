@@ -18,8 +18,6 @@ public class Variableoperacion implements java.io.Serializable {
 	private Tipovariableoperacion tipovariableoperacion;
 	private String nombreVariableoperacion;
 	private Set columnaplantillaproductos = new HashSet(0);
-	private Set variablevalornotificacions = new HashSet(0);
-	private Set equipovariableoperacions = new HashSet(0);
 
 	// Constructors
 
@@ -37,14 +35,13 @@ public class Variableoperacion implements java.io.Serializable {
 
 	/** full constructor */
 	public Variableoperacion(Unidadmedida unidadmedida, Tipovariableoperacion tipovariableoperacion,
-			String nombreVariableoperacion, Set columnaplantillaproductos, Set variablevalornotificacions,
-			Set equipovariableoperacions) {
+			String nombreVariableoperacion, Set columnaplantillaproductos
+		) {
 		this.unidadmedida = unidadmedida;
 		this.tipovariableoperacion = tipovariableoperacion;
 		this.nombreVariableoperacion = nombreVariableoperacion;
 		this.columnaplantillaproductos = columnaplantillaproductos;
-		this.variablevalornotificacions = variablevalornotificacions;
-		this.equipovariableoperacions = equipovariableoperacions;
+		
 	}
 
 	// Property accessors
@@ -89,20 +86,6 @@ public class Variableoperacion implements java.io.Serializable {
 		this.columnaplantillaproductos = columnaplantillaproductos;
 	}
 
-	public Set getVariablevalornotificacions() {
-		return this.variablevalornotificacions;
-	}
-
-	public void setVariablevalornotificacions(Set variablevalornotificacions) {
-		this.variablevalornotificacions = variablevalornotificacions;
-	}
-
-	public Set getEquipovariableoperacions() {
-		return this.equipovariableoperacions;
-	}
-
-	public void setEquipovariableoperacions(Set equipovariableoperacions) {
-		this.equipovariableoperacions = equipovariableoperacions;
-	}
+	
 
 }

@@ -5,8 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Produccion"
 		table="produccion" schema="public">
-		<comment>Entidad que representa la relación producto proceso. Permite
-			conocer los productos que se encuentran asociados a un proceso.</comment>
+	
 		<id name="pkProduccion" type="java.lang.Long">
 			<column name="pk_produccion" precision="10" scale="0" />
 			<generator class="sequence">
@@ -99,13 +98,6 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Cubicacionproducto" />
 		</set>
-		<set name="plantillastablavalors" inverse="true">
-			<key>
-				<column name="fk_codigo_produccion" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Plantillatablavalor" />
-		</set>
+		
 	</class>
 </hibernate-mapping>

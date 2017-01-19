@@ -354,7 +354,7 @@ public class DialogoCargarOrdenOSilo extends com.smartgwt.client.widgets.Window 
 			}
 
 		};
-		servicioComunicacion.obtenerOrdenProduccionDTO(new Long(codigoOrden), asyncCallback);
+		servicioComunicacion.obtenerOrdenProduccionDTO(Long.valueOf(codigoOrden), asyncCallback);
 	}
 
 	/**

@@ -31,7 +31,7 @@ public class Medioalmacenamiento implements java.io.Serializable {
 	private Set cubicacions = new HashSet(0);
 	private Set medicions = new HashSet(0);
 	private Set movimientos = new HashSet(0);
-	private Set ubicacionespecificas = new HashSet(0);
+	
 	private Set kardexmedioalmacenamientos = new HashSet(0);
 
 	// Constructors
@@ -51,8 +51,7 @@ public class Medioalmacenamiento implements java.io.Serializable {
 			Produccion produccion, String nombreMedioalmacenamiento, Short numeroMedioalmacenamiento,
 			Double capacidadMaximaMedioalmacenam, Double capacidadMinimaMedioalmacenam, Double densidadMedioalmacenamiento,
 			Long numeroAlturasMedioalmacenamie, Double alturaEspecificaMedioalmacena, Double factorMetrosCubicosMedioalma,
-			Double stockSeguridadMedioalmacenami, Set notificacionproduccions, Set cubicacions, Set medicions, Set movimientos,
-			Set ubicacionespecificas) {
+			Double stockSeguridadMedioalmacenami, Set notificacionproduccions, Set cubicacions, Set medicions, Set movimientos) {
 		this.ubicacion = ubicacion;
 		this.tipomedioalmacenamiento = tipomedioalmacenamiento;
 		this.puestotrabajo = puestotrabajo;
@@ -70,7 +69,7 @@ public class Medioalmacenamiento implements java.io.Serializable {
 		this.cubicacions = cubicacions;
 		this.medicions = medicions;
 		this.movimientos = movimientos;
-		this.ubicacionespecificas = ubicacionespecificas;
+		
 	}
 
 	// Property accessors
@@ -219,13 +218,6 @@ public class Medioalmacenamiento implements java.io.Serializable {
 		this.movimientos = movimientos;
 	}
 
-	public Set getUbicacionespecificas() {
-		return this.ubicacionespecificas;
-	}
-
-	public void setUbicacionespecificas(Set ubicacionespecificas) {
-		this.ubicacionespecificas = ubicacionespecificas;
-	}
 
 	public Set getKardexmedioalmacenamientos() {
 		return kardexmedioalmacenamientos;

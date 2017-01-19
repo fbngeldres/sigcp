@@ -5,34 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Hojaruta"
 		table="hojaruta" schema="public">
-		<comment>Esta entidad representa la hoja de ruta de un producto,
-			contiene todos los datos relevantes para la fabricación de un
-			producto. Una hoja de ruta contiene tanto la
-			información sobre las
-			operaciones (pasos de un proceso) y el orden en que tienen
-			que
-			llevarse a cabo para la fabricación de un producto, como la
-			información detallada
-			sobre los puestos de trabajo en los cuales se
-			ejecutan. Una hoja de ruta
-			tiene operaciones que establece la cantidad
-			de fabricación y una
-			duración fija. De esta manera,
-			también se define
-			la tasa de producción. La hoja de ruta, requiere de una
-			lista de
-			componentes para la fabricación de un producto, luego se
-			asignan las
-			operaciones de los
-			equipos de trabajo. Una hoja de ruta y sus objetos
-			contienen toda la
-			información necesaria para describir un
-			procedimiento de fabricación.
-			Los objetos más importantes de
-			la hoja de
-			ruta son las operaciones, los componentes de materiales, los
-			medios de
-			fabricación.</comment>
+		
 		<id name="pkCodigoHojaruta" type="java.lang.Long">
 			<column name="pk_codigo_hojaruta" precision="10" scale="0" />
 			<generator class="sequence">
@@ -69,15 +42,8 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Operacion" />
 		</set>
-		<set name="registrovalors" inverse="true">
-			<key>
-				<column name="fk_codigo_hojaruta" precision="10" scale="0" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Registrovalor" />
-		</set>
-		<set name="hojarutacomponentes" inverse="true" cascade="save-update"
-			sort="pe.com.pacasmayo.sgcp.persistencia.comparator.HojaRutaComponenteComparator">
+		
+		<set name="hojarutacomponentes" inverse="true" cascade="save-update">
 			<key>
 				<column name="fk_codigo_hojaruta" precision="10" scale="0"
 					not-null="true" />

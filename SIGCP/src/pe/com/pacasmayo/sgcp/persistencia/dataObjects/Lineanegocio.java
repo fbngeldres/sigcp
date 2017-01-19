@@ -19,8 +19,7 @@ public class Lineanegocio implements java.io.Serializable {
 	private String descripcionLineanegocio;
 	private String codigoSapLineanegocio;
 
-	private Set notificaciondiarias = new HashSet(0);
-	private Set procesos = new HashSet(0);
+	
 
 	public Lineanegocio() {
 		// TODO Auto-generated constructor stub
@@ -66,33 +65,18 @@ public class Lineanegocio implements java.io.Serializable {
 		this.codigoSapLineanegocio = codigoSapLineanegocio;
 	}
 
-	public Set getNotificaciondiarias() {
-		return notificaciondiarias;
-	}
-
-	public void setNotificaciondiarias(Set notificaciondiarias) {
-		this.notificaciondiarias = notificaciondiarias;
-	}
-
-	public Set getProcesos() {
-		return procesos;
-	}
-
-	public void setProcesos(Set procesos) {
-		this.procesos = procesos;
-	}
+	
 
 	public Lineanegocio(Long pkCodigoLineanegocio, Unidad unidad,
 			String nombreLineanegocio, String descripcionLineanegocio,
-			String codigoSapLineanegocio, Set notificaciondiarias, Set procesos) {
+			String codigoSapLineanegocio) {
 		super();
 		this.pkCodigoLineanegocio = pkCodigoLineanegocio;
 		this.unidad = unidad;
 		this.nombreLineanegocio = nombreLineanegocio;
 		this.descripcionLineanegocio = descripcionLineanegocio;
 		this.codigoSapLineanegocio = codigoSapLineanegocio;
-		this.notificaciondiarias = notificaciondiarias;
-		this.procesos = procesos;
+	
 	}
 
 }

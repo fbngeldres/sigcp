@@ -6,13 +6,7 @@
 	<class
 		name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Estadonotificacion"
 		table="estadonotificacion" schema="public">
-		<comment>Entidad que corresponde al módulo de datos maestros, contiene
-			información correspondiente al estado de la notificación. El estado
-			de una notificación se
-			especifica con el registro de nombre y un
-			código de identificación. Los
-			posibles estados identificados son:
-			Generada / Notificada / Aprobada.</comment>
+		
 		<id name="pkCodigoEstadonotificacion" type="java.lang.Long">
 			<column name="pk_codigo_estadonotificacion" precision="10"
 				scale="0" />
@@ -24,13 +18,6 @@
 			<column name="nombre_estadonotificacion" length="50" not-null="true"
 				unique="true" />
 		</property>
-		<set name="notificaciondiarias" inverse="true">
-			<key>
-				<column name="fk_codigo_estadonotificacion" precision="10"
-					scale="0" not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificaciondiaria" />
-		</set>
+	
 	</class>
 </hibernate-mapping>

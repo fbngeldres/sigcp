@@ -13,14 +13,20 @@ package pe.com.pacasmayo.sgcp.presentacion.action;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import pe.com.pacasmayo.sgcp.bean.CargoBean;
+import pe.com.pacasmayo.sgcp.bean.GrupoUsuarioBean;
 import pe.com.pacasmayo.sgcp.bean.UsuarioBean;
 import pe.com.pacasmayo.sgcp.bean.impl.UsuarioBeanImpl;
+import pe.com.pacasmayo.sgcp.logica.seguridad.MenuLogic;
+import pe.com.pacasmayo.sgcp.logica.seguridad.MenuLogic.OPCIONES;
 import pe.com.pacasmayo.sgcp.util.ManejadorPropiedades;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -79,7 +85,61 @@ public abstract class AplicacionAction extends ActionSupport implements
 	// }
 	//
 	protected void asignaPrivilegios() {
+		usuario = getUsuarioSession();
+		asignarPrivilegios(this.getClass().getName(), usuario.getLogin());
 
+	}
+	
+
+	private Map<String, List<OPCIONES>> getUsuarioMapaOpciones(String login) {
+		HttpSession sesion = ServletActionContext.getRequest().getSession();
+		return (Map<String, List<OPCIONES>>) sesion.getAttribute(MenuLogic.MAPA_OPCIONES + login);
+	}
+	private void asignarPrivilegios(String accion, String login) {
+
+		Map<String, List<OPCIONES>> mapaDeOpciones = getUsuarioMapaOpciones(login);
+
+	
+		if (mapaDeOpciones.containsKey(accion)) {
+			List<OPCIONES> opciones = mapaDeOpciones.get(accion);
+
+			setFunConsultarActivo(opciones.contains(OPCIONES.CONSULTAR));
+			setFunModificarActivo(opciones.contains(OPCIONES.MODIFICAR));
+			setFunEliminarActivo(opciones.contains(OPCIONES.ELIMINAR));
+			setFunVersionarActivo(opciones.contains(OPCIONES.VERSIONAR));
+			setFunAprobarActivo(opciones.contains(OPCIONES.APROBAR));
+			setFunCopiarActivo(opciones.contains(OPCIONES.COPIAR));
+			setFunRevertirActivo(opciones.contains(OPCIONES.REVERTIR));
+			setFunNuevoActivo(opciones.contains(OPCIONES.NUEVO));
+			setFunGestionarActivo(opciones.contains(OPCIONES.GESTIONAR));
+			setFunCerrarActivo(opciones.contains(OPCIONES.CERRAR));
+			setFunLiberarActivo(opciones.contains(OPCIONES.LIBERAR));
+			setFunExportarActivo(opciones.contains(OPCIONES.EXPORTAR));
+			setFunActivarActivo(opciones.contains(OPCIONES.ACTIVAR));
+			setFunInactivarActivo(opciones.contains(OPCIONES.INACTIVAR));
+			setFunVerActivo(opciones.contains(OPCIONES.VER));
+			setFunGenerarActivo(opciones.contains(OPCIONES.GENERAR));
+			setFunCargaAutomaticActivo(opciones.contains(OPCIONES.CARGAAUTOMATICA));
+			setFunImportarActivo(opciones.contains(OPCIONES.IMPORTAR));
+			setFunPreConsolidarActivo(opciones.contains(OPCIONES.PRECONSOLIDAR));
+			setFunGuardarActivo(opciones.contains(OPCIONES.GRABAR));
+			
+
+
+			/*
+			 * setFunConsultarActivo(true); setFunModificarActivo(true);
+			 * setFunEliminarActivo(true); setFunVersionarActivo(true);
+			 * setFunAprobarActivo(true); setFunCopiarActivo(true);
+			 * setFunRevertirActivo(true); setFunNuevoActivo(true);
+			 * setFunGestionarActivo(true); setFunCerrarActivo(true);
+			 * setFunLiberarActivo(true); setFunExportarActivo(true);
+			 * setFunActivarActivo(true); setFunInactivarActivo(true);
+			 * setFunVerActivo(true); setFunGenerarActivo(true);
+			 * setFunCargaAutomaticActivo(true); setFunImportarActivo(true);
+			 * setFunPreConsolidarActivo(true);
+			 */
+
+		}
 	}
 
 	//
@@ -268,6 +328,19 @@ public abstract class AplicacionAction extends ActionSupport implements
 
 			session.remove(EXITO_OPERACION);
 		}
+	}
+	
+	protected boolean esUsuarioAdmin() {
+//		for (Iterator<GrupoUsuarioBean> itorGrupoUsuario = usuario.getGrupoUsuarios().iterator(); itorGrupoUsuario.hasNext();) {
+//			GrupoUsuarioBean grupoUsuario = itorGrupoUsuario.next();
+//			if (grupoUsuario.getNombre().equals(GRUPO_USUARIO_ADMIN))
+//				return true;
+//		}
+		return false;
+	}
+
+	protected CargoBean getUsuarioCargo() {
+		return usuario.getPersona().getCargo();
 	}
 
 	// PUBLIC VOID VALIDARTRANSACCION(STRING TRANSACCION, LONG LINEANEGOCIO)

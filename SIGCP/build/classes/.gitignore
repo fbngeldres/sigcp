@@ -5,6 +5,4 @@
 /hibernate.cfg.xml
 /log4j.properties
 /pe
-/quartz.properties
-/resources.properties
-/struts.xml
+/quartz_jobs.xml

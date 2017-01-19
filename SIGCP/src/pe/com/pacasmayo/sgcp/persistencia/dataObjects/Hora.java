@@ -18,9 +18,9 @@ public class Hora implements java.io.Serializable {
 	private Short horaHora;
 	private Set notificacionoperacions = new HashSet(0);
 	private Set notificacionproduccions = new HashSet(0);
-	private Set horapuntas = new HashSet(0);
+	
 	private Set datoreportes = new HashSet(0);
-	private Set ubicacionespecificahoras = new HashSet(0);
+	
 
 	// Constructors
 
@@ -35,15 +35,15 @@ public class Hora implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Hora(Turno turno, Short horaHora, Set notificacionoperacions, Set notificacionproduccions, Set horapuntas,
-			Set datoreportes, Set ubicacionespecificahoras) {
+	public Hora(Turno turno, Short horaHora, Set notificacionoperacions, Set notificacionproduccions, 
+			Set datoreportes) {
 		this.turno = turno;
 		this.horaHora = horaHora;
 		this.notificacionoperacions = notificacionoperacions;
 		this.notificacionproduccions = notificacionproduccions;
-		this.horapuntas = horapuntas;
+	
 		this.datoreportes = datoreportes;
-		this.ubicacionespecificahoras = ubicacionespecificahoras;
+		
 	}
 
 	// Property accessors
@@ -88,13 +88,7 @@ public class Hora implements java.io.Serializable {
 		this.notificacionproduccions = notificacionproduccions;
 	}
 
-	public Set getHorapuntas() {
-		return this.horapuntas;
-	}
 
-	public void setHorapuntas(Set horapuntas) {
-		this.horapuntas = horapuntas;
-	}
 
 	public Set getDatoreportes() {
 		return this.datoreportes;
@@ -104,12 +98,6 @@ public class Hora implements java.io.Serializable {
 		this.datoreportes = datoreportes;
 	}
 
-	public Set getUbicacionespecificahoras() {
-		return this.ubicacionespecificahoras;
-	}
-
-	public void setUbicacionespecificahoras(Set ubicacionespecificahoras) {
-		this.ubicacionespecificahoras = ubicacionespecificahoras;
-	}
+	
 
 }

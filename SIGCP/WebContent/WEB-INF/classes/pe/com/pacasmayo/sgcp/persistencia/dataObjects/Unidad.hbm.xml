@@ -5,22 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Unidad"
 		table="unidad" schema="public">
-		<comment>Unidad: representa la entidad de negocio en una sociedad. Las
-			unidades a considerar para el proyecto son Planta Pacasmayo y Cantera
-			Tembladera. Las unidades de
-			negocio generan individualmente su
-			planificación anual y la programación de
-			producción semanal. Cada
-			unidad de negocio comercializa a través de
-			una línea de negocio sus
-			productos, pertenece a una Sociedad, se configuran en Areas y definen
-			de uno a
-			tres Turnos. La unidad contempla un código único que la
-			identifica,
-			un nombre, una
-			descripción y un código equivalente en SCC.
-			La Unidad es conocida en SCC como
-			Planta.</comment>
+		
 		<id name="pkCodigoUnidad" type="java.lang.Long">
 			<column name="pk_codigo_unidad" precision="10" scale="0" />
 			<generator class="sequence">
@@ -44,7 +29,6 @@
 		<property name="codigoSapUnidad" type="java.lang.String">
 			<column name="codigo_sap_unidad" length="4" />
 		</property>
-		
 	
 	</class>
 </hibernate-mapping>

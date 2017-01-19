@@ -18,7 +18,7 @@ public interface ConstantesSap {
 	public static final String RFC_CONSUMO = PropiedadesSap.getPropiedad("rfc.consumo");
 	public static final String RFC_DESPACHOS = PropiedadesSap.getPropiedad("rfc.despachos");
 	public static final String RFC_DESPACHOS2 = PropiedadesSap.getPropiedad("rfc.despachos2");
-	public static final String RFC_TABLA_VALOR = PropiedadesSap.getPropiedad("fc.tablavalor");
+
 
 	public static final String MANDANTE = PropiedadesSap.getPropiedad("mandante");
 	public static final String USUARIO = PropiedadesSap.getPropiedad("usuario");

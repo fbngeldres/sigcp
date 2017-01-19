@@ -49,9 +49,7 @@
 								<div id="refrescar"></div>
 							</td>
 
-							<td width="130px">
-								<div id="cambioproduc"></div>
-							</td>
+						
 							<td>
 								<div id="grabar"></div>
 							</td>

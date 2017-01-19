@@ -6,12 +6,7 @@
 	<class
 		name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Registromedicion"
 		table="registromedicion" schema="public">
-		<comment>Entidad que representa la medición diaria que se realiza por
-			tipo de medio de almacenamiento y por procesos para un determinado
-			producto. El registro de medición
-			se especifica por un proceso, un
-			tipo de medio de almacenamiento, año,
-			mes, fecha y un estado.</comment>
+		
 		<id name="pkCodigoRegistromedicion" type="java.lang.Long">
 			<column name="pk_codigo_registromedicion" precision="10"
 				scale="0" />

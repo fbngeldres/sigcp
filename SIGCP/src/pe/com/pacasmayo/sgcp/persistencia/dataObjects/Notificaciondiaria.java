@@ -24,8 +24,8 @@ public class Notificaciondiaria implements java.io.Serializable {
 	private Date fechaNotificaciondiaria;
 	private String observacionNotificaciondiaria;
 	private Date fechaAprobacionNotificaciondi;
-	private Set despachocanteras = new HashSet(0);
-	private Set notificacioncanteras = new HashSet(0);
+
+
 	private Set notificacionproduccions = new HashSet(0);
 	private Set notificacionoperacions = new HashSet(0);
 
@@ -48,7 +48,7 @@ public class Notificaciondiaria implements java.io.Serializable {
 	public Notificaciondiaria(Usuario usuarioByFkCodigoUsuarioRegistra, Lineanegocio lineanegocio,
 			Usuario usuarioByFkCodigoUsuarioAprueba, Tablerocontrol tablerocontrol, Estadonotificacion estadonotificacion,
 			Date fechaNotificaciondiaria, String observacionNotificaciondiaria, Date fechaAprobacionNotificaciondi,
-			Set despachocanteras, Set notificacioncanteras, Set notificacionproduccions, Set notificacionoperacions,
+			Set notificacionproduccions, Set notificacionoperacions,
 			Usuario usuarioByFkCodigoUsuarioCierra) {
 		this.usuarioByFkCodigoUsuarioRegistra = usuarioByFkCodigoUsuarioRegistra;
 		this.lineanegocio = lineanegocio;
@@ -58,8 +58,7 @@ public class Notificaciondiaria implements java.io.Serializable {
 		this.fechaNotificaciondiaria = fechaNotificaciondiaria;
 		this.observacionNotificaciondiaria = observacionNotificaciondiaria;
 		this.fechaAprobacionNotificaciondi = fechaAprobacionNotificaciondi;
-		this.despachocanteras = despachocanteras;
-		this.notificacioncanteras = notificacioncanteras;
+		
 		this.notificacionproduccions = notificacionproduccions;
 		this.notificacionoperacions = notificacionoperacions;
 		this.usuarioByFkCodigoUsuarioCierra = usuarioByFkCodigoUsuarioCierra;
@@ -139,21 +138,7 @@ public class Notificaciondiaria implements java.io.Serializable {
 		this.fechaAprobacionNotificaciondi = fechaAprobacionNotificaciondi;
 	}
 
-	public Set getDespachocanteras() {
-		return this.despachocanteras;
-	}
 
-	public void setDespachocanteras(Set despachocanteras) {
-		this.despachocanteras = despachocanteras;
-	}
-
-	public Set getNotificacioncanteras() {
-		return this.notificacioncanteras;
-	}
-
-	public void setNotificacioncanteras(Set notificacioncanteras) {
-		this.notificacioncanteras = notificacioncanteras;
-	}
 
 	public Set getNotificacionproduccions() {
 		return this.notificacionproduccions;

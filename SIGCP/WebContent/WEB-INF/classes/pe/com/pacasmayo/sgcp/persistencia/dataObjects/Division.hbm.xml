@@ -5,15 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Division"
 		table="division" schema="public">
-		<comment>Representa el rubro de la sociedad (empresa). La división se
-			define a través de un nombre, una descripción y un código univoco que
-			la identifica. En el caso de
-			CPSAA, los rubros a considerar son:
-			cemento y mina, para el caso de SGCP se
-			tomará en cuenta la división:
-			cemento. La división se asocia con una
-			o más
-			sociedades.</comment>
+		
 		<id name="pkCodigoDivision" type="java.lang.Long">
 			<column name="pk_codigo_division" precision="10" scale="0" />
 			<generator class="sequence">
@@ -29,7 +21,6 @@
 		<property name="codigoSapDivision" type="java.lang.String">
 			<column name="codigo_sap_division" length="4" />
 		</property>
-	
 		
 	</class>
 </hibernate-mapping>

@@ -5,6 +5,7 @@ import java.util.List;
 import pe.com.pacasmayo.sgcp.bean.TableroControlBean;
 import pe.com.pacasmayo.sgcp.excepciones.LogicaException;
 import pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tablerocontrol;
+import pe.com.pacasmayo.sgcp.presentacion.gwt.dto.cliente.TableroControlDTO;
 
 /*
  * SGCP (Sistema de Gestión y Control de la Producción) 
@@ -39,5 +40,13 @@ public interface TableroControlLogicFacade {
 	 */
 	public abstract List<Tablerocontrol> obtenerTablerosControlDTOPorUnidad(Long codigoUnidad) throws LogicaException;
 
+	/**
+	 * @param codigoPuestoTrabajo
+	 * @param codigoUnidad
+	 * @return
+	 * @throws LogicaException
+	 */
+	public abstract List<TableroControlDTO> obtenerTablerosControlDTO(Long codigoPuestoTrabajo, Long codigoUnidad)
+			throws LogicaException;
 
 }

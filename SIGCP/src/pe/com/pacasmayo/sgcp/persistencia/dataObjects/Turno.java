@@ -19,7 +19,7 @@ public class Turno implements java.io.Serializable {
 	private Long codigoSccTurno;
 	private Short horaInicioTurno;
 	private Short horaFinTurno;
-	private Set notificacioncanteras = new HashSet(0);
+	
 	private Set ingresoproductoprocesos = new HashSet(0);
 	private Set horas = new HashSet(0);
 
@@ -39,13 +39,13 @@ public class Turno implements java.io.Serializable {
 
 	/** full constructor */
 	public Turno(Unidad unidad, String nombreTurno, Long codigoSccTurno, Short horaInicioTurno, Short horaFinTurno,
-			Set notificacioncanteras, Set ingresoproductoprocesos, Set horas) {
+			 Set ingresoproductoprocesos, Set horas) {
 		this.unidad = unidad;
 		this.nombreTurno = nombreTurno;
 		this.codigoSccTurno = codigoSccTurno;
 		this.horaInicioTurno = horaInicioTurno;
 		this.horaFinTurno = horaFinTurno;
-		this.notificacioncanteras = notificacioncanteras;
+		
 		this.ingresoproductoprocesos = ingresoproductoprocesos;
 		this.horas = horas;
 	}
@@ -100,13 +100,7 @@ public class Turno implements java.io.Serializable {
 		this.horaFinTurno = horaFinTurno;
 	}
 
-	public Set getNotificacioncanteras() {
-		return this.notificacioncanteras;
-	}
 
-	public void setNotificacioncanteras(Set notificacioncanteras) {
-		this.notificacioncanteras = notificacioncanteras;
-	}
 
 	public Set getIngresoproductoprocesos() {
 		return this.ingresoproductoprocesos;

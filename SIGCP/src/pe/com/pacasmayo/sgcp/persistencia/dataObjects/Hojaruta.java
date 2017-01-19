@@ -20,7 +20,7 @@ public class Hojaruta implements java.io.Serializable {
 	private String nombreHojaruta;
 	private Set ordenproduccions = new HashSet(0);
 	private Set operacions = new HashSet(0);
-	private Set registrovalors = new HashSet(0);
+	
 	private Set hojarutacomponentes = new TreeSet();
 	private Set productovariablecalidads = new HashSet(0);
 
@@ -42,13 +42,13 @@ public class Hojaruta implements java.io.Serializable {
 
 	/** full constructor */
 	public Hojaruta(Estadohojaruta estadohojaruta, Produccion produccion, String nombreHojaruta, Set ordenproduccions,
-			Set operacions, Set registrovalors, Set hojarutacomponentes, Set factordosificacions, Set plannecesidads) {
+			Set operacions,  Set hojarutacomponentes, Set factordosificacions, Set plannecesidads) {
 		this.estadohojaruta = estadohojaruta;
 		this.produccion = produccion;
 		this.nombreHojaruta = nombreHojaruta;
 		this.ordenproduccions = ordenproduccions;
 		this.operacions = operacions;
-		this.registrovalors = registrovalors;
+		
 		this.hojarutacomponentes = hojarutacomponentes;
 		this.factordosificacions = factordosificacions;
 		this.plannecesidads = plannecesidads;
@@ -104,13 +104,7 @@ public class Hojaruta implements java.io.Serializable {
 		this.operacions = operacions;
 	}
 
-	public Set getRegistrovalors() {
-		return this.registrovalors;
-	}
 
-	public void setRegistrovalors(Set registrovalors) {
-		this.registrovalors = registrovalors;
-	}
 
 	public Set getHojarutacomponentes() {
 		return this.hojarutacomponentes;

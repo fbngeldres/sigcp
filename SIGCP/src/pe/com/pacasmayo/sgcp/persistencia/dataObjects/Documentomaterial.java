@@ -66,6 +66,8 @@ public class Documentomaterial implements java.io.Serializable {
 		this.observacion = observacion;
 		this.placa = placa;
 	}
+	
+	
 
 	/**
 	 * Constructor de la Clase dado el DocumentoMaterialBean

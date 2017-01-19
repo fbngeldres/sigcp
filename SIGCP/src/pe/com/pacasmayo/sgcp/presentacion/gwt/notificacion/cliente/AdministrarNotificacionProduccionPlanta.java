@@ -73,8 +73,8 @@ public class AdministrarNotificacionProduccionPlanta implements EntryPoint, Clie
 	public static final String NOMBRE_FECHA_ACTUAL = "fechaActual";
 
 	private static DynamicForm formularioCombos;
-	private static Img imagenProduccionLavado;
-	private static Label etiquetaProduccionLavado;
+	//private static Img imagenProduccionLavado;
+	//private static Label etiquetaProduccionLavado;
 	private static Img imagenGrabar;
 	private static Label etiquetaGrabar;
 
@@ -594,6 +594,7 @@ public class AdministrarNotificacionProduccionPlanta implements EntryPoint, Clie
 
 		final AsyncCallback<List<ColumnareporteDTO>> obtenerColsCallback = new AsyncCallback<List<ColumnareporteDTO>>() {
 			public void onFailure(Throwable throwable) {
+				throwable.printStackTrace();
 				ocultarBarraProgreso();
 				Window.alert(CONSTANTES.errorInesperado());
 				GWT.log("Fallo  en metodo: obtenerColumnas", throwable);
@@ -624,6 +625,7 @@ public class AdministrarNotificacionProduccionPlanta implements EntryPoint, Clie
 
 		AsyncCallback<Boolean> verifSiNotifExisteCallback = new AsyncCallback<Boolean>() {
 			public void onFailure(Throwable throwable) {
+				throwable.printStackTrace();
 				ocultarBarraProgreso();
 				Window.alert(CONSTANTES.errorInesperado());
 				GWT.log("FALLO EN METODO: verificarSiExisteNotificacion.", throwable);
@@ -637,6 +639,11 @@ public class AdministrarNotificacionProduccionPlanta implements EntryPoint, Clie
 					servicioNotificacion.obtenerColumnasReportePorNotif(codigoLineaNegocio, codigoTableroControl, fechaReg,
 							codigoPuestoTrabajo, obtenerColsCallback);
 				} else {
+					System.out.println("-->" + codigoPuestoTrabajo);
+					System.out.println("-->" + codigoProceso);
+					System.out.println("-->" + estadoColumna);
+					System.out.println("-->" + estadoPlantilla);
+					
 					servicioNotificacion.obtenerColumnasReporte(codigoPuestoTrabajo, codigoProceso, estadoColumna,
 							estadoPlantilla, obtenerColsCallback);
 				}
@@ -750,8 +757,8 @@ public class AdministrarNotificacionProduccionPlanta implements EntryPoint, Clie
 		GWT.log("Entro a funcion que habilita o deshabilita");
 		GWT.log("Valor editable: " + editable.booleanValue());
 		gridVarProd.setDisabled(!editable);
-		imagenProduccionLavado.setDisabled(!editable);
-		etiquetaProduccionLavado.setDisabled(!editable);
+//		imagenProduccionLavado.setDisabled(!editable);
+//		etiquetaProduccionLavado.setDisabled(!editable);
 		imagenGrabar.setDisabled(!editable);
 		etiquetaGrabar.setDisabled(!editable);
 
@@ -901,26 +908,26 @@ public class AdministrarNotificacionProduccionPlanta implements EntryPoint, Clie
 		}
 	}
 
-	public void eventoClickCambioProduccionLavado() {
-
-		if (notificacionExiste) {
-			ListGridRecord record = gridVarProd.getSelectedRecord();
-			if (record != null) {
-
-				String hora = record.getAttribute(GridVariablesProduccion.COLUMNA_HORA);
-				Long codigoPuestoTrabajo = Long.parseLong(puestoTrabajoItem.getValue().toString());
-				Long codigoLineaNegocio = Long.parseLong(lineaNegocioItem.getValue().toString());
-				Long codigoTableroControl = Long.parseLong(tableroControlItem.getValue().toString());
-
-				DialogoCambioProduccion dcp = new DialogoCambioProduccion(servicioNotificacion, (Date) fechaItem.getValue(),
-						columnas.get(0).getPkCodigoPlantillareporte(), hora, gridVarProd, gridVarProdSubtotales, columnas,
-						codigoPuestoTrabajo, codigoLineaNegocio, codigoTableroControl);
-				dcp.showDialog();
-			}
-		} else {
-			Window.alert(CONSTANTES.debeRegistrarLasNotificaciones());
-		}
-	}
+//	public void eventoClickCambioProduccionLavado() {
+//
+//		if (notificacionExiste) {
+//			ListGridRecord record = gridVarProd.getSelectedRecord();
+//			if (record != null) {
+//
+//				String hora = record.getAttribute(GridVariablesProduccion.COLUMNA_HORA);
+//				Long codigoPuestoTrabajo = Long.parseLong(puestoTrabajoItem.getValue().toString());
+//				Long codigoLineaNegocio = Long.parseLong(lineaNegocioItem.getValue().toString());
+//				Long codigoTableroControl = Long.parseLong(tableroControlItem.getValue().toString());
+//
+//				DialogoCambioProduccion dcp = new DialogoCambioProduccion(servicioNotificacion, (Date) fechaItem.getValue(),
+//						columnas.get(0).getPkCodigoPlantillareporte(), hora, gridVarProd, gridVarProdSubtotales, columnas,
+//						codigoPuestoTrabajo, codigoLineaNegocio, codigoTableroControl);
+//				dcp.showDialog();
+//			}
+//		} else {
+//			Window.alert(CONSTANTES.debeRegistrarLasNotificaciones());
+//		}
+//	}
 
 	/**
 	 * Crea el formulario que contiene los filtros para carga la data o
@@ -1013,30 +1020,30 @@ public class AdministrarNotificacionProduccionPlanta implements EntryPoint, Clie
 		rootPanel.add(etiquetaRefrescar);
 
 		// Cambio de Produccion por Lavado
-		imagenProduccionLavado = new Img("", 18, 20);
-		imagenProduccionLavado.setName(ConstantesGWT.NOMBRE_IMAGEN_PRODUCCIONLAVADO);
-		imagenProduccionLavado.setDisabled(false);
-		imagenProduccionLavado.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				eventoClickCambioProduccionLavado();
-			}
-		});
-		etiquetaProduccionLavado = new Label(ConstantesGWT.PRODUCCIONLAVADO);
-		etiquetaProduccionLavado.setCursor(Cursor.HAND);
-		etiquetaProduccionLavado.setHeight(15);
-		etiquetaProduccionLavado.setWidth(120);
-		etiquetaProduccionLavado.setID(ConstantesGWT.NOMBRE_ETIQUETA_PRODUCCIONLAVADO);
-		etiquetaProduccionLavado.setDisabled(false);
-		etiquetaProduccionLavado.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				eventoClickCambioProduccionLavado();
-			}
-		});
+//		imagenProduccionLavado = new Img("", 18, 20);
+//		imagenProduccionLavado.setName(ConstantesGWT.NOMBRE_IMAGEN_PRODUCCIONLAVADO);
+//		imagenProduccionLavado.setDisabled(false);
+//		imagenProduccionLavado.addClickHandler(new ClickHandler() {
+//			public void onClick(ClickEvent event) {
+//				eventoClickCambioProduccionLavado();
+//			}
+//		});
+//		etiquetaProduccionLavado = new Label(ConstantesGWT.PRODUCCIONLAVADO);
+//		etiquetaProduccionLavado.setCursor(Cursor.HAND);
+//		etiquetaProduccionLavado.setHeight(15);
+//		etiquetaProduccionLavado.setWidth(120);
+//		etiquetaProduccionLavado.setID(ConstantesGWT.NOMBRE_ETIQUETA_PRODUCCIONLAVADO);
+//		etiquetaProduccionLavado.setDisabled(false);
+//		etiquetaProduccionLavado.addClickHandler(new ClickHandler() {
+//			public void onClick(ClickEvent event) {
+//				eventoClickCambioProduccionLavado();
+//			}
+//		});
 
-		rootPanel = RootPanel.get(ConstantesGWT.NOMBRE_ESTILO_PRODUCCIONLAVADO);
-		rootPanel.add(imagenProduccionLavado);
-		rootPanel.setStyleName(ConstantesGWT.NOMBRE_ESTILO_PRODUCCIONLAVADO);
-		rootPanel.add(etiquetaProduccionLavado);
+//		rootPanel = RootPanel.get(ConstantesGWT.NOMBRE_ESTILO_PRODUCCIONLAVADO);
+//		rootPanel.add(imagenProduccionLavado);
+//		rootPanel.setStyleName(ConstantesGWT.NOMBRE_ESTILO_PRODUCCIONLAVADO);
+//		rootPanel.add(etiquetaProduccionLavado);
 
 		// Grabar
 		imagenGrabar = new Img("", 18, 20);

@@ -25,11 +25,9 @@ public class Proceso implements java.io.Serializable {
 	private Set produccions = new HashSet(0);
 	private Set plantillareportes = new HashSet(0);
 	private Set actividads = new HashSet(0);
-	private Set produccionsemanals = new HashSet(0);
-	private Set receptors = new HashSet(0);
+
+
 	private Set registromedicions = new HashSet(0);
-	private Set grupoprocesos = new HashSet(0);
-	private Set configuracionreceptors = new HashSet(0);
 
 	// Constructors
 
@@ -46,8 +44,7 @@ public class Proceso implements java.io.Serializable {
 	/** full constructor */
 	public Proceso(Tipoproducto tipoproducto, Lineanegocio lineanegocio, String nombreProceso, String descripcionProceso,
 			Short ordenEjecucionProceso, Long codigoSccProceso, String codigoSapProceso, String siglasProceso, Set produccions,
-			Set plantillareportes, Set actividads, Set produccionsemanals, Set receptors, Set registromedicions,
-			Set grupoprocesos, Set configuracionreceptors) {
+			Set plantillareportes, Set actividads,  Set registromedicions) {
 		this.tipoproducto = tipoproducto;
 		this.lineanegocio = lineanegocio;
 		this.nombreProceso = nombreProceso;
@@ -59,11 +56,7 @@ public class Proceso implements java.io.Serializable {
 		this.produccions = produccions;
 		this.plantillareportes = plantillareportes;
 		this.actividads = actividads;
-		this.produccionsemanals = produccionsemanals;
-		this.receptors = receptors;
 		this.registromedicions = registromedicions;
-		this.grupoprocesos = grupoprocesos;
-		this.configuracionreceptors = configuracionreceptors;
 	}
 
 	// Property accessors
@@ -164,21 +157,7 @@ public class Proceso implements java.io.Serializable {
 		this.actividads = actividads;
 	}
 
-	public Set getProduccionsemanals() {
-		return this.produccionsemanals;
-	}
 
-	public void setProduccionsemanals(Set produccionsemanals) {
-		this.produccionsemanals = produccionsemanals;
-	}
-
-	public Set getReceptors() {
-		return this.receptors;
-	}
-
-	public void setReceptors(Set receptors) {
-		this.receptors = receptors;
-	}
 
 	public Set getRegistromedicions() {
 		return this.registromedicions;
@@ -188,20 +167,6 @@ public class Proceso implements java.io.Serializable {
 		this.registromedicions = registromedicions;
 	}
 
-	public Set getGrupoprocesos() {
-		return this.grupoprocesos;
-	}
-
-	public void setGrupoprocesos(Set grupoprocesos) {
-		this.grupoprocesos = grupoprocesos;
-	}
-
-	public Set getConfiguracionreceptors() {
-		return this.configuracionreceptors;
-	}
-
-	public void setConfiguracionreceptors(Set configuracionreceptors) {
-		this.configuracionreceptors = configuracionreceptors;
-	}
+	
 
 }

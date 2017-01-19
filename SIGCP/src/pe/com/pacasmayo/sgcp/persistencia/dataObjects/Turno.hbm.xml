@@ -5,17 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Turno"
 		table="turno" schema="public">
-		<comment>Representa a unidad de tiempo utilizada la ejecución de
-			operaciones, es decir, horario de trabajo. La definición de los
-			turnos de trabajo depende de la Unidad y
-			se maneja un máximo de tres
-			turnos por unidad. Los turnos son
-			especificados a partir de una
-			descripción, una hora de inicio del
-			turno, una hora de finalización
-			del turno,
-			un código univoco que lo identifica y un conjunto de ocho
-			Horas máximo.</comment>
+		
 		<id name="pkCodigoTurno" type="java.lang.Long">
 			<column name="pk_codigo_turno" precision="10" scale="0" />
 			<generator class="sequence">
@@ -41,14 +31,7 @@
 		<property name="horaFinTurno" type="java.lang.Short">
 			<column name="hora_fin_turno" not-null="true" />
 		</property>
-		<set name="notificacioncanteras" inverse="true">
-			<key>
-				<column name="fk_codigo_turno" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificacioncantera" />
-		</set>
+		
 		<set name="ingresoproductoprocesos" inverse="true">
 			<key>
 				<column name="fk_codigo_turno" precision="10" scale="0"

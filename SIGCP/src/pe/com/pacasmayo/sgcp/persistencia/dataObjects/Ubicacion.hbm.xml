@@ -30,14 +30,7 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tablakardex" />
 		</set>
-		<set name="ubicacioncanteras" inverse="true">
-			<key>
-				<column name="fk_codigo_ubicacion" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Ubicacioncantera" />
-		</set>
+		
 		<set name="movimientosForFkCodigoUbicacionOrigen" inverse="true">
 			<key>
 				<column name="fk_codigo_ubicacion_origen" precision="10"

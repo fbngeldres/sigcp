@@ -5,15 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Sociedad"
 		table="sociedad" schema="public">
-		<comment>Sociedad: representa una empresa del grupo de empresas que
-			pertenecen a una división. La empresa se define por un código univoco
-			que la identifica, un nombre, una
-			descripción y siglas. En el caso de
-			SGCP se considerará la sociedad de Cementos
-			Pacasmayo. Es conocida en
-			SCC como Empresa. Las sociedades tienen uno
-			o varias
-			unidades.</comment>
+		
 		<id name="pkCodigoSociedad" type="java.lang.Long">
 			<column name="pk_codigo_sociedad" precision="10" scale="0" />
 			<generator class="sequence">
@@ -28,7 +20,7 @@
 				<comment>codigo de división</comment>
 			</column>
 		</many-to-one>
-		
+	
 		<property name="nombreSociedad" type="java.lang.String">
 			<column name="nombre_sociedad" length="25" not-null="true" />
 		</property>
@@ -41,6 +33,6 @@
 		<property name="codigoSapSociedad" type="java.lang.String">
 			<column name="codigo_sap_sociedad" length="4" />
 		</property>
-
+		
 	</class>
 </hibernate-mapping>

@@ -5,35 +5,18 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Proceso"
 		table="proceso" schema="public">
-		<comment>Entidad que representa los procesos de una línea de negocio.
-			Los procesos productivos a considerar en SGCP para las línea de
-			negocio Cemento y Cal, en la unidad
-			Planta Pacasmayo, son: Evaluación
-			y Recepción de Materias Primas, Molienda
-			de Crudo, Homogenización del
-			Crudo, Molienda Carbón, Intercambio de
-			Calor, Clinkerización,
-			Molienda
-			de Cemento y Despacho. En el caso de la unidad Cantera Tembladera,
-			los procesos productivos asociados se definen en otro conjunto. Los
-			procesos se caracterizan
-			por un código univoco que los identifica, un
-			nombre, una descripción y
-			código adicional que lo asocia con la
-			entidad equivalente en el
-			sistema SCC. Un proceso genera uno o
-			varios
-			productos, pero un producto puede generarse a partir de varios
-			procesos. Los procesos se ejecutan de acuerdo a un orden específico
-			para generar un
-			producto.</comment>
+		
 		<id name="pkCodigoProceso" type="java.lang.Long">
 			<column name="pk_codigo_proceso" precision="10" scale="0" />
 			<generator class="sequence">
 				<param name="sequence">proceso_seq</param>
 			</generator>
 		</id>
-		
+		<many-to-one name="tipoproducto"
+			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tipoproducto"
+			fetch="select">
+			<column name="fk_codigo_tipoproducto" precision="10" scale="0" />
+		</many-to-one>
 		<many-to-one name="lineanegocio"
 			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Lineanegocio"
 			fetch="select">
@@ -60,6 +43,49 @@
 		<property name="siglasProceso" type="java.lang.String">
 			<column name="siglas_proceso" length="3" />
 		</property>
-
+		<set name="produccions" inverse="true">
+			<key>
+				<column name="fk_codigo_proceso" precision="10" scale="0"
+					not-null="true">
+					<comment>Codigo del proceso involucrado</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Produccion" />
+		</set>
+		<set name="plantillareportes" inverse="true">
+			<key>
+				<column name="fk_codigo_proceso" precision="10" scale="0"
+					not-null="true">
+					<comment>Codigo del proceso por Linea de Negocio</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Plantillareporte" />
+		</set>
+		<set name="actividads" inverse="true">
+			<key>
+				<column name="fk_codigo_proceso" precision="10" scale="0"
+					not-null="true">
+					<comment>Codigo del proceso por Linea de Negocio</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Actividad" />
+		</set>
+	
+		
+		<set name="registromedicions" inverse="true">
+			<key>
+				<column name="fk_codigo_proceso" precision="10" scale="0"
+					not-null="true">
+					<comment>Codigo del proceso por Linea de Negocio</comment>
+				</column>
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Registromedicion" />
+		</set>
+		
+	
 	</class>
 </hibernate-mapping>

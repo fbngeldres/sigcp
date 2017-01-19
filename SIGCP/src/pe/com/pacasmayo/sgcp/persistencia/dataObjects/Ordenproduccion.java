@@ -29,10 +29,10 @@ public class Ordenproduccion implements java.io.Serializable {
 	private Date fechaAprobacionOrdenproduccio;
 	private Set producciondiarias = new HashSet(0);
 	private Set notificacionproduccions = new HashSet(0);
-	private Set despachocanteras = new HashSet(0);
-	private Set notificacioncanteras = new HashSet(0);
+
+
 	private Set ordenproduccionmanuals = new HashSet(0);
-	private Set programas = new HashSet(0);
+
 	private Set ajusteproductos = new HashSet(0);
 	private Set ordenproduccionplans = new HashSet(0);
 	private Set productogenerados = new HashSet(0);
@@ -61,8 +61,8 @@ public class Ordenproduccion implements java.io.Serializable {
 			Usuario usuarioByFkCodigoUsuarioRegistro, Usuario usuarioByFkCodigoUsuarioAprueba, Produccion produccion,
 			Short mesOrdenproduccion, String numeroOrdenOrdenproduccion, String numeroDocumentoOrdenproduccio,
 			Double produccionEstimadaOrdenproduc, Double produccionEjecutadaOrdenprodu, Date fechaRegistroOrdenproduccion,
-			Date fechaAprobacionOrdenproduccio, Set producciondiarias, Set notificacionproduccions, Set despachocanteras,
-			Set notificacioncanteras, Set ordenproduccionmanuals, Set programas, Set ajusteproductos, Set ordenproduccionplans,
+			Date fechaAprobacionOrdenproduccio, Set producciondiarias, Set notificacionproduccions, 
+			 Set ordenproduccionmanuals,  Set ajusteproductos, Set ordenproduccionplans,
 			Set productogenerados) {
 		this.estadoordenproduccion = estadoordenproduccion;
 		this.hojaruta = hojaruta;
@@ -78,10 +78,9 @@ public class Ordenproduccion implements java.io.Serializable {
 		this.fechaAprobacionOrdenproduccio = fechaAprobacionOrdenproduccio;
 		this.producciondiarias = producciondiarias;
 		this.notificacionproduccions = notificacionproduccions;
-		this.despachocanteras = despachocanteras;
-		this.notificacioncanteras = notificacioncanteras;
+
 		this.ordenproduccionmanuals = ordenproduccionmanuals;
-		this.programas = programas;
+
 		this.ajusteproductos = ajusteproductos;
 		this.ordenproduccionplans = ordenproduccionplans;
 		this.productogenerados = productogenerados;
@@ -209,21 +208,7 @@ public class Ordenproduccion implements java.io.Serializable {
 		this.notificacionproduccions = notificacionproduccions;
 	}
 
-	public Set getDespachocanteras() {
-		return this.despachocanteras;
-	}
 
-	public void setDespachocanteras(Set despachocanteras) {
-		this.despachocanteras = despachocanteras;
-	}
-
-	public Set getNotificacioncanteras() {
-		return this.notificacioncanteras;
-	}
-
-	public void setNotificacioncanteras(Set notificacioncanteras) {
-		this.notificacioncanteras = notificacioncanteras;
-	}
 
 	public Set getOrdenproduccionmanuals() {
 		return this.ordenproduccionmanuals;
@@ -233,13 +218,7 @@ public class Ordenproduccion implements java.io.Serializable {
 		this.ordenproduccionmanuals = ordenproduccionmanuals;
 	}
 
-	public Set getProgramas() {
-		return this.programas;
-	}
 
-	public void setProgramas(Set programas) {
-		this.programas = programas;
-	}
 
 	public Set getAjusteproductos() {
 		return this.ajusteproductos;

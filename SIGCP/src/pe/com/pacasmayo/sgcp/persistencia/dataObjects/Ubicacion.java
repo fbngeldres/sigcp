@@ -18,7 +18,7 @@ public class Ubicacion implements java.io.Serializable {
 	private String nombreUbicacion;
 	private String descripcionUbicacion;
 	private Set tablakardexesForFkCodigoUbicacionOrigen = new HashSet(0);
-	private Set ubicacioncanteras = new HashSet(0);
+
 	private Set movimientosForFkCodigoUbicacionOrigen = new HashSet(0);
 	private Set movimientosForFkCodigoUbicacionDestino = new HashSet(0);
 	private Set medioalmacenamientos = new HashSet(0);
@@ -39,14 +39,14 @@ public class Ubicacion implements java.io.Serializable {
 
 	/** full constructor */
 	public Ubicacion(Almacen almacen, String nombreUbicacion, String descripcionUbicacion,
-			Set tablakardexesForFkCodigoUbicacionOrigen, Set ubicacioncanteras, Set movimientosForFkCodigoUbicacionOrigen,
+			Set tablakardexesForFkCodigoUbicacionOrigen,Set movimientosForFkCodigoUbicacionOrigen,
 			Set movimientosForFkCodigoUbicacionDestino, Set medioalmacenamientos, Set ingresoproductoprocesos,
 			Set tablakardexesForFkCodigoUbicacionDestino) {
 		this.almacen = almacen;
 		this.nombreUbicacion = nombreUbicacion;
 		this.descripcionUbicacion = descripcionUbicacion;
 		this.tablakardexesForFkCodigoUbicacionOrigen = tablakardexesForFkCodigoUbicacionOrigen;
-		this.ubicacioncanteras = ubicacioncanteras;
+	
 		this.movimientosForFkCodigoUbicacionOrigen = movimientosForFkCodigoUbicacionOrigen;
 		this.movimientosForFkCodigoUbicacionDestino = movimientosForFkCodigoUbicacionDestino;
 		this.medioalmacenamientos = medioalmacenamientos;
@@ -96,13 +96,7 @@ public class Ubicacion implements java.io.Serializable {
 		this.tablakardexesForFkCodigoUbicacionOrigen = tablakardexesForFkCodigoUbicacionOrigen;
 	}
 
-	public Set getUbicacioncanteras() {
-		return this.ubicacioncanteras;
-	}
 
-	public void setUbicacioncanteras(Set ubicacioncanteras) {
-		this.ubicacioncanteras = ubicacioncanteras;
-	}
 
 	public Set getMovimientosForFkCodigoUbicacionOrigen() {
 		return this.movimientosForFkCodigoUbicacionOrigen;

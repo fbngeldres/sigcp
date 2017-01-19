@@ -22,25 +22,23 @@ public class Puestotrabajo implements java.io.Serializable {
 	private String siglasPuestotrabajo;
 	private String codigoSapPuestotrabajo;
 	private Long codSccPuestotrabajo;
-	private Set capacidadvolquetes = new HashSet(0);
+
 	private Set medioalmacenamientos = new HashSet(0);
 	private Set notificacionoperacions = new HashSet(0);
 	private Set puestotrabajoproduccions = new HashSet(0);
-	private Set ubicacionespecificas = new HashSet(0);
+
 	private Set tableropuestotrabajos = new HashSet(0);
 	private Set produccionpuestotrabajos = new HashSet(0);
 	private Set consumocapacidadmanuals = new HashSet(0);
 	private Set plancapacidads = new HashSet(0);
-	private Set notificacioncanterasForFkCodigoCarguio = new HashSet(0);
-	private Set emisors = new HashSet(0);
-	private Set configuracionemisors = new HashSet(0);
+
 	private Set notificacionproduccions = new HashSet(0);
 	private Set operacions = new HashSet(0);
-	private Set notificacioncanterasForFkCodigoPuestotrabajo = new HashSet(0);
+;
 	private Set plantillareportes = new HashSet(0);
-	private Set equipovariableoperacions = new HashSet(0);
+
 	private Set tasarealproduccions = new HashSet(0);
-	private Set horapuntas = new HashSet(0);
+	
 
 	// Constructors
 
@@ -60,12 +58,12 @@ public class Puestotrabajo implements java.io.Serializable {
 	/** full constructor */
 	public Puestotrabajo(Unidadmedida unidadmedida, Estadopuestotrabajo estadopuestotrabajo, Tipopuestotrabajo tipopuestotrabajo,
 			String nombrePuestotrabajo, String descripcionPuestotrabajo, String siglasPuestotrabajo,
-			String codigoSapPuestotrabajo, Long codSccPuestotrabajo, Set capacidadvolquetes, Set medioalmacenamientos,
-			Set notificacionoperacions, Set puestotrabajoproduccions, Set ubicacionespecificas, Set tableropuestotrabajos,
+			String codigoSapPuestotrabajo, Long codSccPuestotrabajo,  Set medioalmacenamientos,
+			Set notificacionoperacions, Set puestotrabajoproduccions,  Set tableropuestotrabajos,
 			Set produccionpuestotrabajos, Set consumocapacidadmanuals, Set plancapacidads,
-			Set notificacioncanterasForFkCodigoCarguio, Set emisors, Set configuracionemisors, Set notificacionproduccions,
-			Set operacions, Set notificacioncanterasForFkCodigoPuestotrabajo, Set plantillareportes,
-			Set equipovariableoperacions, Set tasarealproduccions, Set horapuntas) {
+			 Set notificacionproduccions,
+			Set operacions,  Set plantillareportes,
+			 Set tasarealproduccions) {
 		this.unidadmedida = unidadmedida;
 		this.estadopuestotrabajo = estadopuestotrabajo;
 		this.tipopuestotrabajo = tipopuestotrabajo;
@@ -74,25 +72,23 @@ public class Puestotrabajo implements java.io.Serializable {
 		this.siglasPuestotrabajo = siglasPuestotrabajo;
 		this.codigoSapPuestotrabajo = codigoSapPuestotrabajo;
 		this.codSccPuestotrabajo = codSccPuestotrabajo;
-		this.capacidadvolquetes = capacidadvolquetes;
+	
 		this.medioalmacenamientos = medioalmacenamientos;
 		this.notificacionoperacions = notificacionoperacions;
 		this.puestotrabajoproduccions = puestotrabajoproduccions;
-		this.ubicacionespecificas = ubicacionespecificas;
+	
 		this.tableropuestotrabajos = tableropuestotrabajos;
 		this.produccionpuestotrabajos = produccionpuestotrabajos;
 		this.consumocapacidadmanuals = consumocapacidadmanuals;
 		this.plancapacidads = plancapacidads;
-		this.notificacioncanterasForFkCodigoCarguio = notificacioncanterasForFkCodigoCarguio;
-		this.emisors = emisors;
-		this.configuracionemisors = configuracionemisors;
+		
 		this.notificacionproduccions = notificacionproduccions;
 		this.operacions = operacions;
-		this.notificacioncanterasForFkCodigoPuestotrabajo = notificacioncanterasForFkCodigoPuestotrabajo;
+		
 		this.plantillareportes = plantillareportes;
-		this.equipovariableoperacions = equipovariableoperacions;
+		
 		this.tasarealproduccions = tasarealproduccions;
-		this.horapuntas = horapuntas;
+		
 	}
 
 	// Property accessors
@@ -169,13 +165,6 @@ public class Puestotrabajo implements java.io.Serializable {
 		this.codSccPuestotrabajo = codSccPuestotrabajo;
 	}
 
-	public Set getCapacidadvolquetes() {
-		return this.capacidadvolquetes;
-	}
-
-	public void setCapacidadvolquetes(Set capacidadvolquetes) {
-		this.capacidadvolquetes = capacidadvolquetes;
-	}
 
 	public Set getMedioalmacenamientos() {
 		return this.medioalmacenamientos;
@@ -201,13 +190,7 @@ public class Puestotrabajo implements java.io.Serializable {
 		this.puestotrabajoproduccions = puestotrabajoproduccions;
 	}
 
-	public Set getUbicacionespecificas() {
-		return this.ubicacionespecificas;
-	}
-
-	public void setUbicacionespecificas(Set ubicacionespecificas) {
-		this.ubicacionespecificas = ubicacionespecificas;
-	}
+	
 
 	public Set getTableropuestotrabajos() {
 		return this.tableropuestotrabajos;
@@ -241,29 +224,7 @@ public class Puestotrabajo implements java.io.Serializable {
 		this.plancapacidads = plancapacidads;
 	}
 
-	public Set getNotificacioncanterasForFkCodigoCarguio() {
-		return this.notificacioncanterasForFkCodigoCarguio;
-	}
-
-	public void setNotificacioncanterasForFkCodigoCarguio(Set notificacioncanterasForFkCodigoCarguio) {
-		this.notificacioncanterasForFkCodigoCarguio = notificacioncanterasForFkCodigoCarguio;
-	}
-
-	public Set getEmisors() {
-		return this.emisors;
-	}
-
-	public void setEmisors(Set emisors) {
-		this.emisors = emisors;
-	}
-
-	public Set getConfiguracionemisors() {
-		return this.configuracionemisors;
-	}
-
-	public void setConfiguracionemisors(Set configuracionemisors) {
-		this.configuracionemisors = configuracionemisors;
-	}
+	
 
 	public Set getNotificacionproduccions() {
 		return this.notificacionproduccions;
@@ -281,13 +242,7 @@ public class Puestotrabajo implements java.io.Serializable {
 		this.operacions = operacions;
 	}
 
-	public Set getNotificacioncanterasForFkCodigoPuestotrabajo() {
-		return this.notificacioncanterasForFkCodigoPuestotrabajo;
-	}
-
-	public void setNotificacioncanterasForFkCodigoPuestotrabajo(Set notificacioncanterasForFkCodigoPuestotrabajo) {
-		this.notificacioncanterasForFkCodigoPuestotrabajo = notificacioncanterasForFkCodigoPuestotrabajo;
-	}
+	
 
 	public Set getPlantillareportes() {
 		return this.plantillareportes;
@@ -297,14 +252,7 @@ public class Puestotrabajo implements java.io.Serializable {
 		this.plantillareportes = plantillareportes;
 	}
 
-	public Set getEquipovariableoperacions() {
-		return this.equipovariableoperacions;
-	}
-
-	public void setEquipovariableoperacions(Set equipovariableoperacions) {
-		this.equipovariableoperacions = equipovariableoperacions;
-	}
-
+	
 	public Set getTasarealproduccions() {
 		return this.tasarealproduccions;
 	}
@@ -313,12 +261,5 @@ public class Puestotrabajo implements java.io.Serializable {
 		this.tasarealproduccions = tasarealproduccions;
 	}
 
-	public Set getHorapuntas() {
-		return this.horapuntas;
-	}
-
-	public void setHorapuntas(Set horapuntas) {
-		this.horapuntas = horapuntas;
-	}
-
+	
 }

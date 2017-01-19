@@ -267,6 +267,7 @@ public class Combos implements ClienteServicioGwt {
 		servicioComunicacion.valorPorDefectoUnidad(new AsyncCallback<String>() {
 
 			public void onFailure(Throwable throwable) {
+				throwable.printStackTrace();
 				if (throwable instanceof ServicioGWTGlobalException) {
 					ServicioGWTGlobalException e = (ServicioGWTGlobalException) throwable;
 					Window.alert(e.getMensaje());
@@ -335,6 +336,7 @@ public class Combos implements ClienteServicioGwt {
 		servicioComunicacion.valorPorDefectoSociedad(new AsyncCallback<String>() {
 
 			public void onFailure(Throwable throwable) {
+				throwable.printStackTrace();
 				if (throwable instanceof ServicioGWTGlobalException) {
 					ServicioGWTGlobalException e = (ServicioGWTGlobalException) throwable;
 					Window.alert(e.getMensaje());
@@ -404,6 +406,7 @@ public class Combos implements ClienteServicioGwt {
 		divisionItem.setAllowEmptyValue(true);
 		servicioComunicacion.cargarDivisiones(new AsyncCallback<List<DivisionDTO>>() {
 			public void onFailure(Throwable arg0) {
+				arg0.printStackTrace();
 				Window.alert(ConstantesGWT.SERVER_ERROR);
 			}
 
@@ -452,6 +455,7 @@ public class Combos implements ClienteServicioGwt {
 		servicioComunicacion.valorPorDefectoDivision(new AsyncCallback<String>() {
 
 			public void onFailure(Throwable throwable) {
+				 throwable.printStackTrace();
 				if (throwable instanceof ServicioGWTGlobalException) {
 					ServicioGWTGlobalException e = (ServicioGWTGlobalException) throwable;
 					Window.alert(e.getMensaje());
@@ -557,6 +561,7 @@ public class Combos implements ClienteServicioGwt {
 
 		servicioComunicacion.cargarPuestosTrabajo(new AsyncCallback<List<PuestoTrabajoDTO>>() {
 			public void onFailure(Throwable arg0) {
+				arg0.printStackTrace();
 				Window.alert(ConstantesGWT.SERVER_ERROR);
 			}
 

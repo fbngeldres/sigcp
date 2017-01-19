@@ -125,6 +125,8 @@ public class NotificacionServiceImpl extends RemoteServiceServlet implements Not
 		HttpSession sesion = getSession();
 		return (UsuarioBean) sesion.getAttribute(USUARIO_SESION);
 	}
+	
+	
 
 	/*
 	 * (non-Javadoc)
@@ -403,6 +405,18 @@ public class NotificacionServiceImpl extends RemoteServiceServlet implements Not
 		calendar.add(Calendar.DAY_OF_MONTH, -1);
 
 		return calendar.getTime();
+	}
+	
+	
+	public static void main(String[] args) {
+		NotificacionServiceImpl no = new NotificacionServiceImpl();
+		try {
+			//no.obtenerColumnasReporte(96L, 39L, "Activo", "Activo");
+			no.getOrdenesByMesPlantillaLiberadas(new Date(), 60L);
+		} catch (ServicioGWTGlobalException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/*

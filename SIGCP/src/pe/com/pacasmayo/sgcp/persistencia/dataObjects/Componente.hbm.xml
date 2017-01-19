@@ -5,14 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Componente"
 		table="componente" schema="public">
-		<comment>Entidad que corresponde al módulo de dato maestros, contiene
-			información que representan los componentes que emplea una hoja de
-			ruta en la fabricación de un
-			producto. Cada componente posee un valor
-			de dosificación y un factor de
-			consumo, por cada mes del año. Un
-			componente es a su vez también un
-			producto.</comment>
+	
 		<id name="pkCodigoComponente" type="java.lang.Long">
 			<column name="pk_codigo_componente" precision="10" scale="0" />
 			<generator class="sequence">
@@ -123,15 +116,6 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Producciondiaria" />
 		</set>
-		<set name="configuracionreceptors" inverse="true">
-			<key>
-				<column name="fk_codigo_componente" precision="10" scale="0"
-					not-null="false">
-					<comment>codigo del componente</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Configuracionreceptor" />
-		</set>
+	
 	</class>
 </hibernate-mapping>

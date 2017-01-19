@@ -6,8 +6,7 @@
 	<class
 		name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificaciondiaria"
 		table="notificaciondiaria" schema="public">
-		<comment>Entidad que representa la notificaciones que se realizan día
-			a día asociadas a una línea de negocio.</comment>
+		
 		<id name="pkCodigoNotificaciondiaria" type="java.lang.Long">
 			<column name="pk_codigo_notificaciondiaria" precision="10"
 				scale="0" />
@@ -15,7 +14,11 @@
 				<param name="sequence">notificaciondiaria_seq</param>
 			</generator>
 		</id>
-		
+		<many-to-one name="usuarioByFkCodigoUsuarioRegistra"
+			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Usuario" fetch="select">
+			<column name="fk_codigo_usuario_registra" precision="10"
+				scale="0" not-null="true" />
+		</many-to-one>
 		<many-to-one name="lineanegocio"
 			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Lineanegocio"
 			fetch="select">
@@ -24,7 +27,10 @@
 				<comment>Codigo de la Linea de Producto</comment>
 			</column>
 		</many-to-one>
-	
+		<many-to-one name="usuarioByFkCodigoUsuarioAprueba"
+			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Usuario" fetch="select">
+			<column name="fk_codigo_usuario_aprueba" precision="10" scale="0" />
+		</many-to-one>
 		<many-to-one name="tablerocontrol"
 			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Tablerocontrol"
 			fetch="select">
@@ -46,6 +52,26 @@
 			<column name="fecha_aprobacion_notificaciondi" length="4" />
 		</property>
 	
-		
+	
+		<set name="notificacionproduccions" inverse="true">
+			<key>
+				<column name="fk_codigo_notifdiaria" precision="10" scale="0"
+					not-null="true" />
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificacionproduccion" />
+		</set>
+		<set name="notificacionoperacions" inverse="true">
+			<key>
+				<column name="fk_codigo_notificaciondiaria" precision="10"
+					scale="0" not-null="true" />
+			</key>
+			<one-to-many
+				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificacionoperacion" />
+		</set>
+		<many-to-one name="usuarioByFkCodigoUsuarioCierra"
+			class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Usuario" fetch="select">
+			<column name="fk_codigo_usuario_cierra" precision="10" scale="0" />
+		</many-to-one>
 	</class>
 </hibernate-mapping>

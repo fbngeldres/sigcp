@@ -1727,10 +1727,23 @@ public interface BeanFactory {
 	public abstract List<ParametroSistemaBean> transformarParametrosSistema(
 			List<ParametroSistema> parametros);
 
-	public abstract CapacidadBolsaProductoBean transformarCapacidadBolsaProduccion(
-			Capacidadbolsaproducto capacidadbolsaproducto);
 
 	public abstract List<TipoConsumoBean> transformarListaTipoConsumo(
 			List<Tipoconsumo> listaTipoConsumo);
+	public CapacidadBolsaProductoBean transformarCapacidadBolsaProduccion(
+			Capacidadbolsaproducto capacidadbolsaproducto);
+	
+	/**
+	 * @param cubicacionProductos
+	 * @return
+	 */
+	public abstract List<CubicacionProductoBean> transformarListaCubicacionProducto(List<Cubicacionproducto> cubicacionProductos);
+
+	
+	/**
+	 * @param estadosCubicacion
+	 * @return
+	 */
+	public abstract List<EstadoCubicacionBean> transformarListaEstadoCubicacion(List<Estadocubicacion> estadosCubicacion);
 
 }

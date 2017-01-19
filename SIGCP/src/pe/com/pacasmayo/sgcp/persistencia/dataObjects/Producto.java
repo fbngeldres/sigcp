@@ -35,22 +35,19 @@ public class Producto implements java.io.Serializable {
 	private String codigoSapEspecial4Producto;
 	private String grupoProducto;
 	private Tipoconsumo tipoconsumo;
-	private Set capacidadvolquetes = new HashSet(0);
-	private Set plantillatablavalors = new HashSet(0);
+	
+	
 	private Set plantillaproductos = new HashSet(0);
-	private Set conceptovalors = new HashSet(0);
-	private Set consumocomponentetablavalors = new HashSet(0);
-	private Set equivalenciacanterafabricasForFkCodigoProductoProceso = new HashSet(0);
-	private Set receptors = new HashSet(0);
-	private Set equivalenciaproductobalanzas = new HashSet(0);
+
+	
 	private Set ingresoproductoprocesos = new HashSet(0);
-	private Set configuracionreceptors = new HashSet(0);
+	
 	private Set movimientos = new HashSet(0);
 	private Set componentesForFkCodigoProductoComponente = new HashSet(0);
 	private Set componentesForFkCodigoProducto = new HashSet(0);
 	private Set productovariablevariacions = new HashSet(0);
 	private Set movimientoajustes = new HashSet(0);
-	private Set equivalenciacanterafabricasForFkCodigoProductoFinal = new HashSet(0);
+	
 	private Set produccions = new HashSet(0);
 	private Set producciondiarias = new HashSet(0);
 
@@ -78,11 +75,11 @@ public class Producto implements java.io.Serializable {
 			String codigoSapBolsaProducto, String codigoSapBigBagProducto, Long codigoSccProducto, Double costoProducto,
 			Boolean estadoFisicoSolidoProducto, String codigoSapEspecial1Producto, String codigoSapEspecial2Producto,
 			String codigoSapEspecial3Producto, String codigoSapEspecial4Producto, String grupoProducto, Tipoconsumo tipoconsumo,
-			Set capacidadvolquetes, Set plantillatablavalors, Set plantillaproductos, Set conceptovalors,
-			Set consumocomponentetablavalors, Set equivalenciacanterafabricasForFkCodigoProductoProceso, Set receptors,
-			Set equivalenciaproductobalanzas, Set ingresoproductoprocesos, Set configuracionreceptors, Set movimientos,
+			 Set plantillaproductos,
+			 
+			 Set ingresoproductoprocesos,  Set movimientos,
 			Set componentesForFkCodigoProductoComponente, Set componentesForFkCodigoProducto, Set productovariablevariacions,
-			Set movimientoajustes, Set equivalenciacanterafabricasForFkCodigoProductoFinal, Set produccions, Set producciondiarias) {
+			Set movimientoajustes, Set produccions, Set producciondiarias) {
 
 		this.pkCodigoProducto = pkCodigoProducto;
 		this.unidadmedida = unidadmedida;
@@ -106,22 +103,18 @@ public class Producto implements java.io.Serializable {
 		this.codigoSapEspecial4Producto = codigoSapEspecial4Producto;
 		this.grupoProducto = grupoProducto;
 		this.tipoconsumo = tipoconsumo;
-		this.capacidadvolquetes = capacidadvolquetes;
-		this.plantillatablavalors = plantillatablavalors;
+		
 		this.plantillaproductos = plantillaproductos;
-		this.conceptovalors = conceptovalors;
-		this.consumocomponentetablavalors = consumocomponentetablavalors;
-		this.equivalenciacanterafabricasForFkCodigoProductoProceso = equivalenciacanterafabricasForFkCodigoProductoProceso;
-		this.receptors = receptors;
-		this.equivalenciaproductobalanzas = equivalenciaproductobalanzas;
+	
+		
 		this.ingresoproductoprocesos = ingresoproductoprocesos;
-		this.configuracionreceptors = configuracionreceptors;
+		
 		this.movimientos = movimientos;
 		this.componentesForFkCodigoProductoComponente = componentesForFkCodigoProductoComponente;
 		this.componentesForFkCodigoProducto = componentesForFkCodigoProducto;
 		this.productovariablevariacions = productovariablevariacions;
 		this.movimientoajustes = movimientoajustes;
-		this.equivalenciacanterafabricasForFkCodigoProductoFinal = equivalenciacanterafabricasForFkCodigoProductoFinal;
+
 		this.produccions = produccions;
 		this.producciondiarias = producciondiarias;
 	}
@@ -288,21 +281,6 @@ public class Producto implements java.io.Serializable {
 		this.codigoSapEspecial4Producto = codigoSapEspecial4Producto;
 	}
 
-	public Set getCapacidadvolquetes() {
-		return this.capacidadvolquetes;
-	}
-
-	public void setCapacidadvolquetes(Set capacidadvolquetes) {
-		this.capacidadvolquetes = capacidadvolquetes;
-	}
-
-	public Set getPlantillatablavalors() {
-		return this.plantillatablavalors;
-	}
-
-	public void setPlantillatablavalors(Set plantillatablavalors) {
-		this.plantillatablavalors = plantillatablavalors;
-	}
 
 	public Set getPlantillaproductos() {
 		return this.plantillaproductos;
@@ -312,45 +290,7 @@ public class Producto implements java.io.Serializable {
 		this.plantillaproductos = plantillaproductos;
 	}
 
-	public Set getConceptovalors() {
-		return this.conceptovalors;
-	}
-
-	public void setConceptovalors(Set conceptovalors) {
-		this.conceptovalors = conceptovalors;
-	}
-
-	public Set getConsumocomponentetablavalors() {
-		return this.consumocomponentetablavalors;
-	}
-
-	public void setConsumocomponentetablavalors(Set consumocomponentetablavalors) {
-		this.consumocomponentetablavalors = consumocomponentetablavalors;
-	}
-
-	public Set getEquivalenciacanterafabricasForFkCodigoProductoProceso() {
-		return this.equivalenciacanterafabricasForFkCodigoProductoProceso;
-	}
-
-	public void setEquivalenciacanterafabricasForFkCodigoProductoProceso(Set equivalenciacanterafabricasForFkCodigoProductoProceso) {
-		this.equivalenciacanterafabricasForFkCodigoProductoProceso = equivalenciacanterafabricasForFkCodigoProductoProceso;
-	}
-
-	public Set getReceptors() {
-		return this.receptors;
-	}
-
-	public void setReceptors(Set receptors) {
-		this.receptors = receptors;
-	}
-
-	public Set getEquivalenciaproductobalanzas() {
-		return this.equivalenciaproductobalanzas;
-	}
-
-	public void setEquivalenciaproductobalanzas(Set equivalenciaproductobalanzas) {
-		this.equivalenciaproductobalanzas = equivalenciaproductobalanzas;
-	}
+	
 
 	public Set getIngresoproductoprocesos() {
 		return this.ingresoproductoprocesos;
@@ -360,14 +300,7 @@ public class Producto implements java.io.Serializable {
 		this.ingresoproductoprocesos = ingresoproductoprocesos;
 	}
 
-	public Set getConfiguracionreceptors() {
-		return this.configuracionreceptors;
-	}
-
-	public void setConfiguracionreceptors(Set configuracionreceptors) {
-		this.configuracionreceptors = configuracionreceptors;
-	}
-
+	
 	public Set getMovimientos() {
 		return this.movimientos;
 	}
@@ -408,13 +341,7 @@ public class Producto implements java.io.Serializable {
 		this.movimientoajustes = movimientoajustes;
 	}
 
-	public Set getEquivalenciacanterafabricasForFkCodigoProductoFinal() {
-		return this.equivalenciacanterafabricasForFkCodigoProductoFinal;
-	}
-
-	public void setEquivalenciacanterafabricasForFkCodigoProductoFinal(Set equivalenciacanterafabricasForFkCodigoProductoFinal) {
-		this.equivalenciacanterafabricasForFkCodigoProductoFinal = equivalenciacanterafabricasForFkCodigoProductoFinal;
-	}
+	
 
 	public Set getProduccions() {
 		return this.produccions;

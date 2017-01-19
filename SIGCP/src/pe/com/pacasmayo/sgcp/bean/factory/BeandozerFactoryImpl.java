@@ -56,7 +56,10 @@ public class BeandozerFactoryImpl implements BeandozerFactory {
 		listaMapperDozer.add("pe/com/pacasmayo/sgcp/bean/factory/beandozer/notificaciondiaria.xml");
 		listaMapperDozer.add("pe/com/pacasmayo/sgcp/bean/factory/beandozer/estadonotificacion.xml");
 		//listaMapperDozer.add("pe/com/pacasmayo/sgcp/bean/factory/beandozer/estadoarea.xml");
-		
+		listaMapperDozer.add("pe/com/pacasmayo/sgcp/bean/factory/beandozer/procesoDTO.xml");
+		listaMapperDozer.add("pe/com/pacasmayo/sgcp/bean/factory/beandozer/produccionDTO.xml");
+		listaMapperDozer.add("pe/com/pacasmayo/sgcp/bean/factory/beandozer/productoDTO.xml");
+		listaMapperDozer.add("pe/com/pacasmayo/sgcp/bean/factory/beandozer/lineanegocioDTO.xml");
 		
 		mapper = new DozerBeanMapper(listaMapperDozer);
 

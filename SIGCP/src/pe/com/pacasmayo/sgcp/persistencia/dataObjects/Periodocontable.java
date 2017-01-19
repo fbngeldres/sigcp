@@ -17,7 +17,7 @@ public class Periodocontable implements java.io.Serializable {
 	private Integer anoPeriodocontable;
 	private Short mesPeriodocontable;
 	private Boolean cerradoPeridocontable;
-	private Set tabladistribuibles = new HashSet(0);
+
 	private Set documentomaterials = new HashSet(0);
 	private Set partediarios = new HashSet(0);
 	private Set ajusteproduccions = new HashSet(0);
@@ -37,11 +37,11 @@ public class Periodocontable implements java.io.Serializable {
 
 	/** full constructor */
 	public Periodocontable(Integer anoPeriodocontable, Short mesPeriodocontable, Boolean cerradoPeridocontable,
-			Set tabladistribuibles, Set documentomaterials, Set partediarios, Set ajusteproduccions) {
+			Set documentomaterials, Set partediarios, Set ajusteproduccions) {
 		this.anoPeriodocontable = anoPeriodocontable;
 		this.mesPeriodocontable = mesPeriodocontable;
 		this.cerradoPeridocontable = cerradoPeridocontable;
-		this.tabladistribuibles = tabladistribuibles;
+		
 		this.documentomaterials = documentomaterials;
 		this.partediarios = partediarios;
 		this.ajusteproduccions = ajusteproduccions;
@@ -81,13 +81,7 @@ public class Periodocontable implements java.io.Serializable {
 		this.cerradoPeridocontable = cerradoPeridocontable;
 	}
 
-	public Set getTabladistribuibles() {
-		return this.tabladistribuibles;
-	}
 
-	public void setTabladistribuibles(Set tabladistribuibles) {
-		this.tabladistribuibles = tabladistribuibles;
-	}
 
 	public Set getDocumentomaterials() {
 		return this.documentomaterials;

@@ -20,10 +20,9 @@ public class Actividad implements java.io.Serializable {
 	private String descripcionActividad;
 	private Long codigoSccActividad;
 	private Double metrosPerforaActividad;
-	private Set configuracionreceptors = new HashSet(0);
-	private Set receptors = new HashSet(0);
+
 	private Set operacions = new HashSet(0);
-	private Set notificacioncanteras = new HashSet(0);
+
 
 	// Constructors
 
@@ -40,18 +39,15 @@ public class Actividad implements java.io.Serializable {
 
 	/** full constructor */
 	public Actividad(Estadoactividad estadoactividad, Proceso proceso, String nombreActividad, String descripcionActividad,
-			Long codigoSccActividad, Double metrosPerforaActividad, Set configuracionreceptors, Set receptors, Set operacions,
-			Set notificacioncanteras) {
+			Long codigoSccActividad, Double metrosPerforaActividad, Set operacions) {
 		this.estadoactividad = estadoactividad;
 		this.proceso = proceso;
 		this.nombreActividad = nombreActividad;
 		this.descripcionActividad = descripcionActividad;
 		this.codigoSccActividad = codigoSccActividad;
 		this.metrosPerforaActividad = metrosPerforaActividad;
-		this.configuracionreceptors = configuracionreceptors;
-		this.receptors = receptors;
 		this.operacions = operacions;
-		this.notificacioncanteras = notificacioncanteras;
+	
 	}
 
 	// Property accessors
@@ -112,21 +108,7 @@ public class Actividad implements java.io.Serializable {
 		this.metrosPerforaActividad = metrosPerforaActividad;
 	}
 
-	public Set getConfiguracionreceptors() {
-		return this.configuracionreceptors;
-	}
 
-	public void setConfiguracionreceptors(Set configuracionreceptors) {
-		this.configuracionreceptors = configuracionreceptors;
-	}
-
-	public Set getReceptors() {
-		return this.receptors;
-	}
-
-	public void setReceptors(Set receptors) {
-		this.receptors = receptors;
-	}
 
 	public Set getOperacions() {
 		return this.operacions;
@@ -136,12 +118,6 @@ public class Actividad implements java.io.Serializable {
 		this.operacions = operacions;
 	}
 
-	public Set getNotificacioncanteras() {
-		return this.notificacioncanteras;
-	}
 
-	public void setNotificacioncanteras(Set notificacioncanteras) {
-		this.notificacioncanteras = notificacioncanteras;
-	}
 
 }

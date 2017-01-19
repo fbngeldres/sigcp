@@ -55,7 +55,6 @@ import pe.com.pacasmayo.sgcp.logica.facade.PeriodoContableLogicFacade;
 import pe.com.pacasmayo.sgcp.logica.facade.RendimientoTermicoLogicFacade;
 import pe.com.pacasmayo.sgcp.logica.manejoMaestros.RendimientoTermicoLogic;
 import pe.com.pacasmayo.sgcp.logica.notificacion.NotificacionDiariaLogic;
-import pe.com.pacasmayo.sgcp.logica.notificacion.PropiedadesSap;
 import pe.com.pacasmayo.sgcp.logica.partediario.ConsumoPuestoTrabajoLogic;
 import pe.com.pacasmayo.sgcp.logica.planificacion.OrdenProduccionLogic;
 import pe.com.pacasmayo.sgcp.logica.seguridad.ParametroSistemaLogic;
@@ -140,7 +139,6 @@ import pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.componentes.RegistroP
 import pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.componentes.RegistroTablaConsumoComponentesDTO;
 import pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.componentes.RegistroTablaConsumosPuestoTrabajoDTO;
 import pe.com.pacasmayo.sgcp.presentacion.util.DownloadServlet;
-
 import pe.com.pacasmayo.sgcp.util.ConstantesLogicaNegocio;
 import pe.com.pacasmayo.sgcp.util.ConstantesParametro;
 import pe.com.pacasmayo.sgcp.util.FechaUtil;
@@ -2421,8 +2419,8 @@ public class AjusteProduccionMesLogic implements ConstantesMensajePresentacion, 
 			String[] arrCodProSap = null;
 			Date fecha = FechaUtil.getUltimoDiaMes((short) (ajusteProduccion.getPeriodocontable().getMesPeriodocontable() - 1),
 					ajusteProduccion.getPeriodocontable().getAnoPeriodocontable()).getTime();
-			String fechaP_BUDAT = PropiedadesSap.formatoFechaPbudat(fecha);
-			String fechaBLDATT = PropiedadesSap.formatoFechaBLDATT(fecha);
+			//String fechaP_BUDAT = PropiedadesSap.formatoFechaPbudat(fecha);
+			//String fechaBLDATT = PropiedadesSap.formatoFechaBLDATT(fecha);
 
 			try {
 				arrCodProSap = ParametroSistemaQuerier.obtenerParametroSistema(ConstantesParametro.PRODUCTOS_ENVIO_SAP)
@@ -2460,8 +2458,8 @@ public class AjusteProduccionMesLogic implements ConstantesMensajePresentacion, 
 				ResultadoBeanImpl resultadoMermaCombustible = null;
 
 				if (!ajusteProduccion.getConsumoEnviadoSap()) {
-					resultadoMateriales = registrarMovimiento.ingresarMovimientosPorLote(fechaP_BUDAT,
-							listAprobarAjusteProduccionBean, fechaBLDATT, fecha);
+//					resultadoMateriales = registrarMovimiento.ingresarMovimientosPorLote(fechaP_BUDAT,
+//							listAprobarAjusteProduccionBean, fechaBLDATT, fecha);
 				} else {
 
 					resultadoMateriales = new ResultadoBeanImpl();
@@ -2472,10 +2470,10 @@ public class AjusteProduccionMesLogic implements ConstantesMensajePresentacion, 
 					listAprobarAjusteProduccionBean = ConsumoComponenteAjusteQuerier.obtenerConsumoAjuste(codigoAjusteProduccion,
 							arrCodProSap[1]);
 
-					resultadoConsumoCombustible = registrarMovimiento.ingresarMovimientosCombustibleConsumo(fechaP_BUDAT,
-							listAprobarAjusteProduccionBean, fechaBLDATT);
-					resultadoMermaCombustible = registrarMovimiento.ingresarMovimientosCombustibleMermas(fechaP_BUDAT,
-							listAprobarAjusteProduccionBean, fechaBLDATT);
+//					resultadoConsumoCombustible = registrarMovimiento.ingresarMovimientosCombustibleConsumo(fechaP_BUDAT,
+//							listAprobarAjusteProduccionBean, fechaBLDATT);
+//					resultadoMermaCombustible = registrarMovimiento.ingresarMovimientosCombustibleMermas(fechaP_BUDAT,
+//							listAprobarAjusteProduccionBean, fechaBLDATT);
 				} else {
 
 					resultadoConsumoCombustible = new ResultadoBeanImpl();

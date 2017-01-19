@@ -5,20 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Lineanegocio"
 		table="lineanegocio" schema="public">
-		<comment>Línea de negocio: representa los productos que generará la
-			unidad. Para el caso de SGCP, se consideraran los productos: cemento
-			y cal. La línea de negocio es
-			conocida en SCC como línea de producto.
-			En la línea de negocio se define los
-			procesos necesarios para generar
-			los productos de la unidad. Cada
-			línea de negocio define un
-			código
-			univoco que lo identifica, un nombre, una descripción y un código de
-			equivalencia en SCC. Cada línea de negocio maneja un conjunto de
-			Planes Anuales. Para Planta
-			(cemento/cal) Para Cantera (Caliza
-			preprara en Cancha/Caliza a Fabrica)</comment>
+		
 		<id name="pkCodigoLineanegocio" type="java.lang.Long">
 			<column name="pk_codigo_lineanegocio" precision="10" scale="0" />
 			<generator class="sequence">
@@ -38,109 +25,10 @@
 		<property name="descripcionLineanegocio" type="java.lang.String">
 			<column name="descripcion_lineanegocio" length="500" />
 		</property>
-		<property name="codigoSccLineanegocio" type="java.lang.Long">
-			<column name="codigo_scc_lineanegocio" precision="10" scale="0" />
-		</property>
+		
 		<property name="codigoSapLineanegocio" type="java.lang.String">
 			<column name="codigo_sap_lineanegocio" length="4" />
 		</property>
-		<set name="ajusteproduccions" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Ajusteproduccion" />
-		</set>
-		<set name="notificaciondiarias" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificaciondiaria" />
-		</set>
-		<set name="plananuals" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Plananual" />
-		</set>
-		<set name="partediarios" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Partediario" />
-		</set>
-		<set name="procesos" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Proceso" />
-		</set>
-		<set name="ingresoproductos" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Ingresoproducto" />
-		</set>
-		<set name="movimientos" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Movimiento" />
-		</set>
-		<set name="plantillagrupoajustes" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Plantillagrupoajuste" />
-		</set>
-		<set name="cubicacionproductos" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Cubicacionproducto" />
-		</set>
-		<set name="plancapacidads" inverse="true">
-			<key>
-				<column name="fk_codigo_lineanegocio" precision="10" scale="0"
-					not-null="true">
-					<comment>Codigo de la Linea de Producto</comment>
-				</column>
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Plancapacidad" />
-		</set>
+		
 	</class>
 </hibernate-mapping>

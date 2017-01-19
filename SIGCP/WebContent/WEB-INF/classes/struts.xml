@@ -257,5 +257,188 @@
 		
 
 	</package>
+	
+	
+	
+	<package name="parteDiario" namespace="/parteDiario" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="AutenticacionInterceptor"
+				class="pe.com.pacasmayo.sgcp.presentacion.interceptors.AutenticacionInterceptor">
+			</interceptor>
+			<interceptor-stack name="all-default">
+				<interceptor-ref name="AutenticacionInterceptor" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- Default interceptor stack. -->
+		<default-interceptor-ref name="all-default" />
+
+		<!-- Manejo de acciones globales. -->
+		<global-results>
+			<result name="error">/comun/errorOperacion.jsp</result>
+			<result name="login" type="redirect">/inicio.jsp</result>
+		</global-results>
+
+		<!-- Manejo de excepciones globales. -->
+		<global-exception-mappings>
+			<exception-mapping
+				exception="pe.com.pacasmayo.sgcp.presentacion.excepciones.AplicacionGlobalException"
+				result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="error" />
+		</global-exception-mappings>
+
+		<action name="consultarParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.ParteDiarioAction"
+			method="listar">
+			<result name="success">
+				/parteDiario/consultarParteDiario.jsp
+			</result>
+
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="AutenticacionInterceptor" />
+		</action>
+
+		<action name="gestionarParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="listarGestionPD">
+			<result name="success">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="AutenticacionInterceptor" />
+		</action>
+
+		<action name="cargarGestionarParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="listarGestionPDFiltrados">
+			<result name="success">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="AutenticacionInterceptor" />
+		</action>
+
+
+		<action name="cargarSociedadesGestionarPD"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="cargarSociedades">
+			<result>/parteDiario/ajax/comboSociedades.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarUnidadesGestionarPD"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="cargarUnidades">
+			<result>/parteDiario/ajax/comboUnidades.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarLineasNegocioGestionarPD"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="cargarLineasNegocio">
+			<result>/parteDiario/ajax/comboLineasNegocio.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cerrarNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="cerrar">
+			<result name="success">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<result name="input">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="AutenticacionInterceptor" />
+		</action>
+
+		<action name="reprocesarNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="reprocesar">
+			<result name="success" type="redirectAction">
+				gestionarParteDiario
+			</result>
+			<result name="input">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="abrirNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="abrir">
+			<result name="success" type="redirectAction">
+				gestionarParteDiario
+			</result>
+			<result name="input">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="eliminarPorPuestoTrabajoNotificacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="formularoEliminarPorPuestotrabajo">
+			<result name="success">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<result name="input">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="filtrarParteDiarioPorPuestoTrabajo"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="filtrarParteDiarioPorPuestoTrabajo">
+			<result name="success">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<result name="input">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+<!-- 		<action name="eliminarNotificacionPlantaPorPuestotrabajo" -->
+<!-- 			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction" -->
+<!-- 			method="eliminarNotificacionPlantaPorPuestotrabajo"> -->
+<!-- 			<result name="success" type="redirectAction"> -->
+<!-- 				eliminarPorPuestoTrabajoNotificacion -->
+<!-- 			</result> -->
+<!-- 			<result name="input"> -->
+<!-- 				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp -->
+<!-- 			</result> -->
+<!-- 			<interceptor-ref name="chain" /> -->
+<!-- 			<interceptor-ref name="basicStack" /> -->
+<!-- 		</action> -->
+
+
+<!-- 		<action name="enviarReporteProduccionDiaria" -->
+<!-- 			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction" -->
+<!-- 			method="enviarCorreo"> -->
+<!-- 			<result name="success" type="redirectAction"> -->
+<!-- 				gestionarParteDiario -->
+<!-- 			</result> -->
+<!-- 			<result name="input"> -->
+<!-- 				/parteDiario/gestionarParteDiario.jsp -->
+<!-- 			</result> -->
+<!-- 			<interceptor-ref name="chain" /> -->
+<!-- 			<interceptor-ref name="basicStack" /> -->
+<!-- 		</action> -->
+
+
+	</package>
 
 </struts>

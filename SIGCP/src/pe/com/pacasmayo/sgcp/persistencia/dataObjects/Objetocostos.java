@@ -23,11 +23,7 @@ public class Objetocostos implements java.io.Serializable {
 	private Date fechaInicioObjetocosto;
 	private Date fechaFinObjetocosto;
 	private Long valorestadisticoObjetocosto;
-	private Set emisors = new HashSet(0);
-	private Set configuracionreceptors = new HashSet(0);
-	private Set configuracionemisors = new HashSet(0);
-	private Set receptors = new HashSet(0);
-
+	
 	private Boolean flagparticionadObjetocosto;
 
 	// Constructors
@@ -49,8 +45,7 @@ public class Objetocostos implements java.io.Serializable {
 	/** full constructor */
 	public Objetocostos(Estadoobjetocostos estadoobjetocostos, Tipoobjetocostos tipoobjetocostos, 
 			String descripcionObjetocosto, String abreviaturaObjetocosto, String codigoSapObjetocosto,
-			Date fechaInicioObjetocosto, Date fechaFinObjetocosto, Long valorestadisticoObjetocosto, Set emisors,
-			Set configuracionreceptors, Set configuracionemisors, Set receptors) {
+			Date fechaInicioObjetocosto, Date fechaFinObjetocosto, Long valorestadisticoObjetocosto) {
 		this.estadoobjetocostos = estadoobjetocostos;
 		this.tipoobjetocostos = tipoobjetocostos;
 		this.descripcionObjetocosto = descripcionObjetocosto;
@@ -59,10 +54,7 @@ public class Objetocostos implements java.io.Serializable {
 		this.fechaInicioObjetocosto = fechaInicioObjetocosto;
 		this.fechaFinObjetocosto = fechaFinObjetocosto;
 		this.valorestadisticoObjetocosto = valorestadisticoObjetocosto;
-		this.emisors = emisors;
-		this.configuracionreceptors = configuracionreceptors;
-		this.configuracionemisors = configuracionemisors;
-		this.receptors = receptors;
+	
 	}
 
 	// Property accessors
@@ -141,37 +133,7 @@ public class Objetocostos implements java.io.Serializable {
 		this.valorestadisticoObjetocosto = valorestadisticoObjetocosto;
 	}
 
-	public Set getEmisors() {
-		return this.emisors;
-	}
-
-	public void setEmisors(Set emisors) {
-		this.emisors = emisors;
-	}
-
-	public Set getConfiguracionreceptors() {
-		return this.configuracionreceptors;
-	}
-
-	public void setConfiguracionreceptors(Set configuracionreceptors) {
-		this.configuracionreceptors = configuracionreceptors;
-	}
-
-	public Set getConfiguracionemisors() {
-		return this.configuracionemisors;
-	}
-
-	public void setConfiguracionemisors(Set configuracionemisors) {
-		this.configuracionemisors = configuracionemisors;
-	}
-
-	public Set getReceptors() {
-		return this.receptors;
-	}
-
-	public void setReceptors(Set receptors) {
-		this.receptors = receptors;
-	}
+	
 
 	public Boolean getFlagparticionadObjetocosto() {
 

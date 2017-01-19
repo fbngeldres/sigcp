@@ -17,7 +17,7 @@ public class Componente implements java.io.Serializable {
 	private Producto productoByFkCodigoProductoComponente;
 	private Producto productoByFkCodigoProducto;
 	private Set componentes = new HashSet(0);
-	private Set configuracionreceptors = new HashSet(0);
+
 	private Set consumocomponentemanuals = new HashSet(0);
 	private Set factordosificacions = new HashSet(0);
 	private Set hojarutacomponentes = new HashSet(0);
@@ -42,8 +42,7 @@ public class Componente implements java.io.Serializable {
 	/** full constructor */
 	public Componente(Producto productoByFkCodigoProductoComponente, Producto productoByFkCodigoProducto,
 			Set consumocomponentemanuals, Set factordosificacions, Set hojarutacomponentes, Set columnaplantillaproductos,
-			Set componentenotificacions, Set consumocomponenteajustes, Set consumocomponentes, Set consumopuestotrabajos,
-			Set configuracionreceptors) {
+			Set componentenotificacions, Set consumocomponenteajustes, Set consumocomponentes, Set consumopuestotrabajos) {
 		this.productoByFkCodigoProductoComponente = productoByFkCodigoProductoComponente;
 		this.productoByFkCodigoProducto = productoByFkCodigoProducto;
 		this.consumocomponentemanuals = consumocomponentemanuals;
@@ -54,7 +53,7 @@ public class Componente implements java.io.Serializable {
 		this.consumocomponenteajustes = consumocomponenteajustes;
 		this.consumocomponentes = consumocomponentes;
 		this.consumopuestotrabajos = consumopuestotrabajos;
-		this.configuracionreceptors = configuracionreceptors;
+	
 	}
 
 	// Property accessors
@@ -155,12 +154,6 @@ public class Componente implements java.io.Serializable {
 		this.componentes = componentes;
 	}
 
-	public Set getConfiguracionreceptors() {
-		return configuracionreceptors;
-	}
 
-	public void setConfiguracionreceptors(Set configuracionreceptors) {
-		this.configuracionreceptors = configuracionreceptors;
-	}
 
 }

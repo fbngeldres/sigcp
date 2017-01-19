@@ -2,14 +2,14 @@
 <project name="SGCP" default="build" basedir=".">
 
 	<path id="project.class.path">
-		<pathelement location="WebContent/WEB-INF/classes" />
-		<!-- Add any additional non-server libs (such as JUnit) -->
-		<fileset dir="WebContent/WEB-INF/lib" includes="**/*.jar" />
-		<fileset dir="lib" includes="**/*.jar" />
+			<pathelement location="WebContent/WEB-INF/classes" />
+			<!-- Add any additional non-server libs (such as JUnit) -->
+			<fileset dir="WebContent/WEB-INF/lib" includes="**/*.jar" />
+			<fileset dir="lib" includes="**/*.jar" />
 
-		<pathelement location="../smartgwt.jar" />
+			<pathelement location="../smartgwt.jar" />
 
-	</path>
+		</path>
 
 	<target name="libs" depends="clean" description="Copy libs to WEB-INF/lib">
 		<mkdir dir="WebContent/WEB-INF/lib" />

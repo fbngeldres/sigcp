@@ -5,20 +5,7 @@
 <hibernate-mapping>
 	<class name="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Actividad"
 		table="actividad" schema="public">
-		<comment>Entidad que corresponde al módulo de datos maestros, contine
-			información correspondiente a las actividades ejecutadas por un
-			puesto de trabajo, estas actividades
-			dependen del proceso y
-			especifican un conjunto operaciones. La actividad
-			describe a través de
-			un código, un nombre y una descripción, así
-			también posee un código
-			equivalente en SCC. Cada actividad posee un estado (activo e
-			inactivo).
-			Información originada en la documentación de diseño del
-			Proyecto del
-			SGCP. Su periodicidad es
-			Eventual.</comment>
+	
 		<id name="pkCodigoActividad" type="java.lang.Long">
 			<column name="pk_codigo_actividad" precision="10" scale="0" />
 			<generator class="sequence">
@@ -50,21 +37,7 @@
 		<property name="metrosPerforaActividad" type="java.lang.Double">
 			<column name="metros_perfora_actividad" precision="10" />
 		</property>
-		<set name="configuracionreceptors" inverse="true">
-			<key>
-				<column name="fk_codigo_actividad" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Configuracionreceptor" />
-		</set>
-		<set name="receptors" inverse="true">
-			<key>
-				<column name="fk_codigo_actividad" precision="10" scale="0" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Receptor" />
-		</set>
+		
 		<set name="operacions" inverse="true">
 			<key>
 				<column name="fk_codigo_actividad" precision="10" scale="0"
@@ -73,13 +46,6 @@
 			<one-to-many
 				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Operacion" />
 		</set>
-		<set name="notificacioncanteras" inverse="true">
-			<key>
-				<column name="fk_codigo_actividad" precision="10" scale="0"
-					not-null="true" />
-			</key>
-			<one-to-many
-				class="pe.com.pacasmayo.sgcp.persistencia.dataObjects.Notificacioncantera" />
-		</set>
+		
 	</class>
 </hibernate-mapping>
