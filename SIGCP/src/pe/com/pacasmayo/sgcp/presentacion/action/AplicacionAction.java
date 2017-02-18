@@ -99,7 +99,7 @@ public abstract class AplicacionAction extends ActionSupport implements
 
 		Map<String, List<OPCIONES>> mapaDeOpciones = getUsuarioMapaOpciones(login);
 
-	
+	System.out.println("-->" + accion);
 		if (mapaDeOpciones.containsKey(accion)) {
 			List<OPCIONES> opciones = mapaDeOpciones.get(accion);
 
@@ -124,7 +124,7 @@ public abstract class AplicacionAction extends ActionSupport implements
 			setFunPreConsolidarActivo(opciones.contains(OPCIONES.PRECONSOLIDAR));
 			setFunGuardarActivo(opciones.contains(OPCIONES.GRABAR));
 			
-
+System.out.println("-->GRABAR " + opciones.contains(OPCIONES.GRABAR));
 
 			/*
 			 * setFunConsultarActivo(true); setFunModificarActivo(true);

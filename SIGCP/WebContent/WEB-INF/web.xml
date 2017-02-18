@@ -87,7 +87,24 @@
 	</servlet>
 	
 	
-	
+	<servlet>
+		<servlet-name>cubicacionProductoServiceImpl</servlet-name>
+		<servlet-class>
+			pe.com.pacasmayo.sgcp.presentacion.gwt.stock.servidor.CubicacionProductoServiceImpl
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>stockServiceImpl</servlet-name>
+		<servlet-class>
+			pe.com.pacasmayo.sgcp.presentacion.gwt.stock.servidor.StockServiceImpl
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>parteTecnicoServiceImpl</servlet-name>
+		<servlet-class>
+			pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.servidor.ParteTecnicoServiceImpl
+		</servlet-class>
+	</servlet>
 
 	<!-- Sevlet para logger en jetty -->
 	<servlet>
@@ -114,7 +131,6 @@
 		</servlet-class>
 	</servlet>
 	
-	
 
 	<servlet-mapping>
 		<servlet-name>notificacionServiceImpl</servlet-name>
@@ -124,7 +140,29 @@
 		<servlet-name>notificacionServiceImpl</servlet-name>
 		<url-pattern>/registrarNotificacion/servicioNotificacion</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>cubicacionProductoServiceImpl</servlet-name>
+		<url-pattern>/modificarCubicacion/servicioCubicacion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>stockServiceImpl</servlet-name>
+		<url-pattern>/registrarCubicacion/servicioStock</url-pattern>
+	</servlet-mapping>
 	
+		<servlet-mapping>
+		<servlet-name>parteTecnicoServiceImpl</servlet-name>
+		<url-pattern>
+			/registrarAjusteProduccionMes/servicioRegistrarAjusteProduccionMes
+		</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>parteTecnicoServiceImpl</servlet-name>
+		<url-pattern>
+			/ajusteProduccion/servicioRegistrarAjusteProduccionMes
+		</url-pattern>
+	</servlet-mapping>
+	
+
 	<!-- Mapeo del Servicio generico para los modulos. El servicio generico 
 		que sera utilizado en cada modulo debe ser renombrado para cada modulo con 
 		su URL... -->
@@ -137,7 +175,24 @@
 		<url-pattern>/administrarNotificacionProduccionPlanta/servicio</url-pattern>
 	</servlet-mapping>
 	
-
+<servlet-mapping>
+		<servlet-name>utilServiceImpl</servlet-name>
+		<url-pattern>/modificarCubicacion/servicio</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>utilServiceImpl</servlet-name>
+		<url-pattern>/registrarCubicacion/servicio</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>utilServiceImpl</servlet-name>
+		<url-pattern>
+			/registrarAjusteProduccionMes/servicio
+		</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>utilServiceImpl</servlet-name>
+		<url-pattern>/ajusteProduccion/servicio</url-pattern>
+	</servlet-mapping>
 
 	<!-- Clase oyente para arrancar el programador de tareas -->
 	<!-- Clase oyente para arrancar el programador de tareas -->

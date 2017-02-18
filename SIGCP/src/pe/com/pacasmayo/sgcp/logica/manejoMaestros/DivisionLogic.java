@@ -138,6 +138,7 @@ public class DivisionLogic implements ConstantesMensajePresentacion,
 							.getAllOrderBy(DivisionQuerier.NOMBRE_DIVISION),
 					DivisionBeanImpl.class);
 		} catch (AplicacionException e) {
+			e.printStackTrace();
 			logger.error(e.getMensaje());
 			mensajeError = ManejadorPropiedades
 					.obtenerPropiedadPorClave(ERROR_CONSULTA_LISTA)

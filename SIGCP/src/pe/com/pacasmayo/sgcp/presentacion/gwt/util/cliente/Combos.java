@@ -406,6 +406,7 @@ public class Combos implements ClienteServicioGwt {
 		divisionItem.setAllowEmptyValue(true);
 		servicioComunicacion.cargarDivisiones(new AsyncCallback<List<DivisionDTO>>() {
 			public void onFailure(Throwable arg0) {
+				GWT.log("cargarDivisiones");
 				arg0.printStackTrace();
 				Window.alert(ConstantesGWT.SERVER_ERROR);
 			}
@@ -1787,7 +1788,7 @@ public class Combos implements ClienteServicioGwt {
 	public static DateItem cargarComboFecha(String nombre, String titulo) {
 		Date date = new Date();
 
-		DateItem fechaItem = new DateItem();
+		DateItemv2 fechaItem = new DateItemv2();
 		fechaItem.setValue(date);
 		fechaItem.setName(nombre);
 		fechaItem.setTitle(titulo);
@@ -1795,7 +1796,7 @@ public class Combos implements ClienteServicioGwt {
 		fechaItem.setSelectorFormat(DateItemSelectorFormat.DAY_MONTH_YEAR);
 
 		long time = date.getTime();
-		time = time - 2 * (ConstantesGWT.MILI_SEG_EN_1_ANIO);
+		time = time - 5 * (ConstantesGWT.MILI_SEG_EN_1_ANIO);
 		date.setTime(time);
 		fechaItem.setStartDate(date);
 

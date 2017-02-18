@@ -1,7 +1,5 @@
 package pe.com.pacasmayo.sgcp.util;
 
-import pe.com.pacasmayo.sgcp.util.ConstantesLogicaNegocio;
-import pe.com.pacasmayo.sgcp.util.ManejadorPropiedades;
 
 /*
  * SGCP (Sistema de Gestión y Control de la Producción) 

@@ -37,19 +37,21 @@
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.registrarAjusteProduccionMes" />
 			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.ajusteProduccion" />
+			
+			<!--
 			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.produccion.modificarProduccionSemanal" />
 			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.produccion.registrarProduccionSemanal" />
 			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.consultarMedicionPorProductos" />
-			<arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarMedicion" />
+			<arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarMedicion" />-->
 			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.modificarCubicacion" />
 			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarCubicacion" />
-			<arg
-				value="pe.com.pacasmayo.sgcp.presentacion.gwt.partediario.consultarParteDiario" />
+			<!--<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.partediario.consultarParteDiario" />-->
 			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.notificacion.administrarNotificacionProduccionPlanta" />
 			<!-- <arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.controlCostos.administrarTablaValor" 
@@ -97,22 +99,26 @@
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.consultarMedicionPorProductos" />
 			<arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarMedicion" />
 			<arg
-				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.modificarCubicacion" />
-			<arg
-				value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarCubicacion" />
-			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.partediario.consultarParteDiario" />-->
+			<!--
+			-->
+			<arg
+							value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.modificarCubicacion" />
+			<arg
+							value="pe.com.pacasmayo.sgcp.presentacion.gwt.stock.registrarCubicacion" />
+			<arg
+							value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.ajusteProduccion" />
 			<arg
 				value="pe.com.pacasmayo.sgcp.presentacion.gwt.notificacion.administrarNotificacionProduccionPlanta" />
 			 <!--<arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.controlCostos.administrarTablaValor" 
 				/> 
-			<arg
-				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.registrarAjusteProduccionMes" />
-			<arg
-				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.ajusteProduccion" />
-
-			 <arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.hojaRuta.administrarHojaRuta" 
+				 <arg value="pe.com.pacasmayo.sgcp.presentacion.gwt.hojaRuta.administrarHojaRuta" 
 				/> -->
+			<!--<arg
+				value="pe.com.pacasmayo.sgcp.presentacion.gwt.parteTecnico.registrarAjusteProduccionMes" />
+			-->
+
+			
 
 		</java>
 	</target>

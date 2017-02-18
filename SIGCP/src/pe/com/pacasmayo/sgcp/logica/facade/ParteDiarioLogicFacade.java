@@ -1,9 +1,12 @@
 package pe.com.pacasmayo.sgcp.logica.facade;
 
 import java.io.ByteArrayOutputStream;
+import java.text.ParseException;
 
 import pe.com.pacasmayo.sgcp.bean.NotificacionDiariaBean;
+import pe.com.pacasmayo.sgcp.bean.ReporteParteDiarioBean;
 import pe.com.pacasmayo.sgcp.bean.UsuarioBean;
+import pe.com.pacasmayo.sgcp.excepciones.AplicacionException;
 import pe.com.pacasmayo.sgcp.excepciones.LogicaException;
 
 import com.itextpdf.text.DocumentException;
@@ -20,7 +23,10 @@ import com.itextpdf.text.DocumentException;
  */
 public interface ParteDiarioLogicFacade {
 
-	
+	public ReporteParteDiarioBean obtenerParteDiarioEntreFechas(Long division, Long sociedad, Long unidad, Long proceso,
+			Long puestoTrabajo, Long producto, String anio, String mes) throws AplicacionException, LogicaException,
+			ParseException;
+
 
 	/**
 	 * Realiza el registro de parte diario, esto no es mas que tener un resumen

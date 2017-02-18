@@ -2,9 +2,9 @@
 function htmlSubmit(idFormulario) {
 	document.getElementById(idFormulario).submit();
 }
-function cambiarActionEXCEL(idFormulario, dirCont) {
+function cambiarActionEXCEL(idFormulario, dirCont,repo) {
 	if (camposObligatorios() && validarSeleccionCmbReporte()) {
-		var valorReporte = $("#valorReporte").val();
+		var valorReporte = repo;
 //IF REPORTE ES PARTE DIARIO 
 		if (valorReporte == 1) {
 			generarReporteDetalleParteDiarioEXCEL(idFormulario, dirCont);
@@ -141,9 +141,9 @@ function validarSeleccionCmbReporte() {
 	return true;
 }
 /* Al hacer Click en PDF */
-function cambiarActionPDF(idFormulario, dirCont) {
+function cambiarActionPDF(idFormulario, dirCont,repo) {
 	if (camposObligatorios() && validarSeleccionCmbReporte()) {
-		var valorReporte = $("#valorReporte").val();
+		var valorReporte =repo;
 		// IF REPORTE ES PARTE DIARIO
 		if (valorReporte == 1) {
 			generarReporteParteDiario(idFormulario, dirCont);
