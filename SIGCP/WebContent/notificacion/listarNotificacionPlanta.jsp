@@ -85,7 +85,9 @@
 									src="<%=request.getContextPath()%>/images/transparente.gif">
 							</a></td>
 
-
+			<td class="eliminar"><a
+									href="../parteDiario/eliminarPorPuestoTrabajoNotificacion.action"><img
+										alt="" src="../images/transparente.gif"> </a></td>
 
 
 							
@@ -106,7 +108,8 @@
 									onclick="javascript:btnFiltrarClicked('formularioFiltro');insertarCarga('loading');">Filtrar</a>
 								</td>
 							
-							
+							<td><a
+									href="../parteDiario/eliminarPorPuestoTrabajoNotificacion.action">Eliminar</a></td>
 								
 						</tr>
 					</table>
