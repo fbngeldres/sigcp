@@ -1,0 +1,10 @@
+/pe
+/org
+/com
+/componente.properties
+/conexionSap.properties
+/conexionScc.properties
+/displaytag.properties
+/hibernate.cfg.xml
+/log4j.properties
+/test

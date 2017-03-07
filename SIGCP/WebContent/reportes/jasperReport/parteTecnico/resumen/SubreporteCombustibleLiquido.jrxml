@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteParteTecnivo_combustible" pageWidth="555" pageHeight="960" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<field name="division" class="java.lang.String"/>
+	<field name="unidad" class="java.lang.String"/>
+	<field name="sociedad" class="java.lang.String"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="producto" class="java.lang.String"/>
+	<field name="reporteCombustibleSolido" class="org.apache.struts2.views.jasperreports.ValueStackDataSource"/>
+	<field name="anio" class="java.lang.String"/>
+	<field name="tituloReporte" class="java.lang.String"/>
+	<field name="reporteCombustibleLiquido" class="org.apache.struts2.views.jasperreports.ValueStackDataSource"/>
+	<field name="estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="65" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="64"/>
+				<dataSourceExpression><![CDATA[$F{reporteCombustibleSolido}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["reporteCombustible_combustibleSolido.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="63" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="0" y="-1" width="555" height="64"/>
+				<dataSourceExpression><![CDATA[$F{reporteCombustibleLiquido}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["reporteCombustible_combustibleLiquido.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

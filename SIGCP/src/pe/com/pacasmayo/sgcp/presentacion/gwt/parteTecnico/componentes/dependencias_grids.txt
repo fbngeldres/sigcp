@@ -1,0 +1,64 @@
+digraph G {
+	node [shape=record];
+	subgraph cluster0  {
+		label = "Prod_P_Trabajo";
+		prod_real_hr;
+		prod_real_tm;
+		prod_real_tmph;
+		prod_real_tmph;
+		ajuste_tm;
+		ajuste_hr;
+		factores;
+	}
+	subgraph cluster1  {
+		label = "consumo_comp_ptrab";
+		consumo_real_tm;
+		consumo_real_porc;
+		diferencia_tm;
+		dif_mas_aj_manual;
+		porc_carbon;
+	}
+	subgraph cluster2  {
+		label = "movimientos_comp";
+		consumo_total;
+		libros;
+		f_menos_l;
+		porcentaje_desv;
+		porcentaje_desv;
+	}
+	subgraph cluster3  {
+		label = "ajustes";
+		ajuste_manual;
+	}
+	subgraph cluster4  {
+		label = "balance";
+		ajuste_ingreso;
+	}
+
+	// Prod_P_Trabajo
+	prod_real_hr -> ajuste_hr;
+	prod_real_tm -> ajuste_tm;
+	prod_real_tmph -> prod_real_hr;
+	prod_real_tmph -> prod_real_tm;
+	factores -> prod_real_tm;
+	factores -> dif_mas_aj_manual;
+
+	// consumo_comp_ptrab
+	consumo_real_tm -> diferencia_tm;
+	consumo_real_porc -> diferencia_tm;
+	diferencia_tm -> ajuste_tm;
+	dif_mas_aj_manual -> diferencia_tm;
+	dif_mas_aj_manual -> ajuste_manual;
+	porc_carbon -> diferencia_tm;
+
+	// movimientos_comp
+	consumo_total -> dif_mas_aj_manual;
+	libros -> consumo_total;
+	f_menos_l -> libros;
+	porcentaje_desv -> libros;
+	porcentaje_desv -> f_menos_l;
+
+	// balance
+	ajuste_ingreso -> ajuste_tm;
+
+} 	

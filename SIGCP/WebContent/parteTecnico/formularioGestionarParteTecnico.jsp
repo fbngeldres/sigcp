@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd height="2" XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/Dtd height="2"/xhtml1-transitional.dtd height="2"">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<s:head theme="ajax" />
+
+<title>CEMENTOS PACASMAYO - Sistema de Gesti&oacute;n y Control
+	de Producci&oacute;n</title>
+
+<link href="<%=request.getContextPath()%>/css/SGCP-estilo.css"
+	rel="stylesheet" type="text/css" />
+
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/scripts/util.js"></script>
+
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/scripts/parteTecnico.js"></script>
+
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/scripts/manejoMaestros.js"></script>
+
+</head>
+
+<body onload="iniciarMenu();">
+
+	<div class="content-ppal">
+
+		<!-- INCLUDE HEADER -->
+		<jsp:include page="../comun/cabeceraPagina.jsp" flush="true" />
+
+		<!-- INCLUDE MENU -->
+		<jsp:include page="../comun/menu.jsp" flush="true" />
+
+		<!--  INICIO CONTENIDO INTERNO -->
+		<div id="contenido" class="content-int">
+
+			<!--  INICIO TITULO-->
+			<div class="titulo">
+				<s:text name="parteTecnico.ajusteProduccionMes.titulo.principal" />
+			</div>
+
+			<!--  INICIO BANDA DE ICONOS-->
+			<div class="banda-iconos">
+				<div>
+					<table class="center" cellspacing="0">
+						<tr>
+
+							<td class="eliminar"><a href="#"
+								onclick="javascript:showLoading(); procesarFormulario(document.ajuste.id,'ajuste.codigoAjuste','un Ajuste Producto','AjusteProducto','Eliminar');"><img
+									alt="" src="../images/transparente.gif"> </a></td>
+
+							<td class="filtrar"><a href="#"
+								onclick="javascript:filtrarAjustesProducto('formularioFiltro');"><img
+									alt="" src="../images/transparente.gif"> </a></td>
+
+						</tr>
+						<tr>
+
+							<td><a href="#"
+								onclick="javascript:showLoading(); procesarFormulario(document.ajuste.id,'ajuste.codigoAjuste','un Ajuste Producto','AjusteProducto','Eliminar');">Eliminar</a>
+							</td>
+
+
+							<td><a href="#"
+								onclick="javascript:filtrarAjustesProducto('formularioFiltro');">Filtrar</a>
+							</td>
+
+
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<!--  INICIO CONTENIDO -->
+			<div class="content">
+				<div class="titulo">
+					<s:text name="parteTecnico.ajusteProduccionMes.titulo.gestionar"></s:text>
+				</div>
+				<div id="formularios">
+					<s:form theme="simple" id="formularioFiltro"
+						name="formularioFiltro" action="filtrarAjusteProducto">
+						<table border="0" width="100%" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="20%" colspan="1">
+									<table>
+										<tr>
+											<td><s:text
+													name="manejoMaestro.proceso.etiqueta.lineaNegocio" /> :</td>
+											<td>
+												<table>
+													<tr>
+														<td><s:select name="lineaSeleccionada"
+																id="lineaSeleccionada" value="%{lineaSeleccionada}"
+																list="lineas" listKey="codigo" listValue="nombre"
+																theme="simple" /></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td width="20%" colspan="1">
+									<table border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td><s:text
+													name="parteTecnico.ajusteProduccionMes.etiqueta.estado" />
+												:</td>
+											<td>
+												<table>
+													<tr>
+														<td><s:select
+																name="estadoAjusteProduccionSeleccionada"
+																id="estadoAjusteProduccionSeleccionada"
+																value="%{estadoAjusteProduccionSeleccionada}"
+																list="estadosAjusteProduccion" listKey="codigo"
+																listValue="nombre" headerValue="Seleccione" headerKey=""
+																theme="simple" /></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td width="20%" colspan="1">
+									<table>
+										<tr>
+											<td><s:text
+													name="parteTecnico.ajusteProduccionMes.etiqueta.anio" /> :
+											</td>
+											<td>
+												<table>
+													<tr>
+														<td><s:select name="anioSeleccionado"
+																id="anioSeleccionado" value="%{anioSeleccionado}"
+																list="anios" headerValue="Seleccione" headerKey="null"
+																theme="simple" /></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td width="20%" colspan="1">
+									<table>
+										<tr>
+											<td><s:text
+													name="parteTecnico.ajusteProduccionMes.etiqueta.mes" /> :
+											</td>
+											<td>
+												<table>
+													<tr>
+														<td><s:select name="mesSeleccionado"
+																id="mesSeleccionado" value="%{mesSeleccionado}"
+																list="meses" headerValue="Seleccione" headerKey=""
+																theme="simple" /></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</s:form>
+					<table width="100%">
+						<tr>
+							<td>
+								<div id="loading"></div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4" align="center" width="100%"><s:form
+									method="post" name="ajuste" namespace="parteTecnico"
+									id="ajuste">
+
+									<s:if test="ajusteProductos.size > 0">
+										<div>
+											<table class="dataTable2">
+												<tr>
+													<td><display:table name="ajusteProductos"
+															id="ajustesProductoTable" pagesize="10" cellpadding="0"
+															cellspacing="0" defaultorder="ascending" defaultsort="1"
+															sort="list" requestURI="" class="dataTable">
+															<display:column title="Selecci&oacute;n">
+
+																<input type="radio" name="ajuste.codigoAjuste"
+																	value="${ajustesProductoTable.codigo}"
+																	style="width: 10px" />
+															</display:column>
+															<display:column title="Año - Mes de Ajuste">
+													
+														${ajustesProductoTable.ajusteproduccion.periodocontable.anoPeriodocontable} - 
+														${ajustesProductoTable.ajusteproduccion.periodocontable.mesPeriodocontable}
+												</display:column>
+															<display:column title="Producto"
+																property="producto.nombre" />
+															<display:column title="Estado"
+																property="ajusteproduccion.estadoajusteproduccion.nombre" />
+
+
+
+														</display:table></td>
+												</tr>
+											</table>
+										</div>
+									</s:if>
+
+								</s:form></td>
+						</tr>
+						<tr>
+							<td colspan="4" align="left" width="100%">
+								<div>
+									<s:if test="hasActionMessages()">
+										<tr>
+											<td colspan="4">
+												<div class="exito">
+													<s:actionmessage />
+												</div>
+											</td>
+										</tr>
+									</s:if>
+									<s:if test="hasActionErrors()">
+										<tr>
+											<td colspan="4">
+												<div class="error">
+													<s:actionerror />
+												</div>
+											</td>
+										</tr>
+									</s:if>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!-- INCLUDE FOOTER -->
+			<jsp:include page="../comun/piePagina.jsp" flush="true" />
+		</div>
+	</div>
+</body>
+</html>

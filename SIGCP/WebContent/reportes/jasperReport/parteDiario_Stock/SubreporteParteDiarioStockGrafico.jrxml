@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReporteGrafico1" pageWidth="1357" pageHeight="595" orientation="Landscape" columnWidth="1317" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+	<property name="ireport.zoom" value="0.6997610703146026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<field name="dia" class="java.lang.Integer"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="siglas" class="java.lang.String"/>
+	<field name="toneladas" class="java.lang.Double"/>
+	<field name="titulo" class="java.lang.String"/>
+	<field name="diaTotalSF" class="java.lang.Integer"/>
+	<field name="subTituloY" class="java.lang.String"/>
+	<field name="subTituloY2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="311" splitType="Stretch">
+			<multiAxisChart>
+				<chart>
+					<reportElement x="0" y="0" width="1317" height="311"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<multiAxisPlot>
+					<plot/>
+					<axis>
+						<barChart>
+							<chart>
+								<reportElement x="0" y="0" width="0" height="0" backcolor="#FFFFFF"/>
+								<chartTitle color="#000000"/>
+								<chartSubtitle color="#000000"/>
+								<chartLegend textColor="#000000" backgroundColor="#FFFFFF"/>
+							</chart>
+							<categoryDataset>
+								<dataset>
+									<incrementWhenExpression><![CDATA[($F{descripcion}.indexOf("SF Final") >= 0) ? false : true]]></incrementWhenExpression>
+								</dataset>
+								<categorySeries>
+									<seriesExpression><![CDATA[$F{descripcion}]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{dia}]]></categoryExpression>
+									<valueExpression><![CDATA[$F{toneladas}]]></valueExpression>
+								</categorySeries>
+							</categoryDataset>
+							<barPlot>
+								<plot>
+									<seriesColor seriesOrder="0" color="#FF9999"/>
+									<seriesColor seriesOrder="1" color="#669900"/>
+									<seriesColor seriesOrder="2" color="#6666FF"/>
+									<seriesColor seriesOrder="3" color="#990099"/>
+									<seriesColor seriesOrder="4" color="#FFCC33"/>
+									<seriesColor seriesOrder="5" color="#00CCCC"/>
+								</plot>
+								<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+								<categoryAxisFormat>
+									<axisFormat>
+										<labelFont/>
+										<tickLabelFont/>
+									</axisFormat>
+								</categoryAxisFormat>
+								<valueAxisLabelExpression><![CDATA[$F{subTituloY}]]></valueAxisLabelExpression>
+								<valueAxisFormat>
+									<axisFormat>
+										<labelFont/>
+										<tickLabelFont/>
+									</axisFormat>
+								</valueAxisFormat>
+							</barPlot>
+						</barChart>
+					</axis>
+					<axis position="rightOrBottom">
+						<lineChart>
+							<chart>
+								<reportElement x="0" y="0" width="0" height="0" isRemoveLineWhenBlank="true" backcolor="#FFFFFF">
+									<printWhenExpression><![CDATA[($F{subTituloY2}.length()>0)]]></printWhenExpression>
+								</reportElement>
+								<chartTitle color="#000000"/>
+								<chartSubtitle color="#000000"/>
+								<chartLegend textColor="#000000" backgroundColor="#FFFFFF"/>
+							</chart>
+							<categoryDataset>
+								<dataset>
+									<incrementWhenExpression><![CDATA[($F{descripcion}.indexOf("SF Final") >= 0) ? true : false]]></incrementWhenExpression>
+								</dataset>
+								<categorySeries>
+									<seriesExpression><![CDATA[$F{descripcion}]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{dia}]]></categoryExpression>
+									<valueExpression><![CDATA[$F{toneladas}]]></valueExpression>
+								</categorySeries>
+							</categoryDataset>
+							<linePlot isShowLines="true" isShowShapes="true">
+								<plot>
+									<seriesColor seriesOrder="0" color="#3366FF"/>
+								</plot>
+								<categoryAxisFormat>
+									<axisFormat>
+										<labelFont/>
+										<tickLabelFont/>
+									</axisFormat>
+								</categoryAxisFormat>
+								<valueAxisLabelExpression><![CDATA[$F{subTituloY2}]]></valueAxisLabelExpression>
+								<valueAxisFormat>
+									<axisFormat>
+										<labelFont/>
+										<tickLabelFont/>
+									</axisFormat>
+								</valueAxisFormat>
+							</linePlot>
+						</lineChart>
+					</axis>
+				</multiAxisPlot>
+			</multiAxisChart>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

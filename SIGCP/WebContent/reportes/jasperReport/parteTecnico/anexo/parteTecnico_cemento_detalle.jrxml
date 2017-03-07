@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pateTecnicoCrudoDetalle" pageWidth="1000" pageHeight="555" orientation="Landscape" columnWidth="1000" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty">
+	<property name="ireport.zoom" value="0.9090909090909103"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\JAVAWorkspace\\SGCP\\WebContent\\reportes\\jasperReport\\parteDiario\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="col1" class="java.lang.String"/>
+	<field name="col2" class="java.lang.String"/>
+	<field name="col3" class="java.lang.String"/>
+	<field name="col4" class="java.lang.String"/>
+	<field name="col5" class="java.lang.String"/>
+	<field name="col6" class="java.lang.String"/>
+	<field name="col7" class="java.lang.String"/>
+	<field name="col8" class="java.lang.String"/>
+	<field name="col9" class="java.lang.String"/>
+	<field name="col10" class="java.lang.String"/>
+	<field name="col11" class="java.lang.String"/>
+	<field name="col12" class="java.lang.String"/>
+	<field name="col13" class="java.lang.String"/>
+	<field name="col14" class="java.lang.String"/>
+	<field name="col15" class="java.lang.String"/>
+	<field name="col16" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="0" width="212" height="20">
+					<printWhenExpression><![CDATA[!($F{col1}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="213" y="0" width="150" height="20">
+					<printWhenExpression><![CDATA[!($F{col2}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="363" y="0" width="150" height="20">
+					<printWhenExpression><![CDATA[!($F{col3}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="513" y="1" width="150" height="20">
+					<printWhenExpression><![CDATA[!($F{col4}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="663" y="0" width="150" height="20">
+					<printWhenExpression><![CDATA[!($F{col5}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="813" y="0" width="150" height="20">
+					<printWhenExpression><![CDATA[!($F{col6}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col6}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

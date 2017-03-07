@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ParteTecnicoCemento" pageWidth="1000" pageHeight="555" orientation="Landscape" columnWidth="1000" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty">
+	<property name="ireport.zoom" value="0.9090909090909103"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\JAVAWorkspace\\SGCP\\WebContent\\reportes\\jasperReport\\parteDiario\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="col1" class="java.lang.String"/>
+	<field name="col2" class="java.lang.String"/>
+	<field name="col3" class="java.lang.String"/>
+	<field name="col4" class="java.lang.String"/>
+	<field name="col5" class="java.lang.String"/>
+	<field name="col6" class="java.lang.String"/>
+	<field name="col7" class="java.lang.String"/>
+	<field name="col8" class="java.lang.String"/>
+	<field name="col9" class="java.lang.String"/>
+	<field name="col10" class="java.lang.String"/>
+	<field name="col11" class="java.lang.String"/>
+	<field name="col12" class="java.lang.String"/>
+	<field name="col13" class="java.lang.String"/>
+	<field name="col14" class="java.lang.String"/>
+	<field name="col15" class="java.lang.String"/>
+	<field name="col16" class="java.lang.String"/>
+	<field name="col17" class="java.lang.String"/>
+	<field name="col18" class="java.lang.String"/>
+	<field name="col19" class="java.lang.String"/>
+	<field name="detalleReporteTecnico" class="org.apache.struts2.views.jasperreports.ValueStackDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="39" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="0" width="212" height="39">
+					<printWhenExpression><![CDATA[!($F{col1}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="214" y="0" width="150" height="39">
+					<printWhenExpression><![CDATA[!($F{col2}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="364" y="0" width="150" height="39">
+					<printWhenExpression><![CDATA[!($F{col3}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="514" y="0" width="150" height="39">
+					<printWhenExpression><![CDATA[!($F{col4}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="664" y="0" width="150" height="39">
+					<printWhenExpression><![CDATA[!($F{col5}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="814" y="0" width="150" height="39">
+					<printWhenExpression><![CDATA[!($F{col6}.equalsIgnoreCase( "null" ))]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{col6}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="56" splitType="Stretch">
+			<subreport>
+				<reportElement x="2" y="0" width="998" height="56"/>
+				<dataSourceExpression><![CDATA[$F{detalleReporteTecnico}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["parteTecnico_cemento_detalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

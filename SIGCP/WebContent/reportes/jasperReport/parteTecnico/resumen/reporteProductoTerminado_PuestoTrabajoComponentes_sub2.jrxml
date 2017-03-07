@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="parteTecnicoPuestoTrabajoComponentes" pageWidth="555" pageHeight="1500" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty">
+	<property name="ireport.zoom" value="1.464100000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="producto1" class="java.lang.String"/>
+	<field name="producto2" class="java.lang.String"/>
+	<field name="producto3" class="java.lang.String"/>
+	<field name="producto4" class="java.lang.String"/>
+	<field name="producto5" class="java.lang.String"/>
+	<field name="producto6" class="java.lang.String"/>
+	<field name="producto7" class="java.lang.String"/>
+	<field name="producto8" class="java.lang.String"/>
+	<field name="producto9" class="java.lang.String"/>
+	<field name="producto10" class="java.lang.String"/>
+	<field name="combustible1" class="java.lang.String"/>
+	<field name="combustible2" class="java.lang.String"/>
+	<field name="combustible3" class="java.lang.String"/>
+	<field name="combustible4" class="java.lang.String"/>
+	<field name="detallePuestoTrabajos" class="org.apache.struts2.views.jasperreports.ValueStackDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="135" y="22" width="56" height="11" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#960000">
+					<printWhenExpression><![CDATA[$F{producto1}!=null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="6" y="22" width="73" height="11" forecolor="#FFFFFF" backcolor="#960000"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P.trabajo ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="79" y="22" width="56" height="11" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#960000">
+					<printWhenExpression><![CDATA[$F{producto1}!= null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Producción]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="79" y="11" width="112" height="11" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#960000">
+					<printWhenExpression><![CDATA[$F{producto1}!=null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{producto1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="224" y="22" width="73" height="11" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#960000"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="297" y="22" width="70" height="11" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#960000"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="367" y="22" width="69" height="11" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#960000"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="436" y="22" width="68" height="11" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#960000"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible4}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<subreport>
+				<reportElement x="4" y="0" width="555" height="31"/>
+				<dataSourceExpression><![CDATA[$F{detallePuestoTrabajos}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["reporteProductoTerminado_PuestoTrabajoComponentes_detalle_sub3.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

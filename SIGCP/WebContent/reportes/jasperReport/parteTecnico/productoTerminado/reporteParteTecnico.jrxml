@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repoteParteTecnico" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="5" bottomMargin="20">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<field name="division" class="java.lang.String"/>
+	<field name="unidad" class="java.lang.String"/>
+	<field name="sociedad" class="java.lang.String"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="producto" class="java.lang.String"/>
+	<field name="subReportePtComponentes" class="org.apache.struts2.views.jasperreports.ValueStackDataSource"/>
+	<field name="anio" class="java.lang.String"/>
+	<field name="tituloReporte" class="java.lang.String"/>
+	<field name="subReportePTOperacionesComponentes" class="org.apache.struts2.views.jasperreports.ValueStackDataSource"/>
+	<field name="estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="161" splitType="Stretch">
+			<textField>
+				<reportElement x="209" y="70" width="176" height="37"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tituloReporte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="124" width="118" height="13"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="385" y="124" width="50" height="13"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Estado :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="124" width="100" height="13"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{producto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="124" width="50" height="13"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Producto :]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="13" width="210" height="46"/>
+				<imageExpression class="java.lang.String"><![CDATA["..//..//..//logo.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="470" y="13" width="83" height="73"/>
+				<imageExpression class="java.lang.String"><![CDATA["..//..//..//logo2.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="337" y="0" width="117" height="13"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emisión:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="454" y="0" width="100" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="163" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" x="1" y="0" width="554" height="163"/>
+				<dataSourceExpression><![CDATA[$F{subReportePtComponentes}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["parteTecnicoComponentesSubReporte.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="159">
+			<subreport>
+				<reportElement x="1" y="0" width="555" height="159"/>
+				<dataSourceExpression><![CDATA[$F{subReportePTOperacionesComponentes}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["parteTecnicoPuestoTrabajoComponentes_sub1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

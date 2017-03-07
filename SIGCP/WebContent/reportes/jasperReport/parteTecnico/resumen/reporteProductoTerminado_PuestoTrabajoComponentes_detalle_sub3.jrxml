@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="parteTecnicoPuestoTrabajoComponentes_detalle" pageWidth="555" pageHeight="1500" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.6105100000000034"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="puestoTrabajo" class="java.lang.String"/>
+	<field name="productoTM1" class="java.lang.String"/>
+	<field name="productoHR1" class="java.lang.String"/>
+	<field name="productoTM2" class="java.lang.String"/>
+	<field name="productoHR2" class="java.lang.String"/>
+	<field name="productoTM3" class="java.lang.String"/>
+	<field name="productoHR3" class="java.lang.String"/>
+	<field name="productoTM4" class="java.lang.String"/>
+	<field name="productoHR4" class="java.lang.String"/>
+	<field name="productoTM5" class="java.lang.String"/>
+	<field name="productoHR5" class="java.lang.String"/>
+	<field name="productoTM6" class="java.lang.String"/>
+	<field name="productoHR6" class="java.lang.String"/>
+	<field name="productoTM7" class="java.lang.String"/>
+	<field name="productoHR7" class="java.lang.String"/>
+	<field name="productoTM8" class="java.lang.String"/>
+	<field name="productoHR8" class="java.lang.String"/>
+	<field name="productoTM9" class="java.lang.String"/>
+	<field name="productoHR9" class="java.lang.String"/>
+	<field name="productoTM10" class="java.lang.String"/>
+	<field name="productoHR10" class="java.lang.String"/>
+	<field name="combustible1" class="java.lang.String"/>
+	<field name="combustible2" class="java.lang.String"/>
+	<field name="combustible3" class="java.lang.String"/>
+	<field name="combustible4" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="73" height="11">
+					<printWhenExpression><![CDATA[!$F{puestoTrabajo}.equals( "Total" )]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{puestoTrabajo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="73" y="0" width="56" height="11" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{puestoTrabajo}.equals( "Total" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{productoTM1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="129" y="0" width="56" height="11" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{puestoTrabajo}.equals( "Total" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{productoHR1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="185" y="0" width="56" height="11" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{puestoTrabajo}.equals( "Total" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="241" y="0" width="56" height="11" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{puestoTrabajo}.equals( "Total" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="297" y="0" width="56" height="11" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{puestoTrabajo}.equals( "Total" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="353" y="0" width="56" height="11" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$F{puestoTrabajo}.equals( "Total" )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible4}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="73" y="0" width="56" height="17" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{productoTM1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="129" y="0" width="56" height="17" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{productoHR1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="185" y="0" width="56" height="17" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="241" y="0" width="56" height="17" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="297" y="0" width="56" height="17" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.0" isBlankWhenNull="true">
+				<reportElement x="353" y="0" width="56" height="17" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{combustible4}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="73" height="17"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

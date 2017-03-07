@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReporteFactores" pageWidth="2000" pageHeight="595" orientation="Landscape" columnWidth="1960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.3995221406291998"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<field name="nombrePuestoTrabajo_1" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_2" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_3" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_4" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_5" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_6" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_7" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_8" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_9" class="java.lang.String"/>
+	<field name="nombrePuestoTrabajo_10" class="java.lang.String"/>
+	<field name="siglapt_1" class="java.lang.String"/>
+	<field name="siglapt_2" class="java.lang.String"/>
+	<field name="siglapt_3" class="java.lang.String"/>
+	<field name="siglapt_4" class="java.lang.String"/>
+	<field name="siglapt_5" class="java.lang.String"/>
+	<field name="siglapt_6" class="java.lang.String"/>
+	<field name="siglapt_7" class="java.lang.String"/>
+	<field name="siglapt_8" class="java.lang.String"/>
+	<field name="siglapt_9" class="java.lang.String"/>
+	<field name="siglapt_10" class="java.lang.String"/>
+	<field name="toneladasproducidas_1" class="java.lang.Double"/>
+	<field name="toneladasproducidas_2" class="java.lang.Double"/>
+	<field name="toneladasproducidas_3" class="java.lang.Double"/>
+	<field name="toneladasproducidas_4" class="java.lang.Double"/>
+	<field name="toneladasproducidas_5" class="java.lang.Double"/>
+	<field name="toneladasproducidas_6" class="java.lang.Double"/>
+	<field name="toneladasproducidas_7" class="java.lang.Double"/>
+	<field name="toneladasproducidas_8" class="java.lang.Double"/>
+	<field name="toneladasproducidas_9" class="java.lang.Double"/>
+	<field name="toneladasproducidas_10" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_1" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_2" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_3" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_4" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_5" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_6" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_7" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_8" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_9" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_10" class="java.lang.Double"/>
+	<field name="dia_1" class="java.lang.Integer"/>
+	<field name="tmph_1" class="java.lang.String"/>
+	<field name="tmph_2" class="java.lang.String"/>
+	<field name="tmph_3" class="java.lang.String"/>
+	<field name="tmph_4" class="java.lang.String"/>
+	<field name="tmph_5" class="java.lang.String"/>
+	<field name="tmph_6" class="java.lang.String"/>
+	<field name="tmph_7" class="java.lang.String"/>
+	<field name="tmph_8" class="java.lang.String"/>
+	<field name="tmph_9" class="java.lang.String"/>
+	<field name="tmph_10" class="java.lang.String"/>
+	<field name="siglapt_11" class="java.lang.String"/>
+	<field name="toneladasproducidas_11" class="java.lang.Double"/>
+	<field name="tmph_11" class="java.lang.String"/>
+	<field name="tmph_12" class="java.lang.String"/>
+	<field name="tmph_13" class="java.lang.String"/>
+	<field name="tmph_14" class="java.lang.String"/>
+	<field name="tmph_15" class="java.lang.String"/>
+	<field name="toneladasproducidasporhora_11" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_12" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_13" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_14" class="java.lang.Double"/>
+	<field name="toneladasproducidasporhora_15" class="java.lang.Double"/>
+	<field name="siglapt_12" class="java.lang.String"/>
+	<field name="siglapt_13" class="java.lang.String"/>
+	<field name="siglapt_14" class="java.lang.String"/>
+	<field name="siglapt_15" class="java.lang.String"/>
+	<field name="siglapt_16" class="java.lang.String"/>
+	<field name="toneladasproducidas_12" class="java.lang.Double"/>
+	<field name="toneladasproducidas_13" class="java.lang.Double"/>
+	<field name="toneladasproducidas_14" class="java.lang.Double"/>
+	<field name="toneladasproducidas_15" class="java.lang.Double"/>
+	<field name="toneladasproducidas_16" class="java.lang.Double"/>
+	<variable name="sumaToneladasProducidas1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_1}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas2" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_2}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas3" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_3}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas4" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_4}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas5" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_5}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas6" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_6}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas7" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_7}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas8" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_8}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas9" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_9}]]></variableExpression>
+	</variable>
+	<variable name="sumaToneladasProducidas10" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{toneladasproducidas_10}]]></variableExpression>
+	</variable>
+	<variable name="sumaFila" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{toneladasproducidas_1}+$F{toneladasproducidas_2}+$F{toneladasproducidas_3}+$F{toneladasproducidas_4}+$F{toneladasproducidas_5}+$F{toneladasproducidas_6}+$F{toneladasproducidas_7}+$F{toneladasproducidas_8}+$F{toneladasproducidas_9}+$F{toneladasproducidas_10}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="12" width="42" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Día]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="44" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglapt_1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="104" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tmph_1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="164" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglapt_2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="224" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tmph_2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="284" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglapt_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="344" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tmph_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="404" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglapt_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="464" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tmph_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="524" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglapt_5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="584" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tmph_5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="644" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglapt_6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="704" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tmph_6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="764" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglapt_7}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="824" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tmph_7}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="884" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{siglapt_8}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="944" y="12" width="60" height="39" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tmph_8}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="0" width="42" height="20"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{dia_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="44" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidas_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="104" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidasporhora_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="164" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidas_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="224" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidasporhora_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="284" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidas_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="344" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidasporhora_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="404" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidas_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="464" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidasporhora_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="524" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidas_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="584" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidasporhora_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="644" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidas_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="704" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidasporhora_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="764" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidas_7}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="824" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidasporhora_7}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="884" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidas_8}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="944" y="0" width="60" height="20"/>
+				<box leftPadding="0" rightPadding="4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladasproducidasporhora_8}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="8" width="42" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="44" y="8" width="60" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaToneladasProducidas1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="164" y="8" width="60" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaToneladasProducidas2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="284" y="8" width="60" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaToneladasProducidas3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="404" y="8" width="60" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaToneladasProducidas4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="524" y="8" width="60" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaToneladasProducidas5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="644" y="8" width="60" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaToneladasProducidas6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="764" y="8" width="60" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaToneladasProducidas7}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="884" y="8" width="60" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaToneladasProducidas8}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

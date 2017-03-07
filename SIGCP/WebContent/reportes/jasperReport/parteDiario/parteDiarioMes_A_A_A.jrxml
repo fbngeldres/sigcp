@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="parteDiarioMes_A_A_A" pageWidth="2000" pageHeight="555" orientation="Landscape" columnWidth="2000" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0000000000000029"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="concepto" class="java.lang.String"/>
+	<field name="valor_1" class="java.lang.Double"/>
+	<field name="valor_2" class="java.lang.Double"/>
+	<field name="valor_3" class="java.lang.Double"/>
+	<field name="valor_4" class="java.lang.Double"/>
+	<field name="valor_5" class="java.lang.Double"/>
+	<field name="valor_6" class="java.lang.Double"/>
+	<field name="valor_7" class="java.lang.Double"/>
+	<field name="valor_8" class="java.lang.Double"/>
+	<field name="valor_9" class="java.lang.Double"/>
+	<field name="valor_10" class="java.lang.Double"/>
+	<field name="valor_11" class="java.lang.Double"/>
+	<field name="valor_12" class="java.lang.Double"/>
+	<field name="valor_13" class="java.lang.Double"/>
+	<field name="valor_14" class="java.lang.Double"/>
+	<field name="valor_15" class="java.lang.Double"/>
+	<field name="valor_16" class="java.lang.Double"/>
+	<field name="valor_17" class="java.lang.Double"/>
+	<field name="valor_18" class="java.lang.Double"/>
+	<field name="valor_19" class="java.lang.Double"/>
+	<field name="valor_20" class="java.lang.Double"/>
+	<field name="valor_21" class="java.lang.Double"/>
+	<field name="valor_22" class="java.lang.Double"/>
+	<field name="valor_23" class="java.lang.Double"/>
+	<field name="valor_24" class="java.lang.Double"/>
+	<field name="valor_25" class="java.lang.Double"/>
+	<field name="valor_26" class="java.lang.Double"/>
+	<field name="valor_27" class="java.lang.Double"/>
+	<field name="valor_28" class="java.lang.Double"/>
+	<field name="valor_29" class="java.lang.Double"/>
+	<field name="valor_30" class="java.lang.Double"/>
+	<field name="valor_31" class="java.lang.Double"/>
+	<field name="suma" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="18" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="118" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_1} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="168" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_2} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="218" y="0" width="50" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="268" y="0" width="50" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="318" y="0" width="50" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="false">
+				<reportElement x="368" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_6} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="418" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_7} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_7}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="468" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_8} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_8}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="518" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_9} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_9}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="568" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_10} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_10}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="618" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_11} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_11}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="668" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_12} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_12}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="718" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_13} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_13}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="768" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_14} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_14}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="818" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_15} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_15}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="868" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_16} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_16}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="918" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_17} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_17}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="968" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_18} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_18}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1018" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_19} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_19}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1068" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_20} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_20}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1118" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_21} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_21}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1168" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_22} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_22}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1218" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_23} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_23}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1268" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_24} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_24}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1318" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_25} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_25}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1368" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_26} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_26}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1418" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_27} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_27}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1468" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_28} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_28}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1518" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_29} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_29}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1568" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_30} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_30}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1618" y="0" width="50" height="20">
+					<printWhenExpression><![CDATA[$F{valor_31} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{valor_31}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="1696" y="0" width="235" height="20">
+					<printWhenExpression><![CDATA[$F{suma} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{suma}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

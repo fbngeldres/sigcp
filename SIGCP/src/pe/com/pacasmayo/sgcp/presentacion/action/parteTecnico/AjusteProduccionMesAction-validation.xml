@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+
+        "-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+
+        "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="anioSeleccionado">
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[!("-1".equals(anioSeleccionado))]]></param>
+			<message key="reporteECS.error.proceso.requerido"></message>
+		</field-validator>
+	</field>
+	<field name="mesSeleccionado">
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[!("-1".equals(mesSeleccionado))]]></param>
+			<message key="reporteECS.error.puestotrabajo.requerido"></message>
+		</field-validator>
+	</field>
+
+</validators>

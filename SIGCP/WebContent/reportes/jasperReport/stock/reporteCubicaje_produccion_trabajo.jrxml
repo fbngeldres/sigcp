@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCubicaje_produccion_trabajo" pageWidth="600" pageHeight="802" columnWidth="600" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="403"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nombrePuestoTrabajo" class="java.lang.String"/>
+	<field name="mesAnteriorTM" class="java.lang.Double"/>
+	<field name="mesAnteriorHR" class="java.lang.Double"/>
+	<field name="produccionTM" class="java.lang.Double"/>
+	<field name="produccionHR" class="java.lang.Double"/>
+	<field name="produccionKCAL" class="java.lang.Double"/>
+	<field name="ajusteTM" class="java.lang.Double"/>
+	<field name="ajusteHR" class="java.lang.Double"/>
+	<field name="tasaProduccionNominal" class="java.lang.Double"/>
+	<field name="produccionRealTM" class="java.lang.Double"/>
+	<field name="produccionRealHR" class="java.lang.Double"/>
+	<field name="produccionRealTMPH" class="java.lang.Double"/>
+	<field name="produccionRealKCAL" class="java.lang.Double"/>
+	<variable name="tmAnterior" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{mesAnteriorTM} == null ? 0 : $F{mesAnteriorTM}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="hrAnterior" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{mesAnteriorHR} == null ? 0D : $F{mesAnteriorHR}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="tmActual" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{produccionTM} == null ? 0D : $F{produccionTM}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="hrActual" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{produccionHR} == null ? 0D : $F{produccionHR}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="tmphActual" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{hrActual} == 0D ? 0D : ($V{tmActual}/$V{hrActual})]]></variableExpression>
+	</variable>
+	<variable name="tmphAnterior" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{hrAnterior} == 0D ? 0D : ($V{tmAnterior}/$V{hrAnterior})]]></variableExpression>
+	</variable>
+	<variable name="kcalActual" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{produccionKCAL} == null ? 0D : $F{produccionKCAL}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="hrAjuste" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{ajusteHR} == null ? 0D : $F{ajusteHR}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="tmAjuste" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{ajusteTM} == null ? 0D : $F{ajusteTM}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="produccionNominal" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{tasaProduccionNominal} == null ? 0D : $F{tasaProduccionNominal}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="tasaProdNominalMax" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{tasaProduccionNominal} * 1.05d]]></variableExpression>
+	</variable>
+	<variable name="tasaProdNominalMin" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{produccionNominal} * 0.95d]]></variableExpression>
+	</variable>
+	<variable name="hrReal" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{produccionRealHR} == null ? 0D : $F{produccionRealHR}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="tmReal" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{tmActual}+$V{tmAjuste}]]></variableExpression>
+	</variable>
+	<variable name="tmphReal" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{produccionRealTMPH} == null ? 0D : $F{produccionRealTMPH}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="kcalReal" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{produccionRealKCAL} == null ? 0D : $F{produccionRealKCAL}.doubleValue()]]></variableExpression>
+	</variable>
+	<variable name="totalHrAnterior" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{hrAnterior}]]></variableExpression>
+	</variable>
+	<variable name="totalTMAnterior" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tmAnterior}]]></variableExpression>
+	</variable>
+	<variable name="totalTMPHAnterior" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tmphAnterior}]]></variableExpression>
+	</variable>
+	<variable name="totalHrActual" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{hrActual}]]></variableExpression>
+	</variable>
+	<variable name="totalTMActual" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tmActual}]]></variableExpression>
+	</variable>
+	<variable name="totalTMPHActual" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tmphActual}]]></variableExpression>
+	</variable>
+	<variable name="totalKcalActual" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{kcalActual}]]></variableExpression>
+	</variable>
+	<variable name="totalHrAjuste" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{hrAjuste}]]></variableExpression>
+	</variable>
+	<variable name="totalTMAjuste" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tmAjuste}]]></variableExpression>
+	</variable>
+	<variable name="totalHrReal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{hrReal}]]></variableExpression>
+	</variable>
+	<variable name="totalTMReal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tmReal}]]></variableExpression>
+	</variable>
+	<variable name="totalTMPHReal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{tmphReal}]]></variableExpression>
+	</variable>
+	<variable name="totalKcalReal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{kcalReal}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="84" y="0" width="436" height="19" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Producción P. Trabajo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="84" y="19" width="118" height="18"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Mes Anterior ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="19" width="104" height="18"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Producción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="19" width="52" height="18"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ajuste]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="84" y="37" width="40" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[P. Trabajo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="150" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ TM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="176" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[TMPH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="228" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ TM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="254" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[TMPH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[KCAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="202" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Hr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="124" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Hr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="306" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Hr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="332" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ TM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="19" width="104" height="18"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Real]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="358" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Hr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="384" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ TM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="410" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[TMPH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="436" y="37" width="26" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[KCAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="462" y="37" width="58" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Validación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="19" width="58" height="18"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="462" y="0" width="58" height="20"/>
+			</rectangle>
+			<textField pattern="#,##0.00">
+				<reportElement x="176" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{tmphAnterior}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="228" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{tmActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="202" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{hrActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="280" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{kcalActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="254" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{tmphActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="306" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{hrAjuste}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="332" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{tmAjuste}]]></textFieldExpression>
+			</textField>
+			<elementGroup>
+				<elementGroup>
+					<staticText>
+						<reportElement x="489" y="2" width="5" height="15"/>
+						<box>
+							<topPen lineWidth="0.0" lineStyle="Solid"/>
+							<bottomPen lineWidth="0.0" lineStyle="Solid"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="5"/>
+						</textElement>
+						<text><![CDATA[-]]></text>
+					</staticText>
+					<textField pattern="###0.00">
+						<reportElement x="464" y="2" width="25" height="15"/>
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="0.0" lineStyle="Solid"/>
+							<leftPen lineWidth="0.0" lineStyle="Solid"/>
+							<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="1.0" lineStyle="Double" lineColor="#FFFFFF"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="5"/>
+						</textElement>
+						<textFieldExpression class="java.lang.Double"><![CDATA[$V{tasaProdNominalMin}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+						<reportElement x="494" y="2" width="25" height="15"/>
+						<box>
+							<pen lineWidth="1.0"/>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="0.0"/>
+							<bottomPen lineWidth="0.0"/>
+							<rightPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="5"/>
+						</textElement>
+						<textFieldExpression class="java.lang.Double"><![CDATA[$V{tasaProdNominalMax}]]></textFieldExpression>
+					</textField>
+				</elementGroup>
+			</elementGroup>
+			<textField>
+				<reportElement x="84" y="0" width="40" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombrePuestoTrabajo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="150" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{tmAnterior}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="124" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{hrAnterior}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="358" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{hrReal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="384" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{tmReal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="410" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{tmphReal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="436" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{kcalReal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="84" y="0" width="40" height="20" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField pattern="###0.00">
+				<reportElement x="124" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalHrAnterior}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="150" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalTMAnterior}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="176" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalTMPHAnterior}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="202" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalHrActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="228" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalTMActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="254" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalTMPHActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="280" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalKcalActual}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="306" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalHrAjuste}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="332" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalTMAjuste}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="462" y="0" width="58" height="20"/>
+			</rectangle>
+			<textField pattern="#,##0.00">
+				<reportElement x="358" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalHrReal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="384" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalTMReal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="410" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalTMPHReal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="436" y="0" width="26" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{totalKcalReal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

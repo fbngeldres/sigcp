@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReporteGrafico" pageWidth="1357" pageHeight="595" orientation="Landscape" columnWidth="1317" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" isIgnorePagination="true">
+	<property name="ireport.zoom" value="0.6997610703146026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<field name="tituloSubReporte" class="java.lang.String"/>
+	<field name="subReporteDetalle" class="org.apache.struts2.views.jasperreports.ValueStackDataSource"/>
+	<field name="tituloSubReporteFactores" class="java.lang.String"/>
+	<field name="subReporteDetalleFactores" class="org.apache.struts2.views.jasperreports.ValueStackDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="647" y="16" width="210" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Reporte Detalle Produccion]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="239" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($F{subReporteDetalle} != null)]]></printWhenExpression>
+			<subreport>
+				<reportElement x="10" y="29" width="724" height="204"/>
+				<dataSourceExpression><![CDATA[$F{subReporteDetalle}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["SubReporteDetallePuestoTrabajoProduccion.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="31" y="7" width="559" height="15"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tituloSubReporte}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="233" width="100" height="1"/>
+			</break>
+		</band>
+		<band height="238">
+			<printWhenExpression><![CDATA[new Boolean($F{subReporteDetalleFactores} != null)]]></printWhenExpression>
+			<subreport>
+				<reportElement x="10" y="28" width="724" height="204"/>
+				<dataSourceExpression><![CDATA[$F{subReporteDetalleFactores}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA["SubReporteDetalleFactoresPuestoTrabajoProduccion.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="41" y="6" width="559" height="15"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tituloSubReporteFactores}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="233" width="100" height="1"/>
+			</break>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

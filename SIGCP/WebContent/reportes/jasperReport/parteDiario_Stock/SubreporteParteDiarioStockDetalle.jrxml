@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReporteGrafico" pageWidth="1505" pageHeight="595" orientation="Landscape" columnWidth="1465" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+	<property name="ireport.zoom" value="0.9313819845887363"/>
+	<property name="ireport.x" value="438"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<field name="descripcion_1" class="java.lang.String"/>
+	<field name="descripcion_2" class="java.lang.String"/>
+	<field name="descripcion_3" class="java.lang.String"/>
+	<field name="descripcion_4" class="java.lang.String"/>
+	<field name="descripcion_5" class="java.lang.String"/>
+	<field name="saldoInicial_1" class="java.lang.Double"/>
+	<field name="saldoInicial_2" class="java.lang.Double"/>
+	<field name="saldoInicial_3" class="java.lang.Double"/>
+	<field name="saldoInicial_4" class="java.lang.Double"/>
+	<field name="saldoInicial_5" class="java.lang.Double"/>
+	<field name="produccion_1" class="java.lang.Double"/>
+	<field name="produccion_2" class="java.lang.Double"/>
+	<field name="produccion_3" class="java.lang.Double"/>
+	<field name="produccion_4" class="java.lang.Double"/>
+	<field name="produccion_5" class="java.lang.Double"/>
+	<field name="consumo_1" class="java.lang.Double"/>
+	<field name="consumo_2" class="java.lang.Double"/>
+	<field name="consumo_3" class="java.lang.Double"/>
+	<field name="consumo_4" class="java.lang.Double"/>
+	<field name="consumo_5" class="java.lang.Double"/>
+	<field name="toneladas_1" class="java.lang.Double"/>
+	<field name="toneladas_2" class="java.lang.Double"/>
+	<field name="toneladas_3" class="java.lang.Double"/>
+	<field name="toneladas_4" class="java.lang.Double"/>
+	<field name="toneladas_5" class="java.lang.Double"/>
+	<field name="dia_1" class="java.lang.Integer"/>
+	<field name="saldoInicial_1_1" class="java.lang.String"/>
+	<field name="produccion_1_2" class="java.lang.String"/>
+	<field name="consumo_1_3" class="java.lang.String"/>
+	<field name="saldoFinal_1_4" class="java.lang.String"/>
+	<field name="saldoInicial_2_1" class="java.lang.String"/>
+	<field name="produccion_2_2" class="java.lang.String"/>
+	<field name="consumo_2_3" class="java.lang.String"/>
+	<field name="saldoFinal_2_4" class="java.lang.String"/>
+	<field name="saldoInicial_3_1" class="java.lang.String"/>
+	<field name="produccion_3_2" class="java.lang.String"/>
+	<field name="consumo_3_3" class="java.lang.String"/>
+	<field name="saldoFinal_3_4" class="java.lang.String"/>
+	<field name="saldoInicial_4_1" class="java.lang.String"/>
+	<field name="produccion_4_2" class="java.lang.String"/>
+	<field name="consumo_4_3" class="java.lang.String"/>
+	<field name="saldoFinal_4_4" class="java.lang.String"/>
+	<field name="saldoInicial_5_1" class="java.lang.String"/>
+	<field name="produccion_5_2" class="java.lang.String"/>
+	<field name="consumo_5_3" class="java.lang.String"/>
+	<field name="saldoFinal_5_4" class="java.lang.String"/>
+	<field name="saldoInicial_6_1" class="java.lang.String"/>
+	<field name="saldoInicial_6" class="java.lang.Double"/>
+	<field name="produccion_6_1" class="java.lang.String"/>
+	<field name="consumo_6_1" class="java.lang.String"/>
+	<field name="produccion_6" class="java.lang.Double"/>
+	<field name="consumo_6" class="java.lang.Double"/>
+	<variable name="sumaproduccion_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{produccion_1}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="sumaproduccion_2" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{produccion_2}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="sumaproduccion_3" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{produccion_3}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="sumaproduccion_4" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{produccion_4}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="sumaproduccion_5" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{produccion_5}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="sumaconsumo_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{consumo_1}]]></variableExpression>
+	</variable>
+	<variable name="sumaconsumo_2" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{consumo_2}]]></variableExpression>
+	</variable>
+	<variable name="sumaconsumo_3" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{consumo_3}]]></variableExpression>
+	</variable>
+	<variable name="sumaconsumo_4" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{consumo_4}]]></variableExpression>
+	</variable>
+	<variable name="sumaconsumo_5" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{consumo_5}]]></variableExpression>
+	</variable>
+	<variable name="suma" class="java.lang.Double">
+		<variableExpression><![CDATA[(($F{toneladas_1}!= null) ? $F{toneladas_1}:0.0)+(($F{toneladas_2}!= null) ? $F{toneladas_2}:0.0)+(($F{toneladas_3}!= null) ? $F{toneladas_3}:0.0)+(($F{toneladas_4}!= null) ? $F{toneladas_4}:0.0)+(($F{toneladas_5}!= null) ? $F{toneladas_5}:0.0)]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="37" y="11" width="244" height="20" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descripcion_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="281" y="11" width="244" height="20" forecolor="#FFFFFF" backcolor="#990000">
+					<printWhenExpression><![CDATA[$F{descripcion_2} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descripcion_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="525" y="11" width="244" height="20" forecolor="#FFFFFF" backcolor="#990000">
+					<printWhenExpression><![CDATA[$F{descripcion_3} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descripcion_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement mode="Opaque" x="769" y="11" width="244" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000">
+					<printWhenExpression><![CDATA[$F{descripcion_4} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descripcion_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement mode="Opaque" x="1013" y="11" width="244" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000">
+					<printWhenExpression><![CDATA[$F{descripcion_5} != null]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descripcion_5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="11" width="37" height="40" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Día]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="37" y="31" width="68" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoInicial_1_1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="105" y="31" width="66" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produccion_1_2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="281" y="31" width="68" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoInicial_2_1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="349" y="31" width="66" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produccion_2_2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="469" y="31" width="56" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoFinal_2_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="415" y="31" width="54" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{consumo_2_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="593" y="31" width="66" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produccion_3_2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="713" y="31" width="56" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoFinal_3_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="525" y="31" width="68" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoInicial_3_1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="659" y="31" width="54" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{consumo_3_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="903" y="31" width="54" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{consumo_4_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="957" y="31" width="56" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoFinal_4_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="769" y="31" width="68" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoInicial_4_1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="837" y="31" width="66" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produccion_4_2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1147" y="31" width="54" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{consumo_5_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1201" y="31" width="56" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoFinal_5_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1013" y="31" width="68" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoInicial_5_1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1081" y="31" width="66" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produccion_5_2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="171" y="31" width="54" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{consumo_1_3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="225" y="31" width="56" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoFinal_1_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1257" y="31" width="68" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{saldoInicial_6_1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1326" y="31" width="68" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{produccion_6_1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1394" y="31" width="68" height="20" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#990000"/>
+				<box>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{consumo_6_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="37" y="0" width="68" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{saldoInicial_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="281" y="0" width="68" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{saldoInicial_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="525" y="0" width="68" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{saldoInicial_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="769" y="0" width="68" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{saldoInicial_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="1013" y="0" width="68" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{saldoInicial_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="105" y="0" width="66" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{produccion_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="349" y="0" width="66" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_2} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{produccion_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="593" y="0" width="66" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_3} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{produccion_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="837" y="0" width="66" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_4} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{produccion_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="1081" y="0" width="66" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_5} !=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{produccion_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="171" y="0" width="54" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{consumo_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="415" y="0" width="54" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_2} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{consumo_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="659" y="0" width="54" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_3} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{consumo_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="903" y="0" width="54" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_4} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{consumo_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="1147" y="0" width="54" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_5} !=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{consumo_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="225" y="0" width="56" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladas_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="469" y="0" width="56" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_2} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladas_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="713" y="0" width="56" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_3} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladas_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="957" y="0" width="56" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_4} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladas_4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="37" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{dia_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="1201" y="0" width="54" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{descripcion_5} !=null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{toneladas_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="1256" y="0" width="68" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{saldoInicial_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="1325" y="0" width="68" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{produccion_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="1394" y="0" width="68" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{consumo_6}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="39" splitType="Stretch">
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="105" y="8" width="66" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaproduccion_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="349" y="8" width="66" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaproduccion_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="593" y="8" width="66" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaproduccion_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="837" y="8" width="66" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaproduccion_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1081" y="8" width="66" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaproduccion_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="171" y="8" width="54" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaconsumo_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="415" y="8" width="54" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaconsumo_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="659" y="8" width="54" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaconsumo_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="903" y="8" width="54" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaconsumo_4}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="1147" y="8" width="54" height="20" isRemoveLineWhenBlank="true" backcolor="#989898"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumaconsumo_5}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="8" width="37" height="20" forecolor="#000000" backcolor="#989898"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="37" y="8" width="68" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_1}!=null || $V{sumaconsumo_1}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="225" y="8" width="56" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_1}!=null || $V{sumaconsumo_1}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="281" y="8" width="68" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_2}!=null || $V{sumaconsumo_2}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="469" y="8" width="56" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_2}!=null || $V{sumaconsumo_2}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="525" y="8" width="68" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_3}!=null || $V{sumaconsumo_3}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="713" y="8" width="56" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_3}!=null || $V{sumaconsumo_3}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="769" y="8" width="68" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_4}!=null || $V{sumaconsumo_4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="957" y="8" width="56" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_4}!=null || $V{sumaconsumo_4}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1013" y="8" width="68" height="20" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_5}!=null || $V{sumaconsumo_5}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1201" y="8" width="56" height="20" isRemoveLineWhenBlank="true" backcolor="#989898">
+					<printWhenExpression><![CDATA[($V{sumaproduccion_5}!=null || $V{sumaconsumo_5}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

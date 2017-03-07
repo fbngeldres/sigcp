@@ -1,0 +1,1165 @@
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="resources" />
+	<constant name="struts.multipart.maxSize" value="1000000" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+
+	<!-- Include webwork default (from the Struts JAR). -->
+
+	<include file="struts-default.xml" />
+
+
+	<!-- Seguridad del sistema -->
+	<package name="pe.com.pacasmayo.sgcp.presentacion.action"
+		extends="struts-default">
+
+		<interceptors>
+			<interceptor name="autenticacion"
+				class="pe.com.pacasmayo.sgcp.presentacion.interceptors.AutenticacionInterceptor" />
+
+			<interceptor-stack name="defaultLoginStack">
+				<interceptor-ref name="servlet-config" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">
+						input,back,cancel,browse,init, load
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="autenticacion" />
+				<!-- Nuestro LoginInterceptor -->
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="model-driven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="static-params" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="workflow" />
+			</interceptor-stack>
+
+		</interceptors>
+
+		<default-interceptor-ref name="defaultLoginStack" />
+		<default-action-ref name="iniciarSesion" />
+		<!-- Manejo de acciones globales. -->
+		<global-results>
+			<result name="_login">/inicio.jsp</result>
+			<result name="error">/comun/errorOperacion.jsp</result>
+		</global-results>
+
+		<!-- Manejo de excepciones globales. -->
+		<global-exception-mappings>
+			<exception-mapping
+				exception="pe.com.pacasmayo.sgcp.presentacion.excepciones.AplicacionGlobalException"
+				result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<exception-mapping exception="java.io.IOException"
+				result="error" />
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="error" />
+		</global-exception-mappings>
+
+		<!-- ************************ INICIO SEGURIDAD SISTEMA *************** -->
+
+		<action name="enConstruccion">
+			<result>/comun/enConstruccion.jsp</result>
+		</action>
+
+		<action name="salirDeSesion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.seguridad.CerrarSesionAction"
+			method="salirSesion">
+			<result>/seguridad/cerrarSesion.jsp</result>
+		</action>
+
+		<action name="iniciarSesion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.seguridad.IniciarSesionAction"
+			method="iniciarSesion">
+			<result name="error">/inicio.jsp</result>
+			<result name="success" type="redirect-action">
+				seguridad/principal
+			</result>
+			<result name="input">/inicio.jsp</result>
+		</action>
+
+		<action name="principal"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.seguridad.PrincipalAction">
+			<result>/seguridad/principal.jsp</result>
+		</action>
+
+		<action name="cerrarSesion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.seguridad.CerrarSesionAction"
+			method="cerrarSesion">
+			<result name="success">/inicio.jsp</result>
+			<result name="input">/inicio.jsp</result>
+			<result name="error">/comun/errorOperacion.jsp</result>
+		</action>
+
+	</package>
+	<!--************************ FINAL SEGURIDAD SISTEMA ***************************** -->
+
+
+
+
+	<package name="notificacion" namespace="/notificacion" extends="struts-default">
+		<interceptors>
+			<interceptor name="AutenticacionInterceptor"
+				class="pe.com.pacasmayo.sgcp.presentacion.interceptors.AutenticacionInterceptor">
+			</interceptor>
+			<interceptor-stack name="all-default">
+				<interceptor-ref name="AutenticacionInterceptor" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="validation" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- Default interceptor stack. -->
+		<default-interceptor-ref name="all-default" />
+
+		<!-- Manejo de acciones globales. -->
+		<global-results>
+			<result name="error">/comun/errorOperacion.jsp</result>
+			<result name="login" type="redirect">/inicio.jsp</result>
+		</global-results>
+
+		<!-- Manejo de excepciones globales. -->
+		<global-exception-mappings>
+			<exception-mapping
+				exception="pe.com.pacasmayo.sgcp.presentacion.excepciones.AplicacionGlobalException"
+				result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="error" />
+		</global-exception-mappings>
+
+		<action name="listarNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="listarNotificacionPlanta">
+			<result name="success">
+				/notificacion/listarNotificacionPlanta.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarProduccionEnvasadoNotificacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cargarProduccionEnvasadoNotificacion">
+			<result name="success" type="redirectAction">
+				listarNotificacionPlanta
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="nuevaNotificacionProduccionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="iniciarDatosNotificarProduccion">
+			<result name="success">
+				/notificacion/nuevaNotificacionProduccionPlanta.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="registrarNotificacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="registrarNotificacion">
+			<result name="success">
+				/notificacion/registrarNotificacion.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="cargarNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="listarNotificacionPlantaFiltrados">
+			<result name="success">
+				/notificacion/listarNotificacionPlanta.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="aprobarNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="aprobar">
+			<result name="success" type="redirectAction">
+				listarNotificacionPlanta
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarSociedades"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cargarSociedades">
+			<result>/notificacion/ajax/comboSociedades.jsp</result>
+		</action>
+		<action name="cargarUnidades"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cargarUnidades">
+			<result name="success">
+				/notificacion/ajax/comboUnidades.jsp
+			</result>
+		</action>
+		<action name="cargarLineasNegocio"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cargarLineasNegocio">
+			<result>/notificacion/ajax/comboLineasNegocio.jsp</result>
+		</action>
+		<action name="cargarPuestosProduccion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cargarPuestosDeTrabajo">
+			<result>/notificacion/ajax/comboPuestosTrabajo.jsp</result>
+		</action>
+		<action name="cargarProcesos"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cargarProcesos">
+			<result>/notificacion/ajax/comboProcesos.jsp</result>
+		</action>
+		<action name="cargarTablerosControl"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cargarTablerosControl">
+			<result>/notificacion/ajax/comboTablerosControl.jsp</result>
+		</action>
+
+		<action name="cargarVariablesProdOper"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cargarVariablesProdOper">
+			<result>
+				/notificacion/ajax/comboVariablesProdOper.jsp
+			</result>
+		</action>
+
+		<action name="cambiarVistaVariable"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.notificacion.NotificacionPlantaAction"
+			method="cambiarVistaVariable">
+			<result name="VACIO">
+				/notificacion/ajax/detalleVariablesOper.jsp
+			</result>
+			<result name="PRODUCCION">
+				/notificacion/ajax/detalleVariablesProd.jsp
+			</result>
+			<result name="OPERACION">
+				/notificacion/ajax/detalleVariablesOper.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+
+
+
+
+		
+
+	</package>
+	
+	
+	
+	<package name="parteDiario" namespace="/parteDiario" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="AutenticacionInterceptor"
+				class="pe.com.pacasmayo.sgcp.presentacion.interceptors.AutenticacionInterceptor">
+			</interceptor>
+			<interceptor-stack name="all-default">
+				<interceptor-ref name="AutenticacionInterceptor" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- Default interceptor stack. -->
+		<default-interceptor-ref name="all-default" />
+
+		<!-- Manejo de acciones globales. -->
+		<global-results>
+			<result name="error">/comun/errorOperacion.jsp</result>
+			<result name="login" type="redirect">/inicio.jsp</result>
+		</global-results>
+
+		<!-- Manejo de excepciones globales. -->
+		<global-exception-mappings>
+			<exception-mapping
+				exception="pe.com.pacasmayo.sgcp.presentacion.excepciones.AplicacionGlobalException"
+				result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="error" />
+		</global-exception-mappings>
+
+		<action name="consultarParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.ParteDiarioAction"
+			method="listar">
+			<result name="success">
+				/parteDiario/consultarParteDiario.jsp
+			</result>
+
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="AutenticacionInterceptor" />
+		</action>
+
+		<action name="gestionarParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="listarGestionPD">
+			<result name="success">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="AutenticacionInterceptor" />
+		</action>
+
+		<action name="cargarGestionarParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="listarGestionPDFiltrados">
+			<result name="success">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="AutenticacionInterceptor" />
+		</action>
+
+
+		<action name="cargarSociedadesGestionarPD"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="cargarSociedades">
+			<result>/parteDiario/ajax/comboSociedades.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarUnidadesGestionarPD"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="cargarUnidades">
+			<result>/parteDiario/ajax/comboUnidades.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarLineasNegocioGestionarPD"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="cargarLineasNegocio">
+			<result>/parteDiario/ajax/comboLineasNegocio.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cerrarNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="cerrar">
+			<result name="success">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<result name="input">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="AutenticacionInterceptor" />
+		</action>
+
+		<action name="reprocesarNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="reprocesar">
+			<result name="success" type="redirectAction">
+				gestionarParteDiario
+			</result>
+			<result name="input">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="abrirNotificacionPlanta"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="abrir">
+			<result name="success" type="redirectAction">
+				gestionarParteDiario
+			</result>
+			<result name="input">
+				/parteDiario/gestionarParteDiario.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="eliminarPorPuestoTrabajoNotificacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="formularoEliminarPorPuestotrabajo">
+			<result name="success">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<result name="input">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="filtrarParteDiarioPorPuestoTrabajo"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="filtrarParteDiarioPorPuestoTrabajo">
+			<result name="success">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<result name="input">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="eliminarNotificacionPlantaPorPuestotrabajo"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction"
+			method="eliminarNotificacionPlantaPorPuestotrabajo">
+			<result name="success" type="redirectAction">
+				eliminarPorPuestoTrabajoNotificacion
+			</result>
+			<result name="input">
+				/parteDiario/eliminarParteDiarioPorPuestoTrabajo.jsp
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+
+<!-- 		<action name="enviarReporteProduccionDiaria" -->
+<!-- 			class="pe.com.pacasmayo.sgcp.presentacion.action.partediario.GestionarParteDiarioAction" -->
+<!-- 			method="enviarCorreo"> -->
+<!-- 			<result name="success" type="redirectAction"> -->
+<!-- 				gestionarParteDiario -->
+<!-- 			</result> -->
+<!-- 			<result name="input"> -->
+<!-- 				/parteDiario/gestionarParteDiario.jsp -->
+<!-- 			</result> -->
+<!-- 			<interceptor-ref name="chain" /> -->
+<!-- 			<interceptor-ref name="basicStack" /> -->
+<!-- 		</action> -->
+
+
+	</package>
+
+
+
+<package name="stock" namespace="/stock" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="AutenticacionInterceptor"
+				class="pe.com.pacasmayo.sgcp.presentacion.interceptors.AutenticacionInterceptor">
+			</interceptor>
+			<interceptor-stack name="all-default">
+				<interceptor-ref name="AutenticacionInterceptor" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- Default interceptor stack. -->
+		<default-interceptor-ref name="all-default" />
+
+		<!-- Manejo de acciones globales. -->
+		<global-results>
+			<result name="error">/comun/errorOperacion.jsp</result>
+			<result name="login" type="redirect">/inicio.jsp</result>
+		</global-results>
+
+		<!-- Manejo de excepciones globales. -->
+		<global-exception-mappings>
+			<exception-mapping
+				exception="pe.com.pacasmayo.sgcp.presentacion.excepciones.AplicacionGlobalException"
+				result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="error" />
+		</global-exception-mappings>
+
+		<!-- CONSULTAR MEDICION -->
+
+		
+
+
+		<!-- CONSULTAR CUBUCACION DEL MES -->
+		<action name="consultarCubicacionMes"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="consultarCubicacionMes">
+			<result name="success">
+				/stock/consultarCubicacionMes.jsp
+			</result>
+
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarSociedadesConsultaCubicacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="cargarSociedades">
+			<result>/stock/ajax/comboSociedadesCubicacion.jsp</result>
+		</action>
+		<action name="cargarUnidadesConsultaCubicacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="cargarUnidades">
+			<result>/stock/ajax/comboUnidadesCubicacion.jsp</result>
+		</action>
+		<action name="cargarLineasNegocioConsultaCubicacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="cargarLineasNegocio">
+			<result>/stock/ajax/comboLineasNegocioCubicacion.jsp</result>
+		</action>
+		<action name="cargarProcesosConsultaCubicacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="cargarProcesos">
+			<result>/stock/ajax/comboProcesosCubicacion.jsp</result>
+		</action>
+		<action name="cargarProductosConsultaCubicacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="cargarProductos">
+			<result>/stock/ajax/comboProductoCubicacion.jsp</result>
+		</action>
+
+		<action name="cargarEstadosCubicacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="cargarEstadosCubicacion">
+			<result>/stock/ajax/comboEstadoCubicacion.jsp</result>
+		</action>
+
+		<action name="listarCubicacionesMes"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="listar">
+			<result>/stock/consultarCubicacionMes.jsp</result>
+		</action>
+
+		<action name="aprobarCubicacionProducto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="aprobar">
+			<result name="success" type="redirectAction">
+				consultarCubicacionMes
+			</result>
+
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="anularCubicacionProducto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="anular">
+			<result name="success" type="redirectAction">
+				consultarCubicacionMes
+			</result>
+
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="revertirCubicacionProducto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="revertir">
+			<result name="success" type="redirectAction">
+				consultarCubicacionMes
+			</result>
+			<result name="input">
+				/stock/consultarCubicacionMes.jsp
+			</result>
+
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<!-- REGISTRAR CUBICACION -->
+
+		<action name="registrarCubicacion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.GestionStockAction"
+			method="registrarCubicacion">
+			<result name="success">
+				/stock/registrarCubicacionMes.jsp
+			</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="detallarCubicacionProducto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.stock.ConsultarCubicacionMesAction"
+			method="consultarCubicacion">
+			<result name="success">
+				/stock/modificarCubicacionMes.jsp
+			</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		
+
+
+		
+
+	
+
+	</package>
+
+
+<package name="parteTecnico" namespace="/parteTecnico" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="autenticacion"
+				class="pe.com.pacasmayo.sgcp.presentacion.interceptors.AutenticacionInterceptor" />
+
+			<interceptor-stack name="defaultInsecureStack">
+				<interceptor-ref name="autenticacion" />
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="servlet-config" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="model-driven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="static-params" />
+				<interceptor-ref name="conversionError" />
+			</interceptor-stack>
+
+			<interceptor-stack name="insecureStack">
+				<interceptor-ref name="autenticacion" />
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="servlet-config" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="model-driven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="static-params" />
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">
+						input,back,cancel
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">
+						input,back,cancel
+					</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+
+		<!-- Default interceptor stack. -->
+		<default-interceptor-ref name="defaultInsecureStack" />
+
+		<!-- Manejo de acciones globales. -->
+		<global-results>
+			<result name="error">/comun/errorOperacion.jsp</result>
+			<result name="_login" type="redirect">/inicio.jsp</result>
+			<result name="login" type="redirect">/inicio.jsp</result>
+		</global-results>
+
+		<!-- Manejo de excepciones globales. -->
+		<global-exception-mappings>
+			<exception-mapping
+				exception="pe.com.pacasmayo.sgcp.presentacion.excepciones.AplicacionGlobalException"
+				result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="error" />
+		</global-exception-mappings>
+
+		<action name="listarParteTecnico"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.GenerarParteTecnicoAction"
+			method="listar">
+			<result name="success">
+				/parteTecnico/listarParteTecnico.jsp
+			</result>
+			<result name="input" type="chain">
+				/parteTecnico/listarParteTecnico.jsp
+			</result>
+			<interceptor-ref name="insecureStack" />
+
+		</action>
+
+		<action name="cargarSociedad"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.GenerarParteTecnicoAction"
+			method="cargarSociedades">
+			<result>/parteTecnico/ajax/comboSociedad.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarUnidad"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.GenerarParteTecnicoAction"
+			method="cargarUnidades">
+			<result>/parteTecnico/ajax/comboUnidad.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarLineaNegocio"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.GenerarParteTecnicoAction"
+			method="cargarLineasNegocio">
+			<result>/parteTecnico/ajax/comboLineaNegocio.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarComboOculto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.GenerarParteTecnicoAction"
+			method="cargarComboOculto">
+			<result>/parteTecnico/ajax/comboOculto.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="cargarProducto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.GenerarParteTecnicoAction"
+			method="cargarProductos">
+			<result>/parteTecnico/ajax/comboProducto.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="listarProductos"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.GenerarParteTecnicoAction"
+			method="listarProductos">
+			<result name="success">
+				/parteTecnico/ajax/productos.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+
+		<action name="listarAjusteProduccionMes"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="listarAjusteProduccionMes">
+			<result name="success">
+				/parteTecnico/consultarAjusteProduccionMes.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="consultarAjusteProduccionMes"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="listarParametrosAjusteProduccion">
+			<result name="success">
+				/parteTecnico/consultarAjusteProduccionMes.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="listarGrupoAjuste"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="listarGrupoAjuste">
+			<result name="success">
+				/parteTecnico/ajax/gruposAjuste.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="listarGrupoProuctosAjuste"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="listarGrupoAjusteProduccion">
+			<result name="success">
+				/parteTecnico/ajax/grupoProductosAjuste.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="formularioIngresarAjusteProduccionMes"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="formularioIngresar">
+			<result name="success">
+				/parteTecnico/registrarAjusteProduccionMes.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="chain" />
+		</action>
+
+		<action name="registrarAjusteProduccionMes"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="formularioIngresar">
+			<result name="success">
+				/parteTecnico/registrarAjusteProduccionMes.jsp
+			</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<action name="ajusteProduccion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="formularioRegistroAjusteProduccion">
+			<result name="success">
+				/parteTecnico/ajusteProduccion.jsp
+			</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<action name="ingresarAjusteProduccionMes"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="ingresar">
+			<result name="input" type="chain">
+				formularioIngresarAjusteProduccionMes
+			</result>
+			<result name="success" type="redirectAction">
+				listarParametrosAjusteProduccion
+			</result>
+		</action>
+
+		<action name="formularioAprobarAjuste"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="formularioAprobar">
+			<result name="success">
+				/parteTecnico/formularioAprobarAjuste.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="aprobarAjuste"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="aprobar">
+			<result name="success">
+				/parteTecnico/consultarAjusteProduccionMes.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+
+		<action name="gestionarParteTecnico"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="formularioGestionarParteTecnico">
+			<result name="success">
+				/parteTecnico/formularioGestionarParteTecnico.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="filtrarAjusteProducto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="filtrarAjusteProducto">
+			<result name="success">
+				/parteTecnico/formularioGestionarParteTecnico.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="formularioEliminarAjusteProducto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="formularioEliminarAjusteProducto">
+			<result name="success">
+				/parteTecnico/formularioEliminarAjusteProducto.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="chain" />
+		</action>
+		<action name="eliminarAjusteProducto"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="eliminarAjusteProducto">
+			<result name="success" type="redirectAction">
+				gestionarParteTecnico
+
+			</result>
+			<result name="input" type="chain">
+				formularioEliminarAjusteProducto
+			</result>
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="chain" />
+		</action>
+
+
+		<action name="formularioEliminarAjuste"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.AjusteProduccionMesAction"
+			method="eliminarAjusteProduccionMes">
+			<result name="success">
+				/parteTecnico/consultarAjusteProduccionMes.jsp
+			</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+	</package>
+
+<package name="reportes" extends="jasperreports-default,struts-default"
+		namespace="/reportes">
+
+		<result-types>
+			<result-type name="jasper"
+				class="org.apache.struts2.views.jasperreports.JasperReportsResult"
+				default="false" />
+		</result-types>
+
+		<interceptors>
+			<interceptor name="AutenticacionInterceptor"
+				class="pe.com.pacasmayo.sgcp.presentacion.interceptors.AutenticacionInterceptor">
+			</interceptor>
+			<interceptor-stack name="all-default">
+				<interceptor-ref name="AutenticacionInterceptor" />
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- Default interceptor stack. -->
+		<default-interceptor-ref name="all-default" />
+
+		<!-- Manejo de acciones globales. -->
+		<global-results>
+			<result name="error">/comun/errorOperacion.jsp</result>
+			<result name="login" type="redirect">/inicio.jsp</result>
+		</global-results>
+
+		<!-- Manejo de excepciones globales. -->
+		<global-exception-mappings>
+			<exception-mapping
+				exception="pe.com.pacasmayo.sgcp.presentacion.excepciones.AplicacionGlobalException"
+				result="error" />
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+			<exception-mapping exception="java.lang.RuntimeException"
+				result="error" />
+		</global-exception-mappings>
+
+		
+
+	
+
+
+		
+		
+
+
+	
+		<!-- *****Plan Produccion***** -->
+	
+		
+		
+		
+
+		
+
+		
+
+
+
+		<!-- *****Parte Diario***** -->
+		<action name="generarReporteParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="doReporte">
+			<result name="success">
+				/reportes/reporteParteDiario.jsp
+			</result>
+		</action>
+
+
+	
+		
+
+
+
+		<action name="crearReporteParteDiarioEXCEL"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="generarReporteParteDiario">
+			<result name="success" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/parteDiario/reporteParteDiarioEXPORT.jasper
+				</param>
+				<param name="dataSource">reporte</param>
+				<param name="format">XLS</param>
+				<param name="documentName ">
+					ReporteParteDiario
+				</param>
+			</result>
+			<result name="input" type="chain">
+				generarReporteParteDiario
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+		<!-- GENERAR REPORTE PARTE DIARIO - EXCEL -->
+		<action name="crearReporteDetalleParteDiarioEXCEL"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="generarReporteDetalleParteDiarioEXCEL">
+			<result name="success" type="stream">
+				<param name="contentType">"${excelContentType}"</param>
+				<param name="contentDisposition">
+					attachment; filename="ReporteParteDiario.xls"</param>
+				<param name="inputName">fileInputStream</param>
+
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+	
+		<action name="crearReporteParteDiarioPDF"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="generarReporteParteDiario">
+			<result name="success" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/parteDiario/reporteParteDiarioEXPORT.jasper
+				</param>
+				<param name="dataSource">reporte</param>
+				<param name="format">PDF</param>
+				<param name="documentName ">
+					ReporteParteDiario
+				</param>
+			</result>
+			<result name="input" type="chain">
+				generarReporteParteDiario
+			</result>
+			<interceptor-ref name="chain" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<action name="borrarTemporalReporteParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="borrarTemporal">
+
+		</action>
+
+		<action name="crearReporteDetalleParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="generarReporteDetalleParteDiario">
+			<result name="success" type="stream">
+				<param name="contentType">"${pdfContentType}"</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">
+					attachment; filename="ReporteParteDiario.pdf"</param>
+			</result>
+		</action>
+		<!-- Reporte Gestion Stock Reporte Parte Diario -->
+		<action name="crearReporteStock"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="crearReporteStock">
+			<result name="success" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/parteDiario_Stock/reporteParteDiarioStock.jasper
+				</param>
+				<param name="dataSource">reporteProduccionStock</param>
+				<param name="format">${valorTipoExp}</param>
+				<param name="documentName ">
+					ReporteStock
+				</param>
+			</result>
+		</action>
+
+		<!-- Reporte Gestion Stock Produccion -->
+		<action name="crearReporteProduccion"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="crearReporteProduccion">
+			<result name="success" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/parteDiario_Produccion/reporteParteDiarioPuestoTrabajoProduccion.jasper
+				</param>
+				<param name="dataSource">
+					reportePuestoTrabajoProduccion
+				</param>
+				<param name="documentName">
+					ReporteResumenProduccionDiaria
+				</param>
+				<param name="format">${valorTipoExp}</param>
+			</result>
+		</action>
+
+		<action name="cargaSociedadesReporteParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="cargaSociedadesParteDiario">
+			<result>
+				/reportes/ajax/parteDiario/comboSociedadesParteDiario.jsp
+			</result>
+		</action>
+
+		<action name="cargaUnidadesReporteParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="cargaUnidadesParteDiario">
+			<result>
+				/reportes/ajax/parteDiario/comboUnidadesParteDiario.jsp
+			</result>
+		</action>
+
+
+
+		<action name="cargaLineasNegocioReporteParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="cargaLineaNegocioParteDiario">
+			<result>
+				/reportes/ajax/parteDiario/comboLineasNegocioParteDiario.jsp
+			</result>
+		</action>
+		<action name="cargaProcesosReporteParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="cargaProcesosParteDiario">
+			<result>
+				/reportes/ajax/parteDiario/comboProcesosParteDiario.jsp
+			</result>
+		</action>
+		<action name="cargaProductoReporteParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="cargaProductoParteDiario">
+			<result>
+				/reportes/ajax/parteDiario/comboProductosParteDiario.jsp
+			</result>
+		</action>
+		<action name="cargaPuestoTrabajoReporteParteDiario"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.reportes.ReporteParteDiarioAction"
+			method="cargaPuestoTrabajoParteDiario">
+			<result>
+				/reportes/ajax/parteDiario/comboPuestosTrabajoParteDiario.jsp
+			</result>
+		</action>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- ****PARTE TECNICO REPORTES -->
+		<action name="exportarParteTecnicoPdf"
+			class="pe.com.pacasmayo.sgcp.presentacion.action.parteTecnico.GenerarParteTecnicoAction"
+			method="exportarPdf">
+			<result name="resumen" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/parteTecnico/resumen/reporteParteTecnico.jasper
+				</param>
+				<param name="dataSource">reporte</param>
+				<param name="format">${tipoReporte}</param>
+				<param name="documentName">ReporteResumenParteTecnico</param>
+			</result>
+			<result name="productoTerminado" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/parteTecnico/productoTerminado/reporteParteTecnico.jasper
+				</param>
+				<param name="dataSource">reporte</param>
+				<param name="format">${tipoReporte}</param>
+			</result>
+			<result name="combustible" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/parteTecnico/combustible/reporteParteTecnico_combustible.jasper
+				</param>
+				<param name="dataSource">reporte</param>
+				<param name="format">${tipoReporte}</param>
+			</result>
+			<result name="anexo" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/parteTecnico/anexo/reporteParteTecnico_anexo.jasper
+				</param>
+				<param name="dataSource">reporte</param>
+				<param name="format">${tipoReporte}</param>
+			</result>
+			<result name="diferencia" type="jasper">
+				<param name="location">
+					/reportes/jasperReport/reporteAjustes/ReporteAjustes.jasper
+				</param>
+				<param name="dataSource">reporteAjuste</param>
+				<param name="format">${tipoReporte}</param>
+				<param name="documentName">ReporteDiferenciaParteTecnico</param>
+			</result>
+
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="chain" />
+
+		</action>
+
+		
+	</package>
+
+
+</struts>
